@@ -38,6 +38,15 @@
                         <div class="menu-title">Widgets</div>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <router-link to="/admin/loai-phong">
+                        <a class="nav-link" href="/admin/loai-phong">
+                            <div class="parent-icon"><i class="fa-solid fa-chess-rook"></i>
+                            </div>
+                            <div class="menu-title">Loại Phòng</div>
+                        </a>
+                    </router-link>
+                </li>
             </ul>
         </nav>
     </div>

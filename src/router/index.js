@@ -9,6 +9,10 @@ const routes = [
         path : '/test-page',
         component: ()=>import('../components/TestPage/index.vue')
     },
+    {
+        path : '/admin/loai-phong',
+        component: ()=>import('../components/Admin/LoaiPhong/index.vue')
+    },
 ]
 
 const router = createRouter({
