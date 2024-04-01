@@ -47,6 +47,15 @@
                         </a>
                     </router-link>
                 </li>
+                <li class="nav-item">
+                    <router-link to="/admin/dich-vu">
+                        <a class="nav-link" href="/admin/dich-vu">
+                            <div class="parent-icon"><i class="fa-brands fa-servicestack"></i>
+                            </div>
+                            <div class="menu-title">Dịch Vụ</div>
+                        </a>
+                    </router-link>
+                </li>
             </ul>
         </nav>
     </div>

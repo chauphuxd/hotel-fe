@@ -13,6 +13,11 @@ const routes = [
         path : '/admin/loai-phong',
         component: ()=>import('../components/Admin/LoaiPhong/index.vue')
     },
+    // dich vu
+    {
+        path : '/admin/dich-vu',
+        component: ()=>import('../components/Admin/DichVu/index.vue')
+    },
 ]
 
 const router = createRouter({
