@@ -56,6 +56,15 @@
                         </a>
                     </router-link>
                 </li>
+                <li class="nav-item">
+                    <router-link to="/admin/quan-ly-phong">
+                        <a class="nav-link" href="/admin/quan-ly-phong">
+                            <div class="parent-icon"><i class="fa-solid fa-hotel"></i>
+                            </div>
+                            <div class="menu-title">Quản Lý Phòng</div>
+                        </a>
+                    </router-link>
+                </li>
             </ul>
         </nav>
     </div>

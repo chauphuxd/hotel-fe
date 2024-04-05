@@ -82,7 +82,7 @@
                                         </div>
                                         <div class="modal-body">
                                             <div class="alert alert-danger" role="alert">
-                                                Bạn thật sự có muốn xoá Loại sản phẩm này không?
+                                                Bạn thật sự có muốn xoá loại phòng này không?
                                             </div>
                                         </div>
                                         <div class="modal-footer">

@@ -19,6 +19,10 @@ const routes = [
         component: ()=>import('../components/Admin/DichVu/index.vue')
     },
     //phong
+    {
+        path : '/admin/quan-ly-phong',
+        component: ()=>import('../components/Admin/Phong/index.vue')
+    },
 ]
 
 const router = createRouter({
