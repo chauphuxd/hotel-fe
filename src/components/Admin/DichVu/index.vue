@@ -54,7 +54,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr v-for="(value, index) in ds_dich_vu">
+                            <tr v-for="(value, index) in ds_dich_vu" :key="index">
                                 <th class="text-center align-middle">{{ index + 1 }}</th>
                                 <td class="align-middle">{{ value.ten_dich_vu }}</td>
                                 <td class="align-middle">{{ value.don_gia }}</td>
