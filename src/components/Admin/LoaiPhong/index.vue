@@ -57,9 +57,9 @@
                             <tr v-for="(value, index) in ds_phong" :key="index">
                                 <th class="text-center align-middle">{{ index + 1 }}</th>
                                 <td class="align-middle">{{ value.ten_loai_phong }}</td>
-                                <td class="align-middle">{{ value.dien_tich }}</td>
-                                <td class="align-middle">{{ value.so_giuong }}</td>
-                                <td class="align-middle">{{ value.tinh_trang }}</td>
+                                <td class="align-middle text-center">{{ value.dien_tich }}</td>
+                                <td class="align-middle text-center">{{ value.so_giuong }}</td>
+                                <td class="align-middle text-center">{{ value.tinh_trang }}</td>
                                 <td class="align-middle text-center">
                                     <img v-bind:src="value.hinh_anh" class="img-fluid"
                                         style="height: 200px; width: 300px;">

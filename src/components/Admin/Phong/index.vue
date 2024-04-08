@@ -94,8 +94,8 @@
                                 <td class="align-middle">{{ value.ten_phong }}</td>
                                 <td class="align-middle text-end">{{ value.gia_mac_dinh }} đ</td>
                                 <td class="align-middle text-center">{{ value.tinh_trang }}</td>
-                                <td class="align-middle">{{ value.nguoi_toi_da }}</td>
-                                <td class="align-middle">{{ value.id_loai_phong }}</td>
+                                <td class="align-middle text-center">{{ value.nguoi_toi_da }}</td>
+                                <td class="align-middle text-center">{{ value.id_loai_phong }}</td>
                                 <td class="align-middle">{{ value.tien_ich_khac }}</td>
                                 <td class="text-center text-nowrap align-middle">
                                     <button v-on:click="Object.assign(phong_update, value)" data-bs-toggle="modal"
