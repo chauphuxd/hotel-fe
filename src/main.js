@@ -2,7 +2,7 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 import Default from './layout/wrapper/index.vue'
-import Toaster from "@meforma/vue-toaster";
+import Toaster from "@meforma/vue-toaster"
 
 const app = createApp(App)
 

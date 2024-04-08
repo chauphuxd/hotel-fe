@@ -65,6 +65,15 @@
                         </a>
                     </router-link>
                 </li>
+                <li class="nav-item">
+                    <router-link to="/admin/nhan-vien">
+                        <a class="nav-link" href="/admin/nhan-vien">
+                            <div class="parent-icon"><i class="fa-solid fa-hotel"></i>
+                            </div>
+                            <div class="menu-title">Quản Lý Nhân Viên</div>
+                        </a>
+                    </router-link>
+                </li>
             </ul>
         </nav>
     </div>
