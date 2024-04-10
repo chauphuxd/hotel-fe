@@ -74,6 +74,24 @@
                         </a>
                     </router-link>
                 </li>
+                <li class="nav-item">
+                    <router-link to="/admin/slide">
+                        <a class="nav-link" href="/admin/slide">
+                            <div class="parent-icon"><i class="fa-solid fa-sliders"></i>
+                            </div>
+                            <div class="menu-title">Quản Lý Slide</div>
+                        </a>
+                    </router-link>
+                </li>
+                <li class="nav-item">
+                    <router-link to="/admin/review">
+                        <a class="nav-link" href="/admin/review">
+                            <div class="parent-icon"><i class="fa-solid fa-ranking-star"></i>
+                            </div>
+                            <div class="menu-title">Quản Lý Review</div>
+                        </a>
+                    </router-link>
+                </li>
             </ul>
         </nav>
     </div>

@@ -2,13 +2,10 @@ import { createRouter, createWebHistory } from "vue-router"; // cài vue-router:
 
 const routes = [
     {
-        path: '/',
-        component: () => import('../layout/wrapper/index.vue')
-    },
-    {
         path: '/test-page',
         component: () => import('../components/TestPage/index.vue')
     },
+    // loai-phong
     {
         path: '/admin/loai-phong',
         component: () => import('../components/Admin/LoaiPhong/index.vue')
@@ -18,15 +15,37 @@ const routes = [
         path: '/admin/dich-vu',
         component: () => import('../components/Admin/DichVu/index.vue')
     },
-    //phong
+    // phong
     {
         path: '/admin/quan-ly-phong',
         component: () => import('../components/Admin/Phong/index.vue')
     },
-    //phong
+    // nhan-vien
     {
         path: '/admin/nhan-vien',
         component: () => import('../components/Admin/NhanVien/index.vue')
+    },
+    // slide
+    {
+        path: '/admin/slide',
+        component: () => import('../components/Admin/Slide/index.vue')
+    },
+    // Review
+    {
+        path: '/admin/review',
+        component: () => import('../components/Admin/Review/index.vue')
+    },
+    // Admin dang nhap
+    {
+        path: '/admin/dang-nhap',
+        component: () => import('../components/Admin/DangNhap/index.vue'),
+        meta: {layout: 'auth'}
+    },
+    // HomePage
+    {
+        path: '/',
+        component: () => import('../components/Client/HomePage/index.vue'),
+        meta: {layout: 'auth'}
     },
 ]
 
