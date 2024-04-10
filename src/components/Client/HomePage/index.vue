@@ -454,9 +454,12 @@
         </div>
     </div>
 
-    <div class="row">
-        <img src="../../../assets/img_homepage/banner.png" class="img-fluid" alt="">
+    <div class="container-fluid">
+        <div class="row">
+            <img src="../../../assets/img_homepage/banner.png" class="img-fluid">
+        </div>
     </div>
+   
 
     <div class="container mt-5">
         <div class="row">
@@ -691,6 +694,7 @@
             </div>
         </div>
     </div>
+    
     <footer class="text-center text-lg-start text-white" style="background-color: #1c2331">
         <!-- Section: Social media -->
         <section class="d-flex justify-content-between p-4" style="background-color: #6351ce">
