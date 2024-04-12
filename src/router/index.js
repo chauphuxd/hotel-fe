@@ -45,7 +45,13 @@ const routes = [
     {
         path: '/',
         component: () => import('../components/Client/HomePage/index.vue'),
-        meta: {layout: 'auth'}
+        meta: {layout: 'client'}
+    },
+    // Chi tiet phong
+    {
+        path: '/chi-tiet-phong',
+        component: () => import('../components/Client/ChiTietPhong/index.vue'),
+        meta: {layout: 'client'}
     },
 ]
 
