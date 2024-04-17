@@ -37,11 +37,6 @@
                                         </select>
                                     </div>
                                     <div class="mb-2">
-                                        <label>Số Người Tối Đa</label>
-                                        <input v-model="phong_create.nguoi_toi_da" type="number"
-                                            class="form-control mt-2">
-                                    </div>
-                                    <div class="mb-2">
                                         <label>Loại Phòng</label>
                                         <select v-model="phong_create.id_loai_phong" class="form-control">
                                             <template v-for="(value, index) in ds_loai_phong" :key="index">
@@ -75,37 +70,37 @@
                     <h5 class="mt-2">Danh Sách Phòng</h5>
                 </div>
                 <div class="card-body">
-                    <table class="table table-bordered table-hover">
-                        <thead>
-                            <tr>
-                                <th class="text-center">#</th>
-                                <th class="text-center">Tên Phòng</th>
-                                <th class="text-center">Giá Mặc Định</th>
-                                <th class="text-center">Tình Trạng</th>
-                                <th class="text-center">Người Tối Đa</th>
-                                <th class="text-center">Loại Phòng</th>
-                                <th class="text-center">Tiện Ích</th>
-                                <th class="text-center">Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr v-for="(value, index) in ds_phong" :key="index">
-                                <th class="text-center align-middle">{{ index + 1 }}</th>
-                                <td class="align-middle">{{ value.ten_phong }}</td>
-                                <td class="align-middle text-end">{{ value.gia_mac_dinh }} đ</td>
-                                <td class="align-middle text-center">{{ value.tinh_trang }}</td>
-                                <td class="align-middle text-center">{{ value.nguoi_toi_da }}</td>
-                                <td class="align-middle text-center">{{ value.id_loai_phong }}</td>
-                                <td class="align-middle">{{ value.tien_ich_khac }}</td>
-                                <td class="text-center text-nowrap align-middle">
-                                    <button v-on:click="Object.assign(phong_update, value)" data-bs-toggle="modal"
-                                        data-bs-target="#updateModal" class="btn btn-info me-1">Cập Nhật</button>
-                                    <button data-bs-toggle="modal" data-bs-target="#deleteModal"
-                                        v-on:click="id_can_xoa = value.id" class="btn btn-danger">Xoá Bỏ</button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">#</th>
+                                    <th class="text-center">Tên Phòng</th>
+                                    <th class="text-center">Giá Mặc Định</th>
+                                    <th class="text-center">Tình Trạng</th>
+                                    <th class="text-center">Loại Phòng</th>
+                                    <th class="text-center">Tiện Ích</th>
+                                    <th class="text-center">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr v-for="(value, index) in ds_phong" :key="index">
+                                    <th class="text-center align-middle">{{ index + 1 }}</th>
+                                    <td class="align-middle">{{ value.ten_phong }}</td>
+                                    <td class="align-middle text-end">{{ value.gia_mac_dinh }} đ</td>
+                                    <td class="align-middle text-center">{{ value.tinh_trang }}</td>
+                                    <td class="align-middle text-center">{{ value.id_loai_phong }}</td>
+                                    <td class="align-middle">{{ value.tien_ich_khac }}</td>
+                                    <td class="text-center text-nowrap align-middle">
+                                        <button v-on:click="Object.assign(phong_update, value)" data-bs-toggle="modal"
+                                            data-bs-target="#updateModal" class="btn btn-info me-1">Cập Nhật</button>
+                                        <button data-bs-toggle="modal" data-bs-target="#deleteModal"
+                                            v-on:click="id_can_xoa = value.id" class="btn btn-danger">Xoá Bỏ</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                     <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel"
                         aria-hidden="true">
                         <div class="modal-dialog">
@@ -154,11 +149,6 @@
                                             <option value="1">Đang Hoạt Động</option>
                                             <option value="0">Dừng Kinh Doanh</option>
                                         </select>
-                                    </div>
-                                    <div class="mb-2">
-                                        <label>Số Người Tối Đa</label>
-                                        <input v-model="phong_update.nguoi_toi_da" type="number"
-                                            class="form-control mt-2">
                                     </div>
                                     <div class="mb-2">
                                         <label>Loại Phòng</label>

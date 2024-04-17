@@ -29,7 +29,8 @@
                                     <div class="col-lg-12 d-flex flex-row">
                                         <p class="me-5"><i class="fa-solid fa-expand"></i> 20m<sup>2</sup></p>
                                         <p class="me-5"><i class="fa-solid fa-bed"></i> 1 Giường</p>
-                                        <p class="me-5"><i class="fa-solid fa-user"></i> 1 Người</p>
+                                        <p class="me-5"><i class="fa-solid fa-person"></i> 2 Người Lớn</p>
+                                        <p class="me-5"><i class="fa-solid fa-baby"></i> 1 Trẻ Em</p>
                                     </div>
                                 </div>
                                 <hr>

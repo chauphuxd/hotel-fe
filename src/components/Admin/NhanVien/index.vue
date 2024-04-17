@@ -113,48 +113,50 @@
                     <h5 class="mt-2">Danh Sách Nhân Viên</h5>
                 </div>
                 <div class="card-body">
-                    <table class="table table-bordered table-hover">
-                        <thead>
-                            <tr class="align-middle">
-                                <th class="text-center">#</th>
-                                <th class="text-center">Mã Nhân Viên</th>
-                                <th class="text-center">Họ Và Tên</th>
-                                <th class="text-center">Ngày Sinh</th>
-                                <th class="text-center">Lương Cơ Bản</th>
-                                <th class="text-center">Chức Vụ</th>
-                                <th class="text-center">Ngày Bắt Đầu</th>
-                                <th class="text-center">Email</th>
-                                <th class="text-center">Avatar</th>
-                                <th class="text-center">Tình Trạng</th>
-                                <th class="text-center">Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <template v-for="(v, k) in ds_nhan_vien" :key="k">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover">
+                            <thead>
                                 <tr class="align-middle">
-                                    <td>{{ k + 1 }}</td>
-                                    <td class="text-center">{{ v.ma_nhan_vien }}</td>
-                                    <td>{{ v.ho_va_ten }}</td>
-                                    <td class="text-center">{{ v.ngay_sinh }}</td>
-                                    <td class="text-center">{{ v.luong_co_ban }}</td>
-                                    <td class="text-center">{{ v.id_chuc_vu }}</td>
-                                    <td class="text-center">{{ v.ngay_bat_dau }}</td>
-                                    <td>{{ v.email }}</td>
-                                    <td class="text-center">
-                                        <img v-bind:src="v.avatar" class="img-fluid" style="height: 150px;">
-                                    </td>
-                                    <td class="text-center">{{ v.tinh_trang }}</td>
-                                    <td class="text-center">
-                                        <button v-on:click="Object.assign(nhan_vien_update, v)" data-bs-toggle="modal"
-                                            data-bs-target="#capnhapModal" class="btn btn-success btn-sm me-1">Cập
-                                            Nhập</button>
-                                        <button v-on:click="id_can_xoa = v.id" data-bs-toggle="modal"
-                                            data-bs-target="#deleteModal" class="btn btn-danger btn-sm">Xóa</button>
-                                    </td>
+                                    <th class="text-center">#</th>
+                                    <th class="text-center">Mã Nhân Viên</th>
+                                    <th class="text-center">Họ Và Tên</th>
+                                    <th class="text-center">Ngày Sinh</th>
+                                    <th class="text-center">Lương Cơ Bản</th>
+                                    <th class="text-center">Chức Vụ</th>
+                                    <th class="text-center">Ngày Bắt Đầu</th>
+                                    <th class="text-center">Email</th>
+                                    <th class="text-center">Avatar</th>
+                                    <th class="text-center">Tình Trạng</th>
+                                    <th class="text-center">Action</th>
                                 </tr>
-                            </template>
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                                <template v-for="(v, k) in ds_nhan_vien" :key="k">
+                                    <tr class="align-middle">
+                                        <td>{{ k + 1 }}</td>
+                                        <td class="text-center">{{ v.ma_nhan_vien }}</td>
+                                        <td>{{ v.ho_va_ten }}</td>
+                                        <td class="text-center">{{ v.ngay_sinh }}</td>
+                                        <td class="text-center">{{ v.luong_co_ban }}</td>
+                                        <td class="text-center">{{ v.id_chuc_vu }}</td>
+                                        <td class="text-center">{{ v.ngay_bat_dau }}</td>
+                                        <td>{{ v.email }}</td>
+                                        <td class="text-center">
+                                            <img v-bind:src="v.avatar" class="img-fluid" style="height: 150px;">
+                                        </td>
+                                        <td class="text-center">{{ v.tinh_trang }}</td>
+                                        <td class="text-center">
+                                            <button v-on:click="Object.assign(nhan_vien_update, v)" data-bs-toggle="modal"
+                                                data-bs-target="#capnhapModal" class="btn btn-success btn-sm me-1">Cập
+                                                Nhập</button>
+                                            <button v-on:click="id_can_xoa = v.id" data-bs-toggle="modal"
+                                                data-bs-target="#deleteModal" class="btn btn-danger btn-sm">Xóa</button>
+                                        </td>
+                                    </tr>
+                                </template>
+                            </tbody>
+                        </table>
+                    </div>
                     <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel"
                         aria-hidden="true">
                         <div class="modal-dialog">
