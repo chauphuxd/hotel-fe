@@ -74,8 +74,7 @@
                                     <td class="align-middle text-center">{{ value.so_tre_em }}</td>
                                     <td class="align-middle text-center">{{ value.tinh_trang }}</td>
                                     <td class="align-middle text-center">
-                                        <img v-bind:src="value.hinh_anh" class="img-fluid"
-                                            style="height: 200px; width: 300px;">
+                                        <img v-bind:src="value.hinh_anh" class="img-fluid w-100">
                                     </td>
                                     <td class="text-center text-nowrap align-middle">
                                         <button v-on:click="Object.assign(loai_phong_update, value)" data-bs-toggle="modal" data-bs-target="#updateModal"

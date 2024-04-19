@@ -32,13 +32,6 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="widgets.html">
-                        <div class="parent-icon"><i class='bx bx-cookie'></i>
-                        </div>
-                        <div class="menu-title">Widgets</div>
-                    </a>
-                </li>
-                <li class="nav-item">
                     <router-link to="/admin/loai-phong">
                         <a class="nav-link" href="/admin/loai-phong">
                             <div class="parent-icon"><i class="fa-solid fa-chess-rook"></i>
@@ -89,6 +82,15 @@
                             <div class="parent-icon"><i class="fa-solid fa-ranking-star"></i>
                             </div>
                             <div class="menu-title">Quản Lý Review</div>
+                        </a>
+                    </router-link>
+                </li>
+                <li class="nav-item">
+                    <router-link to="/admin/phan-quyen">
+                        <a class="nav-link" href="/admin/phan-quyen">
+                            <div class="parent-icon"><i class="fa-solid fa-user-lock"></i>
+                            </div>
+                            <div class="menu-title">Quản Lý Phân Quyền</div>
                         </a>
                     </router-link>
                 </li>

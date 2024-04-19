@@ -50,11 +50,10 @@
                                 <tr v-for="(value, index) in ds_review" :key="index">
                                     <th class="text-center align-middle">{{ index + 1 }}</th>
                                     <td class="align-middle text-center">
-                                        <img v-bind:src="value.avatar" class="img-fluid"
-                                            style="height: 200px; width: 300px;">
+                                        <img v-bind:src="value.avatar" class="user-img me-3">
                                     </td>
                                     <td class="align-middle">{{ value.ho_va_ten }}</td>
-                                    <td class="align-middle">{{ value.noi_dung }}</td>
+                                    <td class="align-middle text-wrap">{{ value.noi_dung }}</td>
                                     <td class="align-middle text-center">{{ value.sao_danh_gia }}</td>
                                     <td class="text-center text-nowrap align-middle">
                                         <button v-on:click="Object.assign(review_update, value)" data-bs-toggle="modal"

@@ -21,12 +21,12 @@
                                 <template v-for="(v, k) in ds_slide" :key="k">
                                     <template v-if="k == 0">
                                         <div class="carousel-item active">
-                                            <img v-bind:src="v.link_hinh_anh" class="d-block w-100" alt="...">
+                                            <img v-bind:src="v.link_hinh_anh" class="d-block w-100" style="height: 700px;" alt="...">
                                         </div>
                                     </template>
                                     <template v-else>
                                         <div class="carousel-item">
-                                            <img v-bind:src="v.link_hinh_anh" class="d-block w-100" alt="...">
+                                            <img v-bind:src="v.link_hinh_anh" class="d-block w-100" style="height: 700px;" alt="...">
                                         </div>
                                     </template>
                                 </template>
@@ -509,7 +509,7 @@
                                     <div class="row">
                                         <template v-for="(value, key) in ds_review" :key="key">
                                             <template v-if="key > 2 && key < 6">
-                                                <div class="col-lg-4 ">
+                                                <div class="col-lg-4 d-flex">
                                                     <div class="card">
                                                         <div class="card-body ">
                                                             <div class="row">

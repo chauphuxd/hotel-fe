@@ -142,7 +142,7 @@
                                         <td class="text-center">{{ v.ngay_bat_dau }}</td>
                                         <td>{{ v.email }}</td>
                                         <td class="text-center">
-                                            <img v-bind:src="v.avatar" class="img-fluid" style="height: 150px;">
+                                            <img v-bind:src="v.avatar" class="user-img me-3">
                                         </td>
                                         <td class="text-center">{{ v.tinh_trang }}</td>
                                         <td class="text-center">

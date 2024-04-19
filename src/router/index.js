@@ -35,6 +35,11 @@ const routes = [
         path: '/admin/review',
         component: () => import('../components/Admin/Review/index.vue')
     },
+    // Phân Quyền
+    {
+        path: '/admin/phan-quyen',
+        component: () => import('../components/Admin/PhanQuyen/index.vue')
+    },
     // Admin dang nhap
     {
         path: '/admin/dang-nhap',
