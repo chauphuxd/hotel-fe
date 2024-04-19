@@ -130,8 +130,10 @@
                             <label class="form-label">Trẻ Em</label>
                             <input type="number" class="form-control" placeholder="Nhập số trẻ em">
                         </div>
-                        <div class="col d-flex align-items-end">
-                            <button class="btn btn-warning w-100" style="margin-top: 30px;">Tìm Kiếm</button>
+                        <div class="col">
+                            <router-link to="/loai-phong">
+                                <button class="btn btn-warning w-100" style="margin-top: 28px;">Tìm Kiếm</button>
+                            </router-link>
                         </div>
                     </div>
                 </div>

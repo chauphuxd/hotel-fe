@@ -58,6 +58,12 @@ const routes = [
         component: () => import('../components/Client/ChiTietPhong/index.vue'),
         meta: {layout: 'client'}
     },
+    // Loai phong
+    {
+        path: '/loai-phong',
+        component: () => import('../components/Client/LoaiPhong/index.vue'),
+        meta: {layout: 'client'}
+    },
 ]
 
 const router = createRouter({
