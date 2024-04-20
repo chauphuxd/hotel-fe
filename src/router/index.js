@@ -60,9 +60,11 @@ const routes = [
     },
     // Loai phong
     {
-        path: '/loai-phong',
+        path: '/dat-phong',
         component: () => import('../components/Client/LoaiPhong/index.vue'),
-        meta: {layout: 'client'}
+        meta: {layout: 'client'},
+        name: "datPhong",
+        props: true
     },
 ]
 

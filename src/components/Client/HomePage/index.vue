@@ -105,35 +105,32 @@
                 </div>
             </div>
         </div>
-
         <div class="row">
             <div class="card">
                 <div class="card-body">
                     <div class="row">
                         <div class="col">
                             <label class="form-label">Ngày Đến</label>
-                            <input type="date" class="form-control">
+                            <input v-model="tt_dat.ngay_den" type="date" class="form-control">
                         </div>
                         <div class="col">
                             <label class="form-label">Ngày Đi</label>
-                            <input type="date" class="form-control">
+                            <input v-model="tt_dat.ngay_di" type="date" class="form-control">
                         </div>
                         <div class="col">
                             <label class="form-label">Số Phòng</label>
-                            <input type="number" class="form-control" placeholder="Nhập số lượng phòng">
+                            <input v-model="tt_dat.so_phong" type="number" class="form-control" placeholder="Nhập số lượng phòng">
                         </div>
                         <div class="col">
                             <label class="form-label">Số Người</label>
-                            <input type="number" class="form-control" placeholder="Nhập số người lớn">
+                            <input v-model="tt_dat.nguoi_lon" type="number" class="form-control" placeholder="Nhập số người lớn">
                         </div>
                         <div class="col">
                             <label class="form-label">Trẻ Em</label>
-                            <input type="number" class="form-control" placeholder="Nhập số trẻ em">
+                            <input v-model="tt_dat.tre_em" type="number" class="form-control" placeholder="Nhập số trẻ em">
                         </div>
                         <div class="col">
-                            <router-link to="/loai-phong">
-                                <button class="btn btn-warning w-100" style="margin-top: 28px;">Tìm Kiếm</button>
-                            </router-link>
+                            <button v-on:click="chuyenTrang()" class="btn btn-warning w-100" style="margin-top: 28px;">Tìm Kiếm</button>
                         </div>
                     </div>
                 </div>
@@ -569,7 +566,8 @@ export default {
     data() {
         return {
             ds_review: [],
-            ds_slide: [],
+            ds_slide : [],
+            tt_dat   : {},
         }
     },
     mounted() {
@@ -591,6 +589,18 @@ export default {
                     this.ds_slide = res.data.slide;
                 })
         },
+        chuyenTrang() {
+            this.$router.push({
+                name    :   "datPhong",
+                params  :   {
+                    'ngay_den'  :   this.tt_dat.ngay_den,
+                    'ngay_di'   :   this.tt_dat.ngay_di,
+                    'so_phong'  :   this.tt_dat.so_phong,
+                    'nguoi_lon' :   this.tt_dat.nguoi_lon,
+                    'tre_em'    :   this.tt_dat.tre_em,
+                },
+            });
+        }
     },
 }
 </script>
