@@ -40,8 +40,8 @@
                         <hr class=" mt-0 d-inline-block mx-auto"
                             style="width: 60px; background-color: #7c4dff; height: 2px" /><br>
                         <div class="text-center mb-2">
-                            <img src="../../../assets/img_homepage/logo_1.png" class="img-fluid"
-                                style="width: 100px; height: au;" alt="">
+                            <img src="../../assets/img_homepage/logo_1.png" class="img-fluid"
+                                style="width: 100px; height: auto;" alt="">
                         </div>
                         <p>
                             Here you can use rows and columns to organize your footer

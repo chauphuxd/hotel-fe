@@ -31,6 +31,10 @@
                         <input v-model="loai_phong_create.hinh_anh" type="text" class="form-control mt-2">
                     </div>
                     <div class="mb-2">
+                        <label>Tiện Ích</label>
+                        <textarea v-model="loai_phong_create.tien_ich" class="form-control mt-2" cols="30" rows="10"></textarea>
+                    </div>
+                    <div class="mb-2">
                         <label>Tình Trạng</label>
                         <select v-model="loai_phong_create.tinh_trang" class="form-control mt-2">
                             <option value="1">Hoạt Động</option>
@@ -61,6 +65,7 @@
                                     <th class="text-center">Số Trẻ Em</th>
                                     <th class="text-center">Tình Trạng</th>
                                     <th class="text-center">Hình Ảnh</th>
+                                    <th class="text-center">Tiện Ích</th>
                                     <th class="text-center">Action</th>
                                 </tr>
                             </thead>
@@ -76,6 +81,9 @@
                                     <td class="align-middle text-center">
                                         <img v-bind:src="value.hinh_anh" class="img-fluid w-100">
                                     </td>
+                                    <td class="align-middle text-center">
+                                        <i v-on:click="Object.assign(tien_ich, value)" class="fa-solid fa-circle-info fa-2xl" data-bs-toggle="modal" data-bs-target="#tienIchModal"></i>
+                                    </td>
                                     <td class="text-center text-nowrap align-middle">
                                         <button v-on:click="Object.assign(loai_phong_update, value)" data-bs-toggle="modal" data-bs-target="#updateModal"
                                             class="btn btn-info me-1">Cập Nhật</button>
@@ -83,6 +91,22 @@
                                             v-on:click="id_can_xoa = value.id" class="btn btn-danger">Xoá Bỏ</button>
                                     </td>
                                 </tr>
+                                <div class="modal fade" id="tienIchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title fs-5" id="exampleModalLabel">Tiện Ích</h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <span v-html="tien_ich.tien_ich"></span> 
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel"
                                     aria-hidden="true">
                                     <div class="modal-dialog">
@@ -145,6 +169,10 @@
                                                         class="form-control mt-2">
                                                 </div>
                                                 <div class="mb-2">
+                                                    <label>Tiện Ích</label>
+                                                    <textarea v-model="loai_phong_update.tien_ich" class="form-control mt-2" cols="30" rows="10"></textarea>
+                                                </div>
+                                                <div class="mb-2">
                                                     <label>Tình Trạng</label>
                                                     <select v-model="loai_phong_update.tinh_trang"
                                                         class="form-control mt-2">
@@ -180,6 +208,7 @@ export default {
             ds_phong: [],
             loai_phong_create: {},
             loai_phong_update: {},
+            tien_ich: {},
             id_can_xoa: '',
         }
     },

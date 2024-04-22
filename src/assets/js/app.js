@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", function() {
             const wrapper = document.querySelector(".wrapper");
             if (hasClass(wrapper, "toggled")) {
                 removeClass(wrapper, "toggled");
-                document.querySelector(".sidebar-wrapper").onmouseenter = null;
+                // document.querySelector(".sidebar-wrapper").onmouseenter = null;
             } else {
                 addClass(wrapper, "toggled");
                 document.querySelector(".sidebar-wrapper").onmouseenter = function () {
