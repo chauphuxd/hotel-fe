@@ -79,7 +79,6 @@
                                     <th class="text-center">Giá Mặc Định</th>
                                     <th class="text-center">Tình Trạng</th>
                                     <th class="text-center">Loại Phòng</th>
-                                    <th class="text-center">Tiện Ích</th>
                                     <th class="text-center">Action</th>
                                 </tr>
                             </thead>
@@ -88,14 +87,17 @@
                                     <th class="text-center align-middle">{{ index + 1 }}</th>
                                     <td class="align-middle">{{ value.ten_phong }}</td>
                                     <td class="align-middle text-end">{{ value.gia_mac_dinh }} đ</td>
-                                    <td class="align-middle text-center">{{ value.tinh_trang }}</td>
-                                    <td class="align-middle text-center">{{ value.id_loai_phong }}</td>
-                                    <td class="align-middle">{{ value.tien_ich_khac }}</td>
+                                    <td class="align-middle text-center">
+                                        <button v-if="value.tinh_trang == 0" class="btn btn-warning">Tạm Dừng</button>
+                                        <button v-if="value.tinh_trang == 1" class="btn btn-primary">Hoạt Động</button>
+                                    </td>
+                                    <td class="align-middle">{{ value.ten_loai_phong }}</td>
                                     <td class="text-center text-nowrap align-middle">
                                         <button v-on:click="Object.assign(phong_update, value)" data-bs-toggle="modal"
                                             data-bs-target="#updateModal" class="btn btn-info me-1">Cập Nhật</button>
                                         <button data-bs-toggle="modal" data-bs-target="#deleteModal"
                                             v-on:click="id_can_xoa = value.id" class="btn btn-danger">Xoá Bỏ</button>
+                                        <button class="ms-1 btn btn-warning" v-on:click="taoChiTietThuePhong(value)">Tạo Đặt Phòng</button> 
                                     </td>
                                 </tr>
                             </tbody>
@@ -238,6 +240,15 @@ export default {
                     if (res.data.status == true) {
                         toaster.success(res.data.message)
                         this.layDuLieuPhong();
+                    }
+                });
+        },
+        taoChiTietThuePhong(payload) {
+            axios
+                .post("http://127.0.0.1:8000/api/chi-tiet-thue-phong/create", payload)
+                .then((res) => {
+                    if (res.data.status) {
+                        toaster.success(res.data.message)
                     }
                 });
         }
