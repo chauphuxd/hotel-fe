@@ -46,7 +46,10 @@
                                         <img v-bind:src="value.link_hinh_anh" class="img-fluid"
                                             style="height: 200px; width: 300px;">
                                     </td>
-                                    <th class="text-center align-middle">{{ value.tinh_trang }}</th>
+                                    <th class="text-center align-middle">
+                                        <button v-if="value.tinh_trang == 0" class="btn btn-warning">Tạm Dừng</button>
+                                        <button v-if="value.tinh_trang == 1" class="btn btn-primary">Hoạt Động</button>
+                                    </th>
                                     <td class="text-center text-nowrap align-middle">
                                         <button v-on:click="Object.assign(slide_update, value)" data-bs-toggle="modal"
                                             data-bs-target="#updateModal" class="btn btn-info me-1">Cập Nhật</button>

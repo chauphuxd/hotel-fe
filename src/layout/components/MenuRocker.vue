@@ -17,11 +17,10 @@
                         data-bs-toggle="dropdown">
                         <div class="parent-icon"><i class='bx bx-home-circle'></i>
                         </div>
-                        <div class="menu-title">Dashboard</div>
+                        <div class="menu-title text-nowrap">Dashboard</div>
                     </a>
                     <ul class="dropdown-menu">
-                        <li> <a class="dropdown-item" href="index.html"><i
-                                    class="bx bx-right-arrow-alt"></i>Default</a>
+                        <li> <a class="dropdown-item" href="index.html"><i class="bx bx-right-arrow-alt"></i>Default</a>
                         </li>
                         <li> <a class="dropdown-item" href="index2.html"><i
                                     class="bx bx-right-arrow-alt"></i>Alternate</a>
@@ -36,7 +35,7 @@
                         <a class="nav-link" href="/admin/loai-phong">
                             <div class="parent-icon"><i class="fa-solid fa-chess-rook"></i>
                             </div>
-                            <div class="menu-title">Loại Phòng</div>
+                            <div class="menu-title text-nowrap">Loại Phòng</div>
                         </a>
                     </router-link>
                 </li>
@@ -45,25 +44,34 @@
                         <a class="nav-link" href="/admin/dich-vu">
                             <div class="parent-icon"><i class="fa-brands fa-servicestack"></i>
                             </div>
-                            <div class="menu-title">Dịch Vụ</div>
+                            <div class="menu-title text-nowrap">Dịch Vụ</div>
                         </a>
                     </router-link>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item dropdown">
+                    
                     <router-link to="/admin/quan-ly-phong">
                         <a class="nav-link" href="/admin/quan-ly-phong">
                             <div class="parent-icon"><i class="fa-solid fa-hotel"></i>
                             </div>
-                            <div class="menu-title">Quản Lý Phòng</div>
+                            <div class="menu-title text-nowrap">Quản Lý Phòng</div>
                         </a>
                     </router-link>
+                        <ul class="dropdown-menu">
+                                <li> 
+                                    <router-view to="/admin/chi-tiet-thue-phong">
+                                        <a class="dropdown-item"  href="/admin/chi-tiet-thue-phong" >
+                                        <i class="bx bx-right-arrow-alt"></i>Chi tiết thuê phòng</a>
+                                    </router-view>
+                                </li>
+                        </ul>
                 </li>
                 <li class="nav-item">
                     <router-link to="/admin/nhan-vien">
                         <a class="nav-link" href="/admin/nhan-vien">
                             <div class="parent-icon"><i class="fa-solid fa-users"></i>
                             </div>
-                            <div class="menu-title">Quản Lý Nhân Viên</div>
+                            <div class="menu-title text-nowrap">Quản Lý Nhân Viên</div>
                         </a>
                     </router-link>
                 </li>
@@ -72,7 +80,7 @@
                         <a class="nav-link" href="/admin/slide">
                             <div class="parent-icon"><i class="fa-solid fa-sliders"></i>
                             </div>
-                            <div class="menu-title">Quản Lý Slide</div>
+                            <div class="menu-title text-nowrap">Quản Lý Slide</div>
                         </a>
                     </router-link>
                 </li>
@@ -81,7 +89,7 @@
                         <a class="nav-link" href="/admin/review">
                             <div class="parent-icon"><i class="fa-solid fa-ranking-star"></i>
                             </div>
-                            <div class="menu-title">Quản Lý Review</div>
+                            <div class="menu-title text-nowrap">Quản Lý Review</div>
                         </a>
                     </router-link>
                 </li>
@@ -90,19 +98,18 @@
                         <a class="nav-link" href="/admin/phan-quyen">
                             <div class="parent-icon"><i class="fa-solid fa-user-lock"></i>
                             </div>
-                            <div class="menu-title">Quản Lý Phân Quyền</div>
+                            <div class="menu-title text-nowrap">Quản Lý Phân Quyền</div>
                         </a>
                     </router-link>
                 </li>
+                
             </ul>
         </nav>
     </div>
 </template>
 <script>
 export default {
-    
+
 }
 </script>
-<style>
-    
-</style>
+<style></style>

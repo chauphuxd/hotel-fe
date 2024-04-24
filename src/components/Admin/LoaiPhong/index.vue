@@ -77,7 +77,10 @@
                                     <td class="align-middle text-center">{{ value.so_giuong }}</td>
                                     <td class="align-middle text-center">{{ value.so_nguoi_lon }}</td>
                                     <td class="align-middle text-center">{{ value.so_tre_em }}</td>
-                                    <td class="align-middle text-center">{{ value.tinh_trang }}</td>
+                                    <td class="align-middle text-center">
+                                        <button v-if="value.tinh_trang == 0" class="btn btn-warning">Tạm Dừng</button>
+                                        <button v-if="value.tinh_trang == 1" class="btn btn-primary">Hoạt Động</button>
+                                    </td>
                                     <td class="align-middle text-center">
                                         <img v-bind:src="value.hinh_anh" class="img-fluid w-100">
                                     </td>

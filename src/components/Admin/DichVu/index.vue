@@ -61,7 +61,10 @@
                                     <td class="align-middle text-end">{{ value.don_gia }}</td>
                                     <td class="align-middle">{{ value.don_vi_tinh }}</td>
                                     <td class="align-middle">{{ value.ghi_chu }}</td>
-                                    <td class="align-middle text-center">{{ value.tinh_trang }}</td>
+                                    <td class="align-middle text-center">
+                                        <button v-if="value.tinh_trang == 0" class="btn btn-warning">Tạm Dừng</button>
+                                        <button v-if="value.tinh_trang == 1" class="btn btn-primary">Hoạt Động</button>
+                                    </td>
                                     <td class="text-center text-nowrap align-middle">
                                         <button v-on:click="Object.assign(dich_vu_update, value)" data-bs-toggle="modal"
                                             data-bs-target="#updateModal" class="btn btn-info me-1">Cập Nhật</button>
