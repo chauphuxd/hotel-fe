@@ -144,7 +144,10 @@
                                         <td class="text-center">
                                             <img v-bind:src="v.avatar" class="user-img me-3">
                                         </td>
-                                        <td class="text-center">{{ v.tinh_trang }}</td>
+                                        <td class="text-center">
+                                            <button v-if="v.tinh_trang == 0" class="btn btn-warning">Tạm Dừng</button>
+                                            <button v-if="v.tinh_trang == 1" class="btn btn-primary">Hoạt Động</button> 
+                                        </td>
                                         <td class="text-center">
                                             <button v-on:click="Object.assign(nhan_vien_update, v)" data-bs-toggle="modal"
                                                 data-bs-target="#capnhapModal" class="btn btn-success btn-sm me-1">Cập

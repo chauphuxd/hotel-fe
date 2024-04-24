@@ -20,6 +20,11 @@ const routes = [
         path: '/admin/quan-ly-phong',
         component: () => import('../components/Admin/Phong/index.vue')
     },
+    // chi tiet thue phong
+    {
+        path: '/admin/chi-tiet-thue-phong',
+        component: () => import('../components/Admin/ChiTietThuePhong/index.vue')
+    },
     // nhan-vien
     {
         path: '/admin/nhan-vien',
