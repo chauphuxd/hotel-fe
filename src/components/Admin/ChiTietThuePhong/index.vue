@@ -34,10 +34,10 @@
                                         </template>
                                         <td class="align-middle text-center">{{ value.gia_thue }} đ</td>
                                         <td class="align-middle text-center">
-                                            <button v-if="value.tinh_trang == 0" class="btn btn-warning w-50">Tạm
-                                                Dừng</button>
-                                            <button v-if="value.tinh_trang == 1" class="btn btn-primary w-50">Hoạt
-                                                Động</button>
+                                            <button v-if="value.tinh_trang == 0" class="btn btn-danger w-50">Phòng Đang Sửa</button>
+                                            <button v-if="value.tinh_trang == 1" class="btn btn-primary w-50">Phòng Trống</button>
+                                            <button v-if="value.tinh_trang == 2" class="btn btn-warning w-50">Phòng Đặt Cọc</button>
+                                            <button v-if="value.tinh_trang == 3" class="btn btn-success w-50">Phòng Cho Thuê</button>
                                         </td>
                                         <td class="align-middle">{{ value.ghi_chu }}</td>
                                         <td class="text-center text-nowrap align-middle">
@@ -69,8 +69,10 @@
                                         rows="5" class="mt-2 mb-2 form-control"></textarea>
                                     <label for="">Tình Trạng</label>
                                     <select v-model="update_chi_tiet_thue_phong.tinh_trang" class="form-control mt-2">
-                                        <option value="1">Hoạt Động</option>
-                                        <option value="0">Tạm Dừng</option>
+                                        <option value="0">Phòng Đang Sửa</option>
+                                        <option value="1">Phòng Trống</option>
+                                        <option value="2">Phòng Đặt Cọc</option>
+                                        <option value="3">Phòng Cho Thuê</option>
                                     </select>
                                 </div>
                                 <div class="modal-footer">

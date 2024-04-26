@@ -59,10 +59,16 @@
                     </router-link>
                         <ul class="dropdown-menu">
                                 <li> 
-                                    <router-view to="/admin/chi-tiet-thue-phong">
+                                    <router-link to="/admin/chi-tiet-thue-phong">
                                         <a class="dropdown-item"  href="/admin/chi-tiet-thue-phong" >
                                         <i class="bx bx-right-arrow-alt"></i>Chi tiết thuê phòng</a>
-                                    </router-view>
+                                    </router-link>
+                                </li>
+                                <li> 
+                                    <router-link to="/admin/tinh-trang-phong">
+                                        <a class="dropdown-item"  href="/admin/tinh-trang-phong" >
+                                        <i class="bx bx-right-arrow-alt"></i>Tình trạng phòng</a>
+                                    </router-link>
                                 </li>
                         </ul>
                 </li>

@@ -25,6 +25,11 @@ const routes = [
         path: '/admin/chi-tiet-thue-phong',
         component: () => import('../components/Admin/ChiTietThuePhong/index.vue')
     },
+    // Tinh Trang Phong
+    {
+        path: '/admin/tinh-trang-phong',
+        component: () => import('../components/Admin/TinhTrangPhong/index.vue')
+    },
     // nhan-vien
     {
         path: '/admin/nhan-vien',
