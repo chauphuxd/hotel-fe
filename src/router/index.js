@@ -76,6 +76,21 @@ const routes = [
         name: "datPhong",
         props: true
     },
+    {
+        path: '/admin/content',
+        component: () => import('../components/Admin/content/index.vue')
+    },
+
+    {
+        path: '/tim-loai-phong',
+        component: () => import('../components/Client/TimLoaiPhong/index.vue'),
+        meta: {layout: 'client'}
+    },
+    {
+        path: '/danh-sach-phong',
+        component: () => import('../components/Client/DanhSachPhong/index.vue'),
+        meta: {layout: 'client'}
+    },
 ]
 
 const router = createRouter({
