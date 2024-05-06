@@ -56,14 +56,7 @@
                                                 <tr>
                                                     <th class="text-nowrap align-middle"> Tên content</th>
                                                     <td>Xu Hướng Thiết Kế Khách Sạn Mới Nhất</td>
-                                                    <td class="text-center align-middle" rowspan="100">
-                                                        <button class="btn btn-success text-nowrap w-100"
-                                                            data-bs-toggle="modal" data-bs-target="#updateModal"><i
-                                                                class="fa-solid fa-pen-to-square"></i></button>
-                                                        <button class="btn btn-danger text-nowrap w-100 mt-3"
-                                                            data-bs-toggle="modal" data-bs-target="#deleteModal"><i
-                                                                class="fa-solid fa-trash"></i></button>
-                                                    </td>
+
                                                 </tr>
                                                 <tr>
                                                     <th class="text-nowrap align-middle">Slug content</th>
@@ -82,6 +75,25 @@
                                                         <img src="https://cdn3.ivivu.com/2014/01/SUPER-DELUXE2.jpg"
                                                             class="img-fluid" alt="..."
                                                             style="width: 300px; height: 200px;">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="100" class="text-center align-middle" rowspan="100">
+                                                        <div class="row">
+                                                            <div class="col-6">
+                                                                <button class="btn btn-success text-nowrap w-100"
+                                                                    data-bs-toggle="modal"
+                                                                    data-bs-target="#updateModal"><i
+                                                                        class="fa-solid fa-pen-to-square"></i></button>
+                                                                
+                                                            </div>
+                                                            <div class="col-6">
+                                                                <button class="btn btn-danger text-nowrap w-100"
+                                                                    data-bs-toggle="modal"
+                                                                    data-bs-target="#deleteModal"><i
+                                                                        class="fa-solid fa-trash"></i></button> 
+                                                            </div>
+                                                        </div>
                                                     </td>
                                                 </tr>
 
@@ -107,14 +119,7 @@
                                                 <tr>
                                                     <th class="text-nowrap align-middle"> Tên content</th>
                                                     <td>Đánh Giá 5 Khách Sạn Hàng Đầu Thế Giới</td>
-                                                    <td class="text-center align-middle" rowspan="100">
-                                                        <button class="btn btn-success text-nowrap w-100"
-                                                            data-bs-toggle="modal" data-bs-target="#updateModal"><i
-                                                                class="fa-solid fa-pen-to-square"></i></button>
-                                                        <button class="btn btn-danger text-nowrap w-100 mt-3"
-                                                            data-bs-toggle="modal" data-bs-target="#deleteModal"><i
-                                                                class="fa-solid fa-trash"></i></button>
-                                                    </td>
+                                                    
                                                 </tr>
                                                 <tr>
                                                     <th class="text-nowrap align-middle">Slug content</th>
@@ -133,6 +138,25 @@
                                                         <img src="https://pistachiohotel.com/UploadFile/Gallery/Overview/a2.jpg"
                                                             class="img-fluid" alt="..."
                                                             style="width: 300px; height: 200px;">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="100" class="text-center align-middle" rowspan="100">
+                                                        <div class="row">
+                                                            <div class="col-6">
+                                                                <button class="btn btn-success text-nowrap w-100"
+                                                                    data-bs-toggle="modal"
+                                                                    data-bs-target="#updateModal"><i
+                                                                        class="fa-solid fa-pen-to-square"></i></button>
+                                                                
+                                                            </div>
+                                                            <div class="col-6">
+                                                                <button class="btn btn-danger text-nowrap w-100"
+                                                                    data-bs-toggle="modal"
+                                                                    data-bs-target="#deleteModal"><i
+                                                                        class="fa-solid fa-trash"></i></button> 
+                                                            </div>
+                                                        </div>
                                                     </td>
                                                 </tr>
 
@@ -158,14 +182,7 @@
                                                 <tr>
                                                     <th class="text-nowrap align-middle"> Tên content</th>
                                                     <td>Lời Khuyên Khi Lựa Chọn Khách Sạn</td>
-                                                    <td class="text-center align-middle" rowspan="100">
-                                                        <button class="btn btn-success text-nowrap w-100"
-                                                            data-bs-toggle="modal" data-bs-target="#updateModal"><i
-                                                                class="fa-solid fa-pen-to-square"></i></button>
-                                                        <button class="btn btn-danger text-nowrap w-100 mt-3"
-                                                            data-bs-toggle="modal" data-bs-target="#deleteModal"><i
-                                                                class="fa-solid fa-trash"></i></button>
-                                                    </td>
+                                                   
                                                 </tr>
                                                 <tr>
                                                     <th class="text-nowrap align-middle">Slug content</th>
@@ -184,6 +201,25 @@
                                                         <img src="https://images.squarespace-cdn.com/content/v1/5aadf482aa49a1d810879b88/1626698419120-J7CH9BPMB2YI728SLFPN/1.jpg"
                                                             class="img-fluid" alt="..."
                                                             style="width: 300px; height: 200px;">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="100" class="text-center align-middle" rowspan="100">
+                                                        <div class="row">
+                                                            <div class="col-6">
+                                                                <button class="btn btn-success text-nowrap w-100"
+                                                                    data-bs-toggle="modal"
+                                                                    data-bs-target="#updateModal"><i
+                                                                        class="fa-solid fa-pen-to-square"></i></button>
+                                                                
+                                                            </div>
+                                                            <div class="col-6">
+                                                                <button class="btn btn-danger text-nowrap w-100"
+                                                                    data-bs-toggle="modal"
+                                                                    data-bs-target="#deleteModal"><i
+                                                                        class="fa-solid fa-trash"></i></button> 
+                                                            </div>
+                                                        </div>
                                                     </td>
                                                 </tr>
 
@@ -209,14 +245,7 @@
                                                 <tr>
                                                     <th class="text-nowrap align-middle"> Tên content</th>
                                                     <td>Bí Mật Đằng Sau Quản Lý Khách Sạn Hiệu Quả</td>
-                                                    <td class="text-center align-middle" rowspan="100">
-                                                        <button class="btn btn-success text-nowrap w-100"
-                                                            data-bs-toggle="modal" data-bs-target="#updateModal"><i
-                                                                class="fa-solid fa-pen-to-square"></i></button>
-                                                        <button class="btn btn-danger text-nowrap w-100 mt-3"
-                                                            data-bs-toggle="modal" data-bs-target="#deleteModal"><i
-                                                                class="fa-solid fa-trash"></i></button>
-                                                    </td>
+                                                    
                                                 </tr>
                                                 <tr>
                                                     <th class="text-nowrap align-middle">Slug content</th>
@@ -235,6 +264,25 @@
                                                         <img src="https://asiky.com/files/images/Article/tin-tuc/chup-anh-khach-san.jpg"
                                                             class="img-fluid" alt="..."
                                                             style="width: 300px; height: 200px;">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="100" class="text-center align-middle" rowspan="100">
+                                                        <div class="row">
+                                                            <div class="col-6">
+                                                                <button class="btn btn-success text-nowrap w-100"
+                                                                    data-bs-toggle="modal"
+                                                                    data-bs-target="#updateModal"><i
+                                                                        class="fa-solid fa-pen-to-square"></i></button>
+                                                                
+                                                            </div>
+                                                            <div class="col-6">
+                                                                <button class="btn btn-danger text-nowrap w-100"
+                                                                    data-bs-toggle="modal"
+                                                                    data-bs-target="#deleteModal"><i
+                                                                        class="fa-solid fa-trash"></i></button> 
+                                                            </div>
+                                                        </div>
                                                     </td>
                                                 </tr>
 
@@ -260,14 +308,7 @@
                                                 <tr>
                                                     <th class="text-nowrap align-middle"> Tên content</th>
                                                     <td>Cách Khách Sạn Đối Phó Với Đại Dịch COVID-19</td>
-                                                    <td class="text-center align-middle" rowspan="100">
-                                                        <button class="btn btn-success text-nowrap w-100"
-                                                            data-bs-toggle="modal" data-bs-target="#updateModal"><i
-                                                                class="fa-solid fa-pen-to-square"></i></button>
-                                                        <button class="btn btn-danger text-nowrap w-100 mt-3"
-                                                            data-bs-toggle="modal" data-bs-target="#deleteModal"><i
-                                                                class="fa-solid fa-trash"></i></button>
-                                                    </td>
+                                                    
                                                 </tr>
                                                 <tr>
                                                     <th class="text-nowrap align-middle">Slug content</th>
@@ -286,6 +327,25 @@
                                                         <img src="https://www.hoteljob.vn/files/quang-ba-khach-san.jpg"
                                                             class="img-fluid" alt="..."
                                                             style="width: 300px; height: 200px;">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="100" class="text-center align-middle" rowspan="100">
+                                                        <div class="row">
+                                                            <div class="col-6">
+                                                                <button class="btn btn-success text-nowrap w-100"
+                                                                    data-bs-toggle="modal"
+                                                                    data-bs-target="#updateModal"><i
+                                                                        class="fa-solid fa-pen-to-square"></i></button>
+                                                                
+                                                            </div>
+                                                            <div class="col-6">
+                                                                <button class="btn btn-danger text-nowrap w-100"
+                                                                    data-bs-toggle="modal"
+                                                                    data-bs-target="#deleteModal"><i
+                                                                        class="fa-solid fa-trash"></i></button> 
+                                                            </div>
+                                                        </div>
                                                     </td>
                                                 </tr>
 
