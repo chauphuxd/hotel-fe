@@ -5,6 +5,11 @@ const routes = [
         path: '/test-page',
         component: () => import('../components/TestPage/index.vue')
     },
+     // bai-viet
+     {
+        path: '/admin/bai-viet',
+        component: () => import('../components/Admin/BaiViet/index.vue')
+    },
     // loai-phong
     {
         path: '/admin/loai-phong',
@@ -75,6 +80,21 @@ const routes = [
         meta: {layout: 'client'},
         name: "datPhong",
         props: true
+    },
+    {
+        path: '/admin/content',
+        component: () => import('../components/Admin/content/index.vue')
+    },
+
+    {
+        path: '/tim-loai-phong',
+        component: () => import('../components/Client/TimLoaiPhong/index.vue'),
+        meta: {layout: 'client'}
+    },
+    {
+        path: '/danh-sach-phong',
+        component: () => import('../components/Client/DanhSachPhong/index.vue'),
+        meta: {layout: 'client'}
     },
 ]
 
