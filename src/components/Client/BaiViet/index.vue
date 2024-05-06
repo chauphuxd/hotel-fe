@@ -1,7 +1,7 @@
 <template>
   <main class="container">
     <div class="row mb-2">
-      <div class="col-md-6">
+      <div class="col-md-6 d-flex">
         <div
           class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"
         >
@@ -26,13 +26,13 @@
           </div>
         </div>
       </div>
-      <div class="col-md-6 ">
+      <div class="col-md-6 d-flex">
         <div
           class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"
         >
           <div class="col-8 p-4 d-flex flex-column position-static">
             <strong class="d-inline-block mb-2 text-success"
-              >Bài viết mới</strong
+              >Bài viết truy cập nhiều nhất</strong
             >
             <h3 class="mb-0">Phòng View Biển</h3>
             <div class="mb-1 text-muted">Nov 11</div>
@@ -41,7 +41,7 @@
           </div>
           <div class="col-md-4">
             <img
-              src="https://th.bing.com/th/id/OIP.1TA7eGyx9jvLxRDwzQtMAwHaGW?w=212&h=182&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+              src="https://statics.vinpearl.com/Hinh-anh-lich-trinh-du-lich-phu-quoc-cho-nhom-ban-3-ngay-1.jpg"
               alt="..."
               class="card-img"
             />
