@@ -83,6 +83,11 @@ const routes = [
         component: () => import('../components/Client/DanhSachPhong/index.vue'),
         meta: {layout: 'client'}
     },
+    {
+        path: '/bai-viet',
+        component: () => import('../components/Client/BaiViet/index.vue'),
+        meta: {layout: 'client'}
+    },
 ]
 
 const router = createRouter({
