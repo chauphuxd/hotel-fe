@@ -117,7 +117,6 @@
                         </a>
                     </router-link>
                 </li>
-                
             </ul>
         </nav>
     </div>
