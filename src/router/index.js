@@ -5,6 +5,11 @@ const routes = [
         path: '/test-page',
         component: () => import('../components/TestPage/index.vue')
     },
+     // bai-viet
+     {
+        path: '/admin/bai-viet',
+        component: () => import('../components/Admin/BaiViet/index.vue')
+    },
     // loai-phong
     {
         path: '/admin/loai-phong',
