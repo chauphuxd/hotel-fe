@@ -47,7 +47,7 @@
             </div>
         </div>
     </div>
-    
+
     <div class="container">
         <div class="row">
             <div class="card">
@@ -488,10 +488,10 @@
                                                                 <hr>
                                                                 <div class="d-flex align-items-center mt-2 fs-6">
                                                                     <div class="cursor-pointer">
-                                                                        <template v-for="items in v.sao_danh_gia">
+                                                                        <template v-for="items in v.sao_danh_gia" :key="items">
                                                                             <i class="bx bxs-star text-warning"></i>
                                                                         </template>
-                                                                        <template v-for="items in (5 - v.sao_danh_gia)">
+                                                                        <template v-for="items in (5 - v.sao_danh_gia)" :key="items">
                                                                             <i class="bx bxs-star text-secondary"></i>
                                                                         </template>
                                                                     </div>
@@ -522,11 +522,11 @@
                                                                 <hr>
                                                                 <div class="d-flex align-items-center mt-2 fs-6">
                                                                     <div class="cursor-pointer">
-                                                                        <template v-for="items in value.sao_danh_gia">
+                                                                        <template v-for="items in value.sao_danh_gia" :key="items">
                                                                             <i class="bx bxs-star text-warning"></i>
                                                                         </template>
                                                                         <template
-                                                                            v-for="items in (5 - value.sao_danh_gia)">
+                                                                            v-for="items in (5 - value.sao_danh_gia)" :key="items">
                                                                             <i class="bx bxs-star text-secondary"></i>
                                                                         </template>
                                                                     </div>

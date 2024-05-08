@@ -1,10 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router"; // cài vue-router: npm install vue-router@next --save
 
 const routes = [
-    {
-        path: '/test-page',
-        component: () => import('../components/TestPage/index.vue')
-    },
     // loai-phong
     {
         path: '/admin/loai-phong',
@@ -75,6 +71,26 @@ const routes = [
         meta: {layout: 'client'},
         name: "datPhong",
         props: true
+    },
+    {
+        path: '/admin/content',
+        component: () => import('../components/Admin/content/index.vue')
+    },
+
+    {
+        path: '/tim-loai-phong',
+        component: () => import('../components/Client/TimLoaiPhong/index.vue'),
+        meta: {layout: 'client'}
+    },
+    {
+        path: '/danh-sach-phong',
+        component: () => import('../components/Client/DanhSachPhong/index.vue'),
+        meta: {layout: 'client'}
+    },
+    {
+        path: '/bai-viet',
+        component: () => import('../components/Client/BaiViet/index.vue'),
+        meta: {layout: 'client'}
     },
 ]
 
