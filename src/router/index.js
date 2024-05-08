@@ -52,6 +52,12 @@ const routes = [
         component: () => import('../components/Admin/DangNhap/index.vue'),
         meta: {layout: 'auth'}
     },
+
+    {
+        path: '/admin/khach-hang',
+        component: () => import('../components/Admin/KhachHang/index.vue'),
+    },
+
     // HomePage
     {
         path: '/',
@@ -91,6 +97,11 @@ const routes = [
         path: '/bai-viet',
         component: () => import('../components/Client/BaiViet/index.vue'),
         meta: {layout: 'client'}
+    },
+    {
+        path: '/khach-hang/dang-ky',
+        component: () => import('../components/Client/DangKy/index.vue'),
+        meta: {layout: 'auth'}
     },
 ]
 
