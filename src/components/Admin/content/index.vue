@@ -24,8 +24,7 @@
                     </div>
                     <div class="mb-2 mt-2">
                         <label for="">Ảnh</label>
-                        <input type="file" class="form-control" id="inputGroupFile03"
-                            aria-describedby="inputGroupFileAddon03" aria-label="Upload">
+                        <input type="text" class="form-control">
                     </div>
 
                 </div>
@@ -374,8 +373,7 @@
                             </div>
                             <div class="mb-2 mt-2">
                                 <label for="">Ảnh</label>
-                                <input type="file" class="form-control" id="inputGroupFile03"
-                                    aria-describedby="inputGroupFileAddon03" aria-label="Upload">
+                                <input type="text" class="form-control">
                             </div>
                         </div>
                         <div class="modal-footer">
