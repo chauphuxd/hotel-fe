@@ -109,8 +109,8 @@
                     </router-link>
                 </li>
                 <li class="nav-item">
-                    <router-link to="/admin/content">
-                        <a class="nav-link" href="/admin/content">
+                    <router-link to="/admin/bai-viet">
+                        <a class="nav-link" href="/admin/bai-viet">
                             <div class="parent-icon"><i class="fa-solid fa-user-lock"></i>
                             </div>
                             <div class="menu-title text-nowrap">Danh Sách Bài Viết </div>
@@ -119,7 +119,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <router-link to="/admin/khach-hangt">
+                    <router-link to="/admin/khach-hang">
                         <a class="nav-link" href="/admin/khach-hang">
                             <div class="parent-icon"><i class="fa-solid fa-user-lock"></i>
                             </div>

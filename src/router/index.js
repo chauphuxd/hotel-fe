@@ -79,8 +79,8 @@ const routes = [
         props: true
     },
     {
-        path: '/admin/content',
-        component: () => import('../components/Admin/content/index.vue')
+        path: '/admin/bai-viet',
+        component: () => import('../components/Admin/BaiViet/index.vue')
     },
 
     {

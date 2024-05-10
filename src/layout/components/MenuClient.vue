@@ -4,9 +4,11 @@
             <div class="card-body">
                 <nav class="navbar navbar-expand-lg navbar-dark bg-primary rounded">
                     <div class="container-fluid">
-                        <a class="navbar-brand" href="#">
-                            DZFullStack
-                        </a>
+                        <router-link to="/">
+                            <a class="navbar-brand" href="/">
+                                DZFullStack
+                            </a>
+                        </router-link>
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                             data-bs-target="#navbarSupportedContent2" aria-controls="navbarSupportedContent2"
                             aria-expanded="false" aria-label="Toggle navigation"> <span
