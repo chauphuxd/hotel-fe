@@ -62,7 +62,7 @@ export default {
                 .then((res) => {
                     if (res.data.status) {
                         toaster.success(res.data.message)
-                        localStorage.setItem('token_admin',res.data.token);
+                        localStorage.setItem('token_khachhang',res.data.token);
                         this.$router.push('/');
                     }
                     else {
