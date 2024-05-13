@@ -54,8 +54,8 @@
                                                 <label for="">Tình Trạng</label>
                                                 <select name="" v-model="nhan_vien_create.tinh_trang"
                                                     class="form-control mt-2" id="">
-                                                    <option value="1">Quản Lý</option>
-                                                    <option value="2">Nhân Viên</option>
+                                                    <option value="0">Hoạt Động</option>
+                                                    <option value="1">Tạm Tắt</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -145,8 +145,8 @@
                                             <img v-bind:src="v.avatar" class="user-img me-3">
                                         </td>
                                         <td class="text-center">
-                                            <button v-if="v.tinh_trang == 0" class="btn btn-warning">Tạm Dừng</button>
-                                            <button v-if="v.tinh_trang == 1" class="btn btn-primary">Hoạt Động</button> 
+                                            <button v-on:click="doiTrangThai(v)" v-if="v.tinh_trang == 1" class="btn btn-warning">Tạm Dừng</button>
+                                            <button v-on:click="doiTrangThai(v)" v-else class="btn btn-primary">Hoạt Động</button> 
                                         </td>
                                         <td class="text-center">
                                             <button v-on:click="Object.assign(nhan_vien_update, v)" data-bs-toggle="modal"
@@ -228,8 +228,8 @@
                                                 <label for="">Tình Trạng</label>
                                                 <select name="" v-model="nhan_vien_update.tinh_trang"
                                                     class="form-control mt-2" id="">
-                                                    <option value="1">Quản Lý</option>
-                                                    <option value="2">Nhân Viên</option>
+                                                    <option value="0">Hoạt Động</option>
+                                                    <option value="1">Tạm Tắt</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -270,7 +270,7 @@
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary"
                                         data-bs-dismiss="modal">Close</button>
-                                    <button v-on:click="CapNhatNhanVien()" type="button" class="btn btn-primary">Thêm
+                                    <button v-on:click="CapNhatNhanVien()" type="button" class="btn btn-primary" data-bs-dismiss="modal">Thêm
                                         Mới</button>
                                 </div>
                             </div>
@@ -311,6 +311,7 @@ export default {
                 .then((res) => {
                     if (res.data.status == true) {
                         toaster.success(res.data.message)
+                        this.nhan_vien_create = {},
                         this.LayDuLieu();
                     }
                 })
@@ -332,6 +333,18 @@ export default {
                     if (res.data.status == true) {
                         toaster.success(res.data.message)
                         this.LayDuLieu();
+                    }
+                })
+        },
+        doiTrangThai(xxx) {
+            axios
+                .put('http://127.0.0.1:8000/api/nhan-vien/doi-trang-thai', xxx)
+                .then((res) => {
+                    if (res.data.status == true) {
+                        toaster.success(res.data.message)
+                        this.LayDuLieu();
+                    } else {
+                        toaster.error(res.data.message)
                     }
                 })
         },

@@ -103,6 +103,12 @@ const routes = [
         component: () => import('../components/Client/DangKy/index.vue'),
         meta: {layout: 'auth'}
     },
+
+    {
+        path: '/khach-hang/dang-nhap',
+        component: () => import('../components/Client/DangNhap/index.vue'),
+        meta: {layout: 'auth'}
+    },
 ]
 
 const router = createRouter({

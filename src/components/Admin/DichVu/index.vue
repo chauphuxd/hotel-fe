@@ -62,8 +62,8 @@
                                     <td class="align-middle">{{ value.don_vi_tinh }}</td>
                                     <td class="align-middle">{{ value.ghi_chu }}</td>
                                     <td class="align-middle text-center">
-                                        <button v-if="value.tinh_trang == 0" class="btn btn-warning">Tạm Dừng</button>
-                                        <button v-if="value.tinh_trang == 1" class="btn btn-primary">Hoạt Động</button>
+                                        <button v-on:click="doiTrangThai(value)" v-if="value.tinh_trang == 1" class="btn btn-warning">Tạm Dừng</button>
+                                        <button  v-on:click="doiTrangThai(value)" v-else class="btn btn-primary">Hoạt Động</button>
                                     </td>
                                     <td class="text-center text-nowrap align-middle">
                                         <button v-on:click="Object.assign(dich_vu_update, value)" data-bs-toggle="modal"
@@ -204,7 +204,18 @@ export default {
                         this.layDuLieu();
                     }
                 });
-        }
+        },
+        doiTrangThai(xxx) {
+            axios
+                .put('http://127.0.0.1:8000/api/dich-vu/doi-trang-thai', xxx)
+                .then((res) => {
+                    if (res.data.status == true) {
+                        toaster.success(res.data.message)
+                        this.layDuLieu();
+                    }
+                })
+        },
+        
     },
 }
 </script>

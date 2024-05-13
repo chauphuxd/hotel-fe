@@ -88,8 +88,8 @@
                                     <td class="align-middle">{{ value.ten_phong }}</td>
                                     <td class="align-middle text-end">{{ value.gia_mac_dinh }} đ</td>
                                     <td class="align-middle text-center">
-                                        <button v-if="value.tinh_trang == 0" class="btn btn-warning">Tạm Dừng</button>
-                                        <button v-if="value.tinh_trang == 1" class="btn btn-primary">Hoạt Động</button>
+                                        <button v-on:click="doiTrangThai(value)" v-if="value.tinh_trang == 1" class="btn btn-warning">Tạm Dừng</button>
+                                        <button v-on:click="doiTrangThai(value)" v-else class="btn btn-primary">Hoạt Động</button>
                                     </td>
                                     <td class="align-middle">{{ value.ten_loai_phong }}</td>
                                     <td class="text-center text-nowrap align-middle">
@@ -251,7 +251,17 @@ export default {
                         toaster.success(res.data.message)
                     }
                 });
-        }
+        },
+        doiTrangThai(xxx) {
+            axios
+                .put('http://127.0.0.1:8000/api/phong/doi-trang-thai', xxx)
+                .then((res) => {
+                    if (res.data.status == true) {
+                        toaster.success(res.data.message)
+                        this.layDuLieuPhong();
+                    }
+                })
+        },
     },
 }
 </script>

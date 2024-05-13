@@ -58,12 +58,12 @@ export default {
     methods: {
         dangNhap() {
             axios
-                .post("http://127.0.0.1:8000/api/admin/dang-nhap", this.login)
+                .post("http://127.0.0.1:8000/api/khach-hang/dang-nhap", this.login)
                 .then((res) => {
                     if (res.data.status) {
                         toaster.success(res.data.message)
                         localStorage.setItem('token_admin',res.data.token);
-                        this.$router.push('/admin/loai-phong');
+                        this.$router.push('/');
                     }
                     else {
                         toaster.error(res.data.message)

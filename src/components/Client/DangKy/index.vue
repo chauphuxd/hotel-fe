@@ -77,7 +77,8 @@ export default {
                 .post('http://127.0.0.1:8000/api/dang-ky', this.data_dang_ky)
                 .then((res) => {
                     if(res.data.status) {
-                        toaster.success(res.data.message)
+                        toaster.success(res.data.message);
+                        this.data_dang_ky = {};
                     } else {
                         toaster.error(res.data.message)
                     }
