@@ -221,9 +221,15 @@ export default {
     methods: {
         layDuLieu() {
             axios
-                .get('http://127.0.0.1:8000/api/loai-phong/data')
+                .get('http://127.0.0.1:8000/api/loai-phong/data', {
+                    headers : {
+                        Authorization : 'Bearer ' +  localStorage.getItem("token_admin")
+                    }
+                })
                 .then((res) => {
-                    this.ds_phong = res.data.loai_phong;
+                    if(res.data.status) {
+                        this.ds_phong = res.data.loai_phong;
+                    }
                 })
         },
         themMoiLoaiPhong() {

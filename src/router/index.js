@@ -1,50 +1,60 @@
 import { createRouter, createWebHistory } from "vue-router"; // cài vue-router: npm install vue-router@next --save
+import kiemTraAdmin from "./kiemTraAdmin";
 
 const routes = [
     // loai-phong
     {
         path: '/admin/loai-phong',
-        component: () => import('../components/Admin/LoaiPhong/index.vue')
+        component: () => import('../components/Admin/LoaiPhong/index.vue'),
+        beforeEnter: kiemTraAdmin,
     },
     // dich vu
     {
         path: '/admin/dich-vu',
-        component: () => import('../components/Admin/DichVu/index.vue')
+        component: () => import('../components/Admin/DichVu/index.vue'),
+        beforeEnter: kiemTraAdmin
     },
     // phong
     {
         path: '/admin/quan-ly-phong',
-        component: () => import('../components/Admin/Phong/index.vue')
+        component: () => import('../components/Admin/Phong/index.vue'),
+        beforeEnter: kiemTraAdmin
     },
     // chi tiet thue phong
     {
         path: '/admin/chi-tiet-thue-phong',
-        component: () => import('../components/Admin/ChiTietThuePhong/index.vue')
+        component: () => import('../components/Admin/ChiTietThuePhong/index.vue'),
+        beforeEnter: kiemTraAdmin
     },
     // Tinh Trang Phong
     {
         path: '/admin/tinh-trang-phong',
-        component: () => import('../components/Admin/TinhTrangPhong/index.vue')
+        component: () => import('../components/Admin/TinhTrangPhong/index.vue'),
+        beforeEnter: kiemTraAdmin
     },
     // nhan-vien
     {
         path: '/admin/nhan-vien',
-        component: () => import('../components/Admin/NhanVien/index.vue')
+        component: () => import('../components/Admin/NhanVien/index.vue'),
+        beforeEnter: kiemTraAdmin
     },
     // slide
     {
         path: '/admin/slide',
-        component: () => import('../components/Admin/Slide/index.vue')
+        component: () => import('../components/Admin/Slide/index.vue'),
+        beforeEnter: kiemTraAdmin
     },
     // Review
     {
         path: '/admin/review',
-        component: () => import('../components/Admin/Review/index.vue')
+        component: () => import('../components/Admin/Review/index.vue'),
+        beforeEnter: kiemTraAdmin
     },
     // Phân Quyền
     {
         path: '/admin/phan-quyen',
-        component: () => import('../components/Admin/PhanQuyen/index.vue')
+        component: () => import('../components/Admin/PhanQuyen/index.vue'),
+        beforeEnter: kiemTraAdmin
     },
     // Admin dang nhap
     {
@@ -56,6 +66,7 @@ const routes = [
     {
         path: '/admin/khach-hang',
         component: () => import('../components/Admin/KhachHang/index.vue'),
+        beforeEnter: kiemTraAdmin
     },
 
     // HomePage
@@ -80,7 +91,8 @@ const routes = [
     },
     {
         path: '/admin/bai-viet',
-        component: () => import('../components/Admin/BaiViet/index.vue')
+        component: () => import('../components/Admin/BaiViet/index.vue'),
+        beforeEnter: kiemTraAdmin
     },
 
     {
@@ -107,6 +119,12 @@ const routes = [
     {
         path: '/khach-hang/dang-nhap',
         component: () => import('../components/Client/DangNhap/index.vue'),
+        meta: {layout: 'auth'}
+    },
+
+    {
+        path: '/test',
+        component: () => import('../components/Admin/Test/index.vue'),
         meta: {layout: 'auth'}
     },
 ]
