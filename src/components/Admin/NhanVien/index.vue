@@ -34,10 +34,10 @@
                                             </div>
                                             <div class="mb-3">
                                                 <label for="">Chức Vụ</label>
-                                                <select name="" v-model="nhan_vien_create.id_chuc_vu"
-                                                    class="form-control mt-2" id="">
-                                                    <option value="1">Quản Lý</option>
-                                                    <option value="2">Nhân Viên</option>
+                                                <select name="" v-model="nhan_vien_create.id_chuc_vu" class="form-control mt-2">
+                                                    <template v-for="(v, k) in listPhanQuyen" :key="k">
+                                                        <option v-bind:value="v.id">{{ v.ten_quyen }}</option>
+                                                    </template>
                                                 </select>
                                             </div>
                                             <div class="mb-3">
@@ -285,6 +285,7 @@
 import axios from 'axios';
 import { createToaster } from "@meforma/vue-toaster";
 const toaster = createToaster({ position: "top-right" });
+import baseRequest from '../../../core/baseRequest';
 export default {
     data() {
         return {
@@ -292,12 +293,21 @@ export default {
             nhan_vien_create: {},
             nhan_vien_update: {},
             id_can_xoa: 0,
+            listPhanQuyen: [],
         }
     },
     mounted() {
         this.LayDuLieu();
+        this.layDuLieuPhanQuyen();
     },
     methods: {
+        layDuLieuPhanQuyen() {
+            axios
+                .get('http://127.0.0.1:8000/api/phan-quyen/data')
+                .then((res) => {
+                    this.listPhanQuyen = res.data.data;
+                });
+        },
         LayDuLieu() {
             axios
                 .get('http://127.0.0.1:8000/api/nhan-vien/data')
@@ -306,19 +316,19 @@ export default {
                 })
         },
         TaoMoiNhanVien() {
-            axios
-                .post('http://127.0.0.1:8000/api/nhan-vien/create', this.nhan_vien_create)
+            baseRequest
+                .post('nhan-vien/create', this.nhan_vien_create)
                 .then((res) => {
                     if (res.data.status == true) {
                         toaster.success(res.data.message)
                         this.nhan_vien_create = {},
                         this.LayDuLieu();
                     }
-                })
+                });
         },
         CapNhatNhanVien() {
-            axios
-                .put('http://127.0.0.1:8000/api/nhan-vien/update', this.nhan_vien_update)
+            baseRequest
+                .put('nhan-vien/update', this.nhan_vien_update)
                 .then((res) => {
                     if (res.data.status == true) {
                         toaster.success(res.data.message)
