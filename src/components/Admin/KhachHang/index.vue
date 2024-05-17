@@ -124,6 +124,7 @@
 import axios from 'axios';
 import { createToaster } from "@meforma/vue-toaster";
 const toaster = createToaster({ position: "top-right" });
+import baseRequest from '../../../core/baseRequest';
 export default {
     data() {
         return {
@@ -137,16 +138,16 @@ export default {
     },
     methods: {
         loadData() {
-            axios
-                .get('http://127.0.0.1:8000/api/khach-hang/data')
+            baseRequest
+                .get('khach-hang/data')
                 .then((res) => {
                     this.list_khach_hang = res.data.data;
                 })
         },
 
         doiTrangThai(xxx) {
-            axios
-                .put('http://127.0.0.1:8000/api/khach-hang/doi-trang-thai', xxx)
+            baseRequest
+                .put('khach-hang/doi-trang-thai', xxx)
                 .then((res) => {
                     if (res.data.status) {
                         toaster.success(res.data.message);
@@ -158,8 +159,8 @@ export default {
         },
 
         CapNhatKhachHang() {
-            axios
-                .put('http://127.0.0.1:8000/api/khach-hang/update', this.khach_hang_update)
+            baseRequest
+                .put('khach-hang/update', this.khach_hang_update)
                 .then((res) => {
                     if (res.data.status == true) {
                         toaster.success(res.data.message)
@@ -169,8 +170,8 @@ export default {
         },
 
         XoaKhachHang() {
-            axios
-                .delete('http://127.0.0.1:8000/api/khach-hang/delete/' + this.id_can_xoa)
+            baseRequest
+                .delete('khach-hang/delete/' + this.id_can_xoa)
                 .then((res) => {
                     if (res.data.status == true) {
                         toaster.success(res.data.message)

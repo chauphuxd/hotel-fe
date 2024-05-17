@@ -40,10 +40,14 @@
                                 </li>
                             </ul>
                             <form class="d-flex">
-                                <button class="btn btn-dark me-3 radius-30 px-4" type="button"><i
+                                <router-link to="/khach-hang/dang-nhap">
+                                    <button class="btn btn-dark me-3 radius-30 px-4" type="button"><i
                                         class="bx bx-lock"></i> Login</button>
-                                <button class="btn btn-light radius-30 px-4" type="button"><i class="bx bx-user"></i>
+                                </router-link>
+                                <router-link to="/khach-hang/dang-ky">
+                                    <button class="btn btn-light radius-30 px-4" type="button"><i class="bx bx-user"></i>
                                     Register</button>
+                                </router-link>
                             </form>
                         </div>
                     </div>

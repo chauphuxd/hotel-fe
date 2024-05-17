@@ -78,7 +78,7 @@
                                     <td class="align-middle text-center">{{ value.so_nguoi_lon }}</td>
                                     <td class="align-middle text-center">{{ value.so_tre_em }}</td>
                                     <td class="align-middle text-center">
-                                        <button v-on:click="doiTrangThai(value)" v-if="value.tinh_trang == 1" class="btn btn-warning">Tạm Dừng</button>
+                                        <button v-on:click="doiTrangThai(value)" v-if="value.tinh_trang == 0" class="btn btn-warning">Tạm Dừng</button>
                                         <button v-on:click="doiTrangThai(value)" v-else class="btn btn-primary">Hoạt Động</button>
                                     </td>
                                     <td class="align-middle text-center">
@@ -258,8 +258,8 @@ export default {
                         this.layDuLieu();
                     }
                 });
-            axios
-                .put("http://127.0.0.1:8000/api/loai-phong/update", this.loai_phong_update)
+            baseRequest
+                .post("loai-phong/update", this.loai_phong_update)
                 .then((res) => {
                     if (res.data.status == true) {
                         toaster.success(res.data.message)

@@ -47,7 +47,7 @@
                                             style="height: 200px; width: 300px;">
                                     </td>
                                     <th class="text-center align-middle">
-                                        <button v-on:click="doiTrangThai(value)" v-if="value.tinh_trang == 1" class="btn btn-warning">Tạm Dừng</button>
+                                        <button v-on:click="doiTrangThai(value)" v-if="value.tinh_trang == 0" class="btn btn-warning">Tạm Dừng</button>
                                         <button v-on:click="doiTrangThai(value)" v-else class="btn btn-primary">Hoạt Động</button>
                                     </th>
                                     <td class="text-center text-nowrap align-middle">
@@ -124,6 +124,7 @@
 import axios from 'axios';
 import { createToaster } from "@meforma/vue-toaster";
 const toaster = createToaster({ position: "top-right" });
+import baseRequest from '../../../core/baseRequest';
 export default {
     data() {
         return {
@@ -138,15 +139,15 @@ export default {
     },
     methods: {
         layDuLieu() {
-            axios
-                .get('http://127.0.0.1:8000/api/slide/data')
+            baseRequest
+                .get('slide/data')
                 .then((res) => {
                     this.ds_slide = res.data.slide;
                 })
         },
         themMoiSlide() {
-            axios
-                .post("http://127.0.0.1:8000/api/slide/create", this.slide_create)
+            baseRequest
+                .post("slide/create", this.slide_create)
                 .then((res) => {
                     if (res.data.status == true) {
                         toaster.success(res.data.message)
@@ -155,8 +156,8 @@ export default {
                 });
         },
         xoaSlide() {
-            axios
-                .delete("http://127.0.0.1:8000/api/slide/delete/" + this.id_can_xoa)
+            baseRequest
+                .delete("slide/delete/" + this.id_can_xoa)
                 .then((res) => {
                     if (res.data.status == true) {
                         toaster.success(res.data.message)
@@ -165,8 +166,8 @@ export default {
                 });
         },
         capNhatSlide() {
-            axios
-                .put("http://127.0.0.1:8000/api/slide/update", this.slide_update)
+            baseRequest
+                .put("slide/update", this.slide_update)
                 .then((res) => {
                     if (res.data.status == true) {
                         toaster.success(res.data.message)
@@ -175,8 +176,8 @@ export default {
                 });
         },
         doiTrangThai(xxx) {
-            axios
-                .put('http://127.0.0.1:8000/api/slide/doi-trang-thai', xxx)
+            baseRequest
+                .put('slide/doi-trang-thai', xxx)
                 .then((res) => {
                     if (res.data.status == true) {
                         toaster.success(res.data.message)

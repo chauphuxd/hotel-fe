@@ -145,7 +145,7 @@
                                             <img v-bind:src="v.avatar" class="user-img me-3">
                                         </td>
                                         <td class="text-center">
-                                            <button v-on:click="doiTrangThai(v)" v-if="v.tinh_trang == 1" class="btn btn-warning">Tạm Dừng</button>
+                                            <button v-on:click="doiTrangThai(v)" v-if="v.tinh_trang == 0" class="btn btn-warning">Tạm Dừng</button>
                                             <button v-on:click="doiTrangThai(v)" v-else class="btn btn-primary">Hoạt Động</button> 
                                         </td>
                                         <td class="text-center">
@@ -210,8 +210,9 @@
                                                 <label for="">Chức Vụ</label>
                                                 <select name="" v-model="nhan_vien_update.id_chuc_vu"
                                                     class="form-control mt-2" id="">
-                                                    <option value="1">Quản Lý</option>
-                                                    <option value="2">Nhân Viên</option>
+                                                    <template v-for="(v, k) in listPhanQuyen" :key="k">
+                                                        <option v-bind:value="v.id">{{ v.ten_quyen }}</option>
+                                                    </template>
                                                 </select>
                                             </div>
                                             <div class="mb-3">
@@ -270,8 +271,7 @@
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary"
                                         data-bs-dismiss="modal">Close</button>
-                                    <button v-on:click="CapNhatNhanVien()" type="button" class="btn btn-primary" data-bs-dismiss="modal">Thêm
-                                        Mới</button>
+                                    <button v-on:click="CapNhatNhanVien()" type="button" class="btn btn-primary" data-bs-dismiss="modal">Cập Nhật</button>
                                 </div>
                             </div>
                         </div>
@@ -302,15 +302,15 @@ export default {
     },
     methods: {
         layDuLieuPhanQuyen() {
-            axios
-                .get('http://127.0.0.1:8000/api/phan-quyen/data')
+            baseRequest
+                .get('phan-quyen/data')
                 .then((res) => {
                     this.listPhanQuyen = res.data.data;
                 });
         },
         LayDuLieu() {
-            axios
-                .get('http://127.0.0.1:8000/api/nhan-vien/data')
+            baseRequest
+                .get('nhan-vien/data')
                 .then((res) => {
                     this.ds_nhan_vien = res.data.nhan_vien;
                 })
@@ -337,8 +337,8 @@ export default {
                 })
         },
         XoaNhanVien() {
-            axios
-                .delete('http://127.0.0.1:8000/api/nhan-vien/delete/' + this.id_can_xoa)
+            baseRequest
+                .delete('nhan-vien/delete/' + this.id_can_xoa)
                 .then((res) => {
                     if (res.data.status == true) {
                         toaster.success(res.data.message)
@@ -347,8 +347,8 @@ export default {
                 })
         },
         doiTrangThai(xxx) {
-            axios
-                .put('http://127.0.0.1:8000/api/nhan-vien/doi-trang-thai', xxx)
+            baseRequest
+                .put('nhan-vien/doi-trang-thai', xxx)
                 .then((res) => {
                     if (res.data.status == true) {
                         toaster.success(res.data.message)

@@ -62,7 +62,7 @@
                                     <td class="align-middle">{{ value.don_vi_tinh }}</td>
                                     <td class="align-middle">{{ value.ghi_chu }}</td>
                                     <td class="align-middle text-center">
-                                        <button v-on:click="doiTrangThai(value)" v-if="value.tinh_trang == 1" class="btn btn-warning">Tạm Dừng</button>
+                                        <button v-on:click="doiTrangThai(value)" v-if="value.tinh_trang == 0" class="btn btn-warning">Tạm Dừng</button>
                                         <button  v-on:click="doiTrangThai(value)" v-else class="btn btn-primary">Hoạt Động</button>
                                     </td>
                                     <td class="text-center text-nowrap align-middle">
@@ -155,6 +155,7 @@
 import axios from 'axios';
 import { createToaster } from "@meforma/vue-toaster";
 const toaster = createToaster({ position: "top-right" });
+import baseRequest from '../../../core/baseRequest';
 export default {
     data() {
         return {
@@ -169,15 +170,15 @@ export default {
     },
     methods: {
         layDuLieu() {
-            axios
-                .get('http://127.0.0.1:8000/api/dich-vu/data')
+            baseRequest
+                .get('dich-vu/data')
                 .then((res) => {
                     this.ds_dich_vu = res.data.dich_vu;
                 })
         },
         themMoiDichVu() {
-            axios
-                .post("http://127.0.0.1:8000/api/dich-vu/create", this.dich_vu_create)
+            baseRequest
+                .post("dich-vu/create", this.dich_vu_create)
                 .then((res) => {
                     if (res.data.status == true) {
                         toaster.success(res.data.message)
@@ -186,8 +187,8 @@ export default {
                 });
         },
         xoaDichVu() {
-            axios
-                .delete("http://127.0.0.1:8000/api/dich-vu/delete/" + this.id_can_xoa)
+            baseRequest
+                .delete("dich-vu/delete/" + this.id_can_xoa)
                 .then((res) => {
                     if (res.data.status == true) {
                         toaster.success(res.data.message)
@@ -196,8 +197,8 @@ export default {
                 });
         },
         capNhatDichVu() {
-            axios
-                .put("http://127.0.0.1:8000/api/dich-vu/update", this.dich_vu_update)
+            baseRequest
+                .put("dich-vu/update", this.dich_vu_update)
                 .then((res) => {
                     if (res.data.status == true) {
                         toaster.success(res.data.message)
@@ -206,8 +207,8 @@ export default {
                 });
         },
         doiTrangThai(xxx) {
-            axios
-                .put('http://127.0.0.1:8000/api/dich-vu/doi-trang-thai', xxx)
+            baseRequest
+                .put('dich-vu/doi-trang-thai', xxx)
                 .then((res) => {
                     if (res.data.status == true) {
                         toaster.success(res.data.message)

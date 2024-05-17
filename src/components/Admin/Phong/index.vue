@@ -88,7 +88,7 @@
                                     <td class="align-middle">{{ value.ten_phong }}</td>
                                     <td class="align-middle text-end">{{ value.gia_mac_dinh }} đ</td>
                                     <td class="align-middle text-center">
-                                        <button v-on:click="doiTrangThai(value)" v-if="value.tinh_trang == 1" class="btn btn-warning">Tạm Dừng</button>
+                                        <button v-on:click="doiTrangThai(value)" v-if="value.tinh_trang == 0" class="btn btn-warning">Tạm Dừng</button>
                                         <button v-on:click="doiTrangThai(value)" v-else class="btn btn-primary">Hoạt Động</button>
                                     </td>
                                     <td class="align-middle">{{ value.ten_loai_phong }}</td>
@@ -184,6 +184,7 @@
 import axios from 'axios';
 import { createToaster } from "@meforma/vue-toaster";
 const toaster = createToaster({ position: "top-right" });
+import baseRequest from '../../../core/baseRequest';
 export default {
     data() {
         return {
@@ -200,22 +201,22 @@ export default {
     },
     methods: {
         layDuLieuLoaiPhong() {
-            axios
-                .get('http://127.0.0.1:8000/api/loai-phong/data')
+            baseRequest
+                .get('loai-phong/data')
                 .then((res) => {
                     this.ds_loai_phong = res.data.loai_phong;
                 })
         },
         layDuLieuPhong() {
-            axios
-                .get('http://127.0.0.1:8000/api/phong/data')
+            baseRequest
+                .get('phong/data')
                 .then((res) => {
                     this.ds_phong = res.data.phong;
                 })
         },
         themMoiPhong() {
-            axios
-                .post("http://127.0.0.1:8000/api/phong/create", this.phong_create)
+            baseRequest
+                .post("phong/create", this.phong_create)
                 .then((res) => {
                     if (res.data.status == true) {
                         toaster.success(res.data.message)
@@ -224,8 +225,8 @@ export default {
                 });
         },
         xoaPhong() {
-            axios
-                .delete("http://127.0.0.1:8000/api/phong/delete/" + this.id_can_xoa)
+            baseRequest
+                .delete("phong/delete/" + this.id_can_xoa)
                 .then((res) => {
                     if (res.data.status == true) {
                         toaster.success(res.data.message)
@@ -234,8 +235,8 @@ export default {
                 });
         },
         capNhatPhong() {
-            axios
-                .put("http://127.0.0.1:8000/api/phong/update", this.phong_update)
+            baseRequest
+                .put("phong/update", this.phong_update)
                 .then((res) => {
                     if (res.data.status == true) {
                         toaster.success(res.data.message)
@@ -244,8 +245,8 @@ export default {
                 });
         },
         taoChiTietThuePhong(payload) {
-            axios
-                .post("http://127.0.0.1:8000/api/chi-tiet-thue-phong/create", payload)
+            baseRequest
+                .post("chi-tiet-thue-phong/create", payload)
                 .then((res) => {
                     if (res.data.status) {
                         toaster.success(res.data.message)
@@ -253,8 +254,8 @@ export default {
                 });
         },
         doiTrangThai(xxx) {
-            axios
-                .put('http://127.0.0.1:8000/api/phong/doi-trang-thai', xxx)
+            baseRequest
+                .put('phong/doi-trang-thai', xxx)
                 .then((res) => {
                     if (res.data.status == true) {
                         toaster.success(res.data.message)
