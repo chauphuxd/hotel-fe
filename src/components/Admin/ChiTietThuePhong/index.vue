@@ -93,6 +93,7 @@
 import axios from 'axios';
 import { createToaster } from "@meforma/vue-toaster";
 const toaster = createToaster({ position: "top-right" });
+import baseRequest from '../../../core/baseRequest';
 export default {
     data() {
         return {
@@ -107,23 +108,23 @@ export default {
     },
     methods: {
         layDuLieuThuePhong() {
-            axios
-                .get('http://127.0.0.1:8000/api/chi-tiet-thue-phong/data')
+            baseRequest
+                .get('chi-tiet-thue-phong/data')
                 .then((res) => {
                     this.ds_chi_tiet_thue_phong = res.data.data;
                 })
         },
         layDuLieuPhong() {
-            axios
-                .get('http://127.0.0.1:8000/api/phong/data')
+            baseRequest
+                .get('phong/data')
                 .then((res) => {
                     this.ds_phong = res.data.phong;
 
                 })
         },
         capNhatChiTietThuePhong() {
-            axios
-                .put("http://127.0.0.1:8000/api/chi-tiet-thue-phong/update", this.update_chi_tiet_thue_phong)
+            baseRequest
+                .put("chi-tiet-thue-phong/update", this.update_chi_tiet_thue_phong)
                 .then((res) => {
                     if (res.data.status == true) {
                         toaster.success(res.data.message)

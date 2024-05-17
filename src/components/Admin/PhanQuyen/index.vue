@@ -196,6 +196,7 @@
 import axios from 'axios';
 import { createToaster } from "@meforma/vue-toaster";
 const toaster = createToaster({ position: "top-right" });
+import baseRequest from '../../../core/baseRequest';
 export default {
     data() {
         return {
@@ -212,22 +213,22 @@ export default {
     },
     methods: {
         layDuLieuChucNang() {
-            axios
-                .get('http://127.0.0.1:8000/api/chuc-nang/data')
+            baseRequest
+                .get('chuc-nang/data')
                 .then((res) => {
                     this.listChucNang = res.data.data;
                 });
         },
         layDuLieuPhanQuyen() {
-            axios
-                .get('http://127.0.0.1:8000/api/phan-quyen/data')
+            baseRequest
+                .get('phan-quyen/data')
                 .then((res) => {
                     this.listPhanQuyen = res.data.data;
                 });
         },
         themMoiPhanQuyen() {
-            axios
-                .post('http://127.0.0.1:8000/api/phan-quyen/create', this.create_quyen)
+            baseRequest
+                .post('phan-quyen/create', this.create_quyen)
                 .then((res) => {
                     if (res.data.status) {
                         toaster.success('Thông báo<br>' + res.data.message);
@@ -237,8 +238,8 @@ export default {
                 });
         },
         xoaPhanQuyen() {
-            axios
-                .delete('http://127.0.0.1:8000/api/phan-quyen/delete/' + this.delete_quyen.id)
+            baseRequest
+                .delete('phan-quyen/delete/' + this.delete_quyen.id)
                 .then((res) => {
                     if (res.data.status) {
                         toaster.success('Thông báo<br>' + res.data.message);
@@ -249,8 +250,8 @@ export default {
                 })
         },
         capNhatPhanQuyen() {
-            axios
-                .put('http://127.0.0.1:8000/api/phan-quyen/update', this.update_quyen)
+            baseRequest
+                .put('phan-quyen/update', this.update_quyen)
                 .then((res) => {
                     if (res.data.status) {
                         toaster.success('Thông báo<br>' + res.data.message);

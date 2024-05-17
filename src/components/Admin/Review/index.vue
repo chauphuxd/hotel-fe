@@ -137,6 +137,7 @@
 import axios from 'axios';
 import { createToaster } from "@meforma/vue-toaster";
 const toaster = createToaster({ position: "top-right" });
+import baseRequest from '../../../core/baseRequest';
 export default {
     data() {
         return {
@@ -151,15 +152,15 @@ export default {
     },
     methods: {
         layDuLieu() {
-            axios
-                .get('http://127.0.0.1:8000/api/review/data')
+            baseRequest
+                .get('review/data')
                 .then((res) => {
                     this.ds_review = res.data.review;
                 })
         },
         themMoiReview() {
-            axios
-                .post("http://127.0.0.1:8000/api/review/create", this.review_create)
+            baseRequest
+                .post("review/create", this.review_create)
                 .then((res) => {
                     if (res.data.status == true) {
                         toaster.success(res.data.message)
@@ -168,8 +169,8 @@ export default {
                 });
         },
         xoaReview() {
-            axios
-                .delete("http://127.0.0.1:8000/api/review/delete/" + this.id_can_xoa)
+            baseRequest
+                .delete("review/delete/" + this.id_can_xoa)
                 .then((res) => {
                     if (res.data.status == true) {
                         toaster.success(res.data.message)
@@ -178,8 +179,8 @@ export default {
                 });
         },
         capNhatReview() {
-            axios
-                .put("http://127.0.0.1:8000/api/review/update", this.review_update)
+            baseRequest
+                .put("review/update", this.review_update)
                 .then((res) => {
                     if (res.data.status == true) {
                         toaster.success(res.data.message)

@@ -55,7 +55,23 @@ export default {
             login   :{},
         }
     },
+    mounted() {
+        this.checkLogin();
+    },
     methods: {
+        checkLogin() {
+            axios
+                .post('http://127.0.0.1:8000/api/kiem-tra-token-admin', {}, {
+                    headers : {
+                        Authorization : 'Bearer ' +  localStorage.getItem("token_admin")
+                    }
+                })
+                .then((res) => {
+                    if(res.data.status) {
+                        this.$router.push('/admin/phan-quyen');
+                    }
+                });
+        },
         dangNhap() {
             axios
                 .post("http://127.0.0.1:8000/api/admin/dang-nhap", this.login)

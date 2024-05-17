@@ -78,7 +78,7 @@
                                     <td class="align-middle text-center">{{ value.so_nguoi_lon }}</td>
                                     <td class="align-middle text-center">{{ value.so_tre_em }}</td>
                                     <td class="align-middle text-center">
-                                        <button v-on:click="doiTrangThai(value)" v-if="value.tinh_trang == 1" class="btn btn-warning">Tạm Dừng</button>
+                                        <button v-on:click="doiTrangThai(value)" v-if="value.tinh_trang == 0" class="btn btn-warning">Tạm Dừng</button>
                                         <button v-on:click="doiTrangThai(value)" v-else class="btn btn-primary">Hoạt Động</button>
                                     </td>
                                     <td class="align-middle text-center">
@@ -205,6 +205,7 @@
 import axios from 'axios';
 import { createToaster } from "@meforma/vue-toaster";
 const toaster = createToaster({ position: "top-right" });
+import baseRequest from '../../../core/baseRequest';
 export default {
     data() {
         return {
@@ -220,12 +221,8 @@ export default {
     },
     methods: {
         layDuLieu() {
-            axios
-                .get('http://127.0.0.1:8000/api/loai-phong/data', {
-                    headers : {
-                        Authorization : 'Bearer ' +  localStorage.getItem("token_admin")
-                    }
-                })
+            baseRequest
+                .get('loai-phong/data')
                 .then((res) => {
                     if(res.data.status) {
                         this.ds_phong = res.data.loai_phong;
@@ -233,8 +230,8 @@ export default {
                 })
         },
         themMoiLoaiPhong() {
-            axios
-                .post("http://127.0.0.1:8000/api/loai-phong/create", this.loai_phong_create)
+            baseRequest
+                .post("loai-phong/create", this.loai_phong_create)
                 .then((res) => {
                     if (res.data.status == true) {
                         toaster.success(res.data.message)
@@ -243,8 +240,8 @@ export default {
                 });
         },
         xoaLoaiPhong() {
-            axios
-                .delete("http://127.0.0.1:8000/api/loai-phong/delete/" + this.id_can_xoa)
+            baseRequest
+                .delete("loai-phong/delete/" + this.id_can_xoa)
                 .then((res) => {
                     if (res.data.status == true) {
                         toaster.success(res.data.message)
@@ -253,8 +250,16 @@ export default {
                 });
         },
         capNhatLoaiPhong() {
-            axios
-                .put("http://127.0.0.1:8000/api/loai-phong/update", this.loai_phong_update)
+            baseRequest
+                .put("loai-phong/update", this.loai_phong_update)
+                .then((res) => {
+                    if (res.data.status == true) {
+                        toaster.success(res.data.message)
+                        this.layDuLieu();
+                    }
+                });
+            baseRequest
+                .post("loai-phong/update", this.loai_phong_update)
                 .then((res) => {
                     if (res.data.status == true) {
                         toaster.success(res.data.message)
@@ -263,8 +268,8 @@ export default {
                 });
         },
         doiTrangThai(xxx) {
-            axios
-                .put('http://127.0.0.1:8000/api/loai-phong/doi-trang-thai', xxx)
+            baseRequest
+                .put('loai-phong/doi-trang-thai', xxx)
                 .then((res) => {
                     if (res.data.status == true) {
                         toaster.success(res.data.message)

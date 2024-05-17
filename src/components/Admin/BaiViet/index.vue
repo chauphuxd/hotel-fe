@@ -186,6 +186,7 @@
 import axios from 'axios';
 import { createToaster } from "@meforma/vue-toaster";
 const toaster = createToaster({ position: "top-right" });
+import baseRequest from '../../../core/baseRequest';
 export default {
     data() {
         return {
@@ -200,15 +201,15 @@ export default {
     },
     methods: {
         layDuLieu() {
-            axios
-                .get('http://127.0.0.1:8000/api/bai-viet/data')
+            baseRequest
+                .get('bai-viet/data')
                 .then((res) => {
                     this.ds_bai_viet = res.data.bai_viet;
                 })
         },
         themMoiBaiViet() {
-            axios
-                .post("http://127.0.0.1:8000/api/bai-viet/create", this.bai_viet_create)
+            baseRequest
+                .post("bai-viet/create", this.bai_viet_create)
                 .then((res) => {
                     if (res.data.status == true) {
                         toaster.success(res.data.message)
@@ -217,8 +218,8 @@ export default {
                 });
         },
         xoaBaiViet() {
-            axios
-                .delete("http://127.0.0.1:8000/api/bai-viet/delete/" + this.id_can_xoa)
+            baseRequest
+                .delete("bai-viet/delete/" + this.id_can_xoa)
                 .then((res) => {
                     if (res.data.status == true) {
                         toaster.success(res.data.message)
@@ -227,8 +228,8 @@ export default {
                 });
         },
         capNhatBaiViet() {
-            axios
-                .put("http://127.0.0.1:8000/api/bai-viet/update", this.bai_viet_update)
+            baseRequest
+                .put("bai-viet/update", this.bai_viet_update)
                 .then((res) => {
                     if (res.data.status == true) {
                         toaster.success(res.data.message)
@@ -237,8 +238,8 @@ export default {
                 });
         },
         doiTrangThai(xxx) {
-            axios
-                .put('http://127.0.0.1:8000/api/bai-viet/doi-trang-thai', xxx)
+            baseRequest
+                .put('bai-viet/doi-trang-thai', xxx)
                 .then((res) => {
                     if (res.data.status) {
                         toaster.success(res.data.message);
