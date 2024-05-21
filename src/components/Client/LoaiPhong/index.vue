@@ -7,11 +7,11 @@
                         <div class="row">
                             <div class="col mt-2">
                                 <label class="form-label">Ngày Đến</label>
-                                <input v-model="tt_dat_phong.ngay_den" type="date" class="form-control">
+                                <input v-bind:min="tt_dat_phong.min_ngay_den" v-on:change="doiNgayDen()" v-model="tt_dat_phong.ngay_den" type="date" class="form-control">
                             </div>
                             <div class="col mt-2">
                                 <label class="form-label">Ngày Đi</label>
-                                <input v-model="tt_dat_phong.ngay_di" type="date" class="form-control">
+                                <input v-bind:min="tt_dat_phong.min_ngay_di" v-model="tt_dat_phong.ngay_di" type="date" class="form-control">
                             </div>
                             <div class="col mt-2">
                                 <label class="form-label">Số Phòng</label>
@@ -252,8 +252,24 @@ export default {
         this.tt_dat_phong.tre_em = this.$route.params.tre_em;
 
         this.layDanhSachPhong();
+        this.getToday();
     },
     methods: {
+        getToday() {
+            var today = new Date();
+            var dd = String(today.getDate()).padStart(2, '0');
+            var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+            var yyyy = today.getFullYear();
+            today = yyyy + '-' + mm + '-' + dd;
+            this.tt_dat_phong.min_ngay_di  = today;
+            this.tt_dat_phong.min_ngay_den = today;
+        },
+        doiNgayDen() {
+            this.tt_dat_phong.min_ngay_di  = this.tt_dat_phong.ngay_den;
+            if(this.tt_dat_phong.ngay_di < this.tt_dat_phong.ngay_den) {
+                this.tt_dat_phong.ngay_di = this.tt_dat_phong.ngay_den;
+            }
+        },
         inLog() {
             this.info.so_phong  = 0;
             this.info.so_lon    = 0;
