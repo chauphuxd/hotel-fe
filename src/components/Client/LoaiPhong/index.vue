@@ -36,16 +36,77 @@
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col-lg-12 mt-2">
+                <div class="card">
+                    <div class="card-body">
+                        <table class="table table-bordered">
+                            <tbody>
+                                <tr>
+                                    <th class="text-center">Tổng Phòng Đặt</th>
+                                    <th class="text-center">Số Người Lớn Tối Đa</th>
+                                    <th class="text-center">Số Người Trẻ Em Tối Đa</th>
+                                    <th class="text-center">Số Tiền Cần Thanh Toán</th>
+                                    <th class="text-center">Action</th>
+                                </tr>
+                                <tr>
+                                    <td class="align-middle text-center">
+                                        <h5 class="text-danger" v-if="tt_dat_phong.so_phong > info.so_phong">
+                                            {{ info.so_phong }} <i>Chưa đủ số phòng đặt</i>
+                                        </h5>
+                                        <h5 v-else>
+                                            {{ info.so_phong }}
+                                        </h5>
+                                    </td>
+                                    <td class="align-middle text-center">
+                                        <h5 class="text-danger" v-if="tt_dat_phong.nguoi_lon > info.so_lon">
+                                            Phòng đặt còn thiếu {{ tt_dat_phong.nguoi_lon - info.so_lon }} người lớn
+                                        </h5>
+                                        <h5 v-else>
+                                            {{ info.so_lon }}
+                                        </h5>
+                                    </td>
+                                    <td class="align-middle text-center">
+                                        <h5 class="text-danger" v-if="tt_dat_phong.tre_em > info.so_tre">
+                                            Phòng đặt còn thiếu {{ tt_dat_phong.tre_em - info.so_tre }} trẻ em
+                                        </h5>
+                                        <h5 v-else>
+                                            {{ info.so_tre }}
+                                        </h5>
+                                    </td>
+                                    <td class="align-middle text-end">
+                                        <h5>
+                                            {{ info.so_tien }}
+                                        </h5>
+                                    </td>
+                                    <td class="text-center">
+                                        <button class="btn btn-primary">Đặt Phòng</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
         <template v-for="(value, index) in ds_loai_phong" :key="index">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-body">
                             <div class="row">
-                                <div class="col-lg-12 d-flex justify-content-start">
+                                <div class="col-lg-6 d-flex justify-content-start">
                                     <b class="mt-2">
                                         <h4>Loại {{ value.ten_loai_phong }}</h4>
                                     </b>
+                                </div>
+                                <div class="col-lg-6 d-flex justify-content-end">
+                                    <h5>
+                                        <div class="form-check mt-2">
+                                            <input v-model="value.chon_phong" v-on:change="inLog()" class="form-check-input" type="checkbox">
+                                            <label class="mt-1 form-check-label">Chọn Phòng</label>
+                                        </div>
+                                    </h5>
                                 </div>
                             </div>
                             <hr>
@@ -106,11 +167,11 @@
                                                         <div class="input-group d-flex justify-content-center flex-row mb-3 mt-5 mb-5"
                                                             style="flex-wrap: nowrap;">
                                                             <button class="btn btn-outline-secondary"
-                                                                type="button">-</button>
-                                                            <input type="text" value="0"
+                                                                type="button" v-on:click="tru(value)">-</button>
+                                                            <input type="text" v-model="value.so_phong_dat"
                                                                 class="form-control text-center" style="width: 50px;">
                                                             <button class="btn btn-outline-secondary"
-                                                                type="button">+</button>
+                                                                type="button" v-on:click="value.so_phong_dat++, inLog()">+</button>
                                                         </div>
 
                                                     </td>
@@ -178,8 +239,9 @@ const toaster = createToaster({ position: "top-right" });
 export default {
     data() {
         return {
-            tt_dat_phong: {},
+            tt_dat_phong : {},
             ds_loai_phong: [],
+            info         : {so_phong : 0, so_tre : 0, so_lon : 0, so_tien : 0},
         }
     },
     mounted() {
@@ -192,11 +254,30 @@ export default {
         this.layDanhSachPhong();
     },
     methods: {
+        inLog() {
+            this.info.so_phong  = 0;
+            this.info.so_lon    = 0;
+            this.info.so_tre    = 0;
+            this.ds_loai_phong.forEach((value, index) => {
+                if(value.chon_phong && value.chon_phong == true) {
+                    this.info.so_phong = this.info.so_phong + value.so_phong_dat;
+                    this.info.so_lon   = this.info.so_lon + value.so_phong_dat * value.so_nguoi_lon;
+                    this.info.so_tre   = this.info.so_tre + value.so_phong_dat * value.so_tre_em;
+                }
+            })
+        },
+        tru(value) {
+            value.so_phong_dat = Math.max(value.so_phong_dat - 1, 0);
+            this.inLog();
+        },
         layDanhSachPhong() {
             axios
                 .get('http://127.0.0.1:8000/api/loai-phong/data')
                 .then((res) => {
                     this.ds_loai_phong = res.data.loai_phong;
+                    this.ds_loai_phong.forEach((v, k) => {
+                        v.so_phong_dat = 0;
+                    });
                 })
         }
     },

@@ -111,11 +111,11 @@
                     <div class="row">
                         <div class="col">
                             <label class="form-label">Ngày Đến</label>
-                            <input v-model="tt_dat.ngay_den" type="date" class="form-control">
+                            <input v-bind:min="tt_dat.min_ngay_den" v-on:change="doiNgayDen()" v-model="tt_dat.ngay_den" type="date" class="form-control">
                         </div>
                         <div class="col">
                             <label class="form-label">Ngày Đi</label>
-                            <input v-model="tt_dat.ngay_di" type="date" class="form-control">
+                            <input v-bind:min="tt_dat.min_ngay_di" v-model="tt_dat.ngay_di" type="date" class="form-control">
                         </div>
                         <div class="col">
                             <label class="form-label">Số Phòng</label>
@@ -573,8 +573,24 @@ export default {
     mounted() {
         this.layDuLieuReview();
         this.layDuLieuSlide();
+        this.getToday();
     },
     methods: {
+        getToday() {
+            var today = new Date();
+            var dd = String(today.getDate()).padStart(2, '0');
+            var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+            var yyyy = today.getFullYear();
+            today = yyyy + '-' + mm + '-' + dd;
+            this.tt_dat.min_ngay_di  = today;
+            this.tt_dat.min_ngay_den = today;
+        },
+        doiNgayDen() {
+            this.tt_dat.min_ngay_di  = this.tt_dat.ngay_den;
+            if(this.tt_dat.ngay_di < this.tt_dat.ngay_den) {
+                this.tt_dat.ngay_di = this.tt_dat.ngay_den;
+            }
+        },
         layDuLieuReview() {
             axios
                 .get('http://127.0.0.1:8000/api/review/data')
