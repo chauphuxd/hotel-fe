@@ -29,7 +29,7 @@
                                     placeholder="Nhập số trẻ em">
                             </div>
                             <div class="col mt-2">
-                                <button class="btn btn-warning w-100" style="margin-top: 28px;">Tìm Kiếm</button>
+                                <button v-on:click="layDanhSachPhong()" class="btn btn-warning w-100" style="margin-top: 28px;">Tìm Kiếm</button>
                             </div>
                         </div>
                     </div>
@@ -171,7 +171,7 @@
                                                             <input type="text" v-model="value.so_phong_dat"
                                                                 class="form-control text-center" style="width: 50px;">
                                                             <button class="btn btn-outline-secondary"
-                                                                type="button" v-on:click="value.so_phong_dat++, inLog()">+</button>
+                                                                type="button" v-on:click="cong(value)">+</button>
                                                         </div>
 
                                                     </td>
@@ -206,7 +206,7 @@
                                                         <!-- <i>Vượt quá giới hạn phòng</i> -->
                                                     </td>
                                                     <td class="text-end">
-                                                        <p class="text-success text-center"><b class="fs-5">599.999</b>
+                                                        <p class="text-success text-center"><b class="fs-5">{{ value.gia_trung_binh }}</b>
                                                             đ
                                                         </p>
                                                         <i class="text-wrap">Giá mỗi đêm chưa bao gồm thuế và phí</i>
@@ -235,6 +235,7 @@
 <script>
 import axios from 'axios';
 import { createToaster } from "@meforma/vue-toaster";
+import baseRequest from '../../../core/baseRequest';
 const toaster = createToaster({ position: "top-right" });
 export default {
     data() {
@@ -286,11 +287,15 @@ export default {
             value.so_phong_dat = Math.max(value.so_phong_dat - 1, 0);
             this.inLog();
         },
+        cong(value) {
+            value.so_phong_dat = Math.min(value.so_phong_dat + 1, value.so_phong_trong);
+            this.inLog()
+        },
         layDanhSachPhong() {
-            axios
-                .get('http://127.0.0.1:8000/api/client/loai-phong/data')
+            baseRequest
+                .post('danh-sach-phong-dat', this.tt_dat_phong)
                 .then((res) => {
-                    this.ds_loai_phong = res.data.loai_phong;
+                    this.ds_loai_phong = res.data.data;
                     this.ds_loai_phong.forEach((v, k) => {
                         v.so_phong_dat = 0;
                     });
