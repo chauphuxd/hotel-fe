@@ -138,7 +138,7 @@
                                         <td>{{ v.ho_va_ten }}</td>
                                         <td class="text-center">{{ v.ngay_sinh }}</td>
                                         <td class="text-center">{{ v.luong_co_ban }}</td>
-                                        <td class="text-center">{{ v.id_chuc_vu }}</td>
+                                        <td class="text-center">{{ v.ten_quyen }}</td>
                                         <td class="text-center">{{ v.ngay_bat_dau }}</td>
                                         <td>{{ v.email }}</td>
                                         <td class="text-center">
@@ -146,7 +146,7 @@
                                         </td>
                                         <td class="text-center">
                                             <button v-on:click="doiTrangThai(v)" v-if="v.tinh_trang == 0" class="btn btn-warning">Tạm Dừng</button>
-                                            <button v-on:click="doiTrangThai(v)" v-else class="btn btn-primary">Hoạt Động</button> 
+                                            <button v-on:click="doiTrangThai(v)" v-else class="btn btn-primary">Hoạt Động</button>
                                         </td>
                                         <td class="text-center">
                                             <button v-on:click="Object.assign(nhan_vien_update, v)" data-bs-toggle="modal"

@@ -17,7 +17,7 @@
                             <input v-model="tt_dat.so_phong" type="number" class="form-control" placeholder="Nhập số lượng phòng">
                         </div>
                         <div class="col">
-                            <label class="form-label">Số Người</label>
+                            <label class="form-label">Số Người Lớn</label>
                             <input v-model="tt_dat.nguoi_lon" type="number" class="form-control" placeholder="Nhập số người lớn">
                         </div>
                         <div class="col">
@@ -75,7 +75,7 @@ export default {
     methods: {
         LaydulieuLoaiPhong() {
             axios
-                .get('http://127.0.0.1:8000/api/loai-phong/data')
+                .get('http://127.0.0.1:8000/api/client/loai-phong/data')
                 .then((res) => {
                     this.ds_loai_phong = res.data.loai_phong;
                 })

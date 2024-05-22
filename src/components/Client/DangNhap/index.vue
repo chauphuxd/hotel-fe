@@ -68,10 +68,11 @@ export default {
                     else {
                         toaster.error(res.data.message)
                     }
-                });
+                })
+                ;
         },
     },
-    
+
 }
 </script>
 <style></style>
