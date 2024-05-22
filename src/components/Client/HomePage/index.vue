@@ -122,7 +122,7 @@
                             <input v-model="tt_dat.so_phong" type="number" class="form-control" placeholder="Nhập số lượng phòng">
                         </div>
                         <div class="col">
-                            <label class="form-label">Số Người</label>
+                            <label class="form-label">Số Người Lớn</label>
                             <input v-model="tt_dat.nguoi_lon" type="number" class="form-control" placeholder="Nhập số người lớn">
                         </div>
                         <div class="col">
@@ -571,8 +571,8 @@ export default {
         }
     },
     mounted() {
-        this.layDuLieuReview();
-        this.layDuLieuSlide();
+        this.layDuLieuHomepage();
+        // this.layDuLieuSlide();
         this.getToday();
     },
     methods: {
@@ -591,20 +591,28 @@ export default {
                 this.tt_dat.ngay_di = this.tt_dat.ngay_den;
             }
         },
-        layDuLieuReview() {
+        layDuLieuHomepage() {
             axios
-                .get('http://127.0.0.1:8000/api/review/data')
+                .get('http://127.0.0.1:8000/api/homepage/data')
                 .then((res) => {
-                    this.ds_review = res.data.review;
+                    this.ds_review = res.data.dataReview;
+                    this.ds_slide = res.data.dataSlide;
                 })
         },
-        layDuLieuSlide() {
-            axios
-                .get('http://127.0.0.1:8000/api/slide/data')
-                .then((res) => {
-                    this.ds_slide = res.data.slide;
-                })
-        },
+        // layDuLieuReview() {
+        //     axios
+        //         .get('http://127.0.0.1:8000/api/review/data')
+        //         .then((res) => {
+        //             this.ds_review = res.data.review;
+        //         })
+        // },
+        // layDuLieuSlide() {
+        //     axios
+        //         .get('http://127.0.0.1:8000/api/slide/data')
+        //         .then((res) => {
+        //             this.ds_slide = res.data.slide;
+        //         })
+        // },
         chuyenTrang() {
             this.$router.push({
                 name    :   "datPhong",

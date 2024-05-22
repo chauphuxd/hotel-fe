@@ -19,7 +19,7 @@
                                     placeholder="Nhập số lượng phòng">
                             </div>
                             <div class="col mt-2">
-                                <label class="form-label">Số Người</label>
+                                <label class="form-label">Số Người Lớn</label>
                                 <input v-model="tt_dat_phong.nguoi_lon" type="number" class="form-control"
                                     placeholder="Nhập số người lớn">
                             </div>
@@ -288,7 +288,7 @@ export default {
         },
         layDanhSachPhong() {
             axios
-                .get('http://127.0.0.1:8000/api/loai-phong/data')
+                .get('http://127.0.0.1:8000/api/client/loai-phong/data')
                 .then((res) => {
                     this.ds_loai_phong = res.data.loai_phong;
                     this.ds_loai_phong.forEach((v, k) => {

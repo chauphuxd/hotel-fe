@@ -91,7 +91,7 @@ export default {
     methods: {
         layDuLieuBaiViet() {
             axios
-                .get('http://127.0.0.1:8000/api/bai-viet/data')
+                .get('http://127.0.0.1:8000/api/client/bai-viet/data')
                 .then((res) => {
                     this.ds_bai_viet = res.data.bai_viet;
                 })

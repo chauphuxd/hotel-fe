@@ -34,7 +34,7 @@
                                     </div>
                                     <div class="col-6">
                                         <label class="form-label">Mật Khẩu</label>
-                                        <input type="password" class="form-control" v-model="data_dang_ky.password"> 
+                                        <input type="password" class="form-control" v-model="data_dang_ky.password">
                                     </div>
                                     <div class="col-6">
                                         <label class="form-label">Nhập Lại Mật Khẩu</label>
@@ -65,11 +65,11 @@ const toaster = createToaster({ position: "top-right" });
 export default {
     data() {
         return {
-            data_dang_ky            : {}  
+            data_dang_ky            : {}
         }
     },
     mounted() {
-        
+
     },
     methods: {
         dangKy() {
@@ -83,6 +83,12 @@ export default {
                         toaster.error(res.data.message)
                     }
                 })
+                .catch((res) => {
+                        var result = Object.entries(res.response.data.errors);
+                        result.forEach((v, k) => {
+                            toaster.error(v[1][0]);
+                        });
+                });
         }
     },
 }
