@@ -593,7 +593,7 @@ export default {
         },
         layDuLieuHomepage() {
             axios
-                .get('http://127.0.0.1:8000/api/homepage/data')
+                .get('https://hotel-be.dzfullstack.edu.vn/api/homepage/data')
                 .then((res) => {
                     this.ds_review = res.data.dataReview;
                     this.ds_slide = res.data.dataSlide;
@@ -601,14 +601,14 @@ export default {
         },
         // layDuLieuReview() {
         //     axios
-        //         .get('http://127.0.0.1:8000/api/review/data')
+        //         .get('https://hotel-be.dzfullstack.edu.vn/api/review/data')
         //         .then((res) => {
         //             this.ds_review = res.data.review;
         //         })
         // },
         // layDuLieuSlide() {
         //     axios
-        //         .get('http://127.0.0.1:8000/api/slide/data')
+        //         .get('https://hotel-be.dzfullstack.edu.vn/api/slide/data')
         //         .then((res) => {
         //             this.ds_slide = res.data.slide;
         //         })
