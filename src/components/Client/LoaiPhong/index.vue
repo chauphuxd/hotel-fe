@@ -76,11 +76,11 @@
                                     </td>
                                     <td class="align-middle text-end">
                                         <h5>
-                                            {{ info.so_tien }}
+                                            {{ formatVND(info.so_tien) }}
                                         </h5>
                                     </td>
                                     <td class="text-center">
-                                        <button class="btn btn-primary">Đặt Phòng</button>
+                                        <button class="btn btn-primary" v-on:click="datPhong()">Đặt Phòng</button>
                                     </td>
                                 </tr>
                             </tbody>
@@ -243,6 +243,7 @@ export default {
             tt_dat_phong : {},
             ds_loai_phong: [],
             info         : {so_phong : 0, so_tre : 0, so_lon : 0, so_tien : 0},
+            is_login     : 0,
         }
     },
     mounted() {
@@ -254,9 +255,36 @@ export default {
 
         this.layDanhSachPhong();
         this.getToday();
+        this.kiemTraDangNhap();
     },
     methods: {
-        getToday() {
+        datPhong() {
+            if(this.is_login) {
+                if(this.info.so_phong > 0) {
+                    toaster.success("Code chức năng đặt phòng - thứ 6");
+                } else {
+                    toaster.warning("Bạn chưa chọn bất kỳ phòng nào");
+                }
+            } else {
+                toaster.error("Bạn cần đăng nhập trước khi đặt phòng");
+                this.$router.push('/khach-hang/dang-nhap');
+            }
+        },
+        kiemTraDangNhap() {
+            axios
+                .get("http://127.0.0.1:8000/api/kiem-tra-token-khach-hang", {
+                    headers : {
+                        Authorization : 'Bearer ' +  localStorage.getItem("token_khachhang")
+                    }
+                })
+                .then((res) => {    
+                    this.is_login = res.data.status;
+                });
+        },
+        formatVND(number) {
+            return new Intl.NumberFormat('vi-VI', { style: 'currency', currency: 'VND' }).format(number);
+        },
+        getToday() { 
             var today = new Date();
             var dd = String(today.getDate()).padStart(2, '0');
             var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
@@ -275,9 +303,15 @@ export default {
             this.info.so_phong  = 0;
             this.info.so_lon    = 0;
             this.info.so_tre    = 0;
+            this.info.so_tien   = 0;
+            let date2 = new Date(this.tt_dat_phong.ngay_di);
+            let date1 = new Date(this.tt_dat_phong.ngay_den);
+            let Difference_In_Time = date2.getTime() - date1.getTime();
+            let Difference_In_Days = Math.max(1, Math.round(Difference_In_Time / (1000 * 3600 * 24)));
             this.ds_loai_phong.forEach((value, index) => {
                 if(value.chon_phong && value.chon_phong == true) {
                     this.info.so_phong = this.info.so_phong + value.so_phong_dat;
+                    this.info.so_tien  = this.info.so_tien + value.so_phong_dat * parseInt(value.gia_trung_binh_ko_format) * Difference_In_Days;
                     this.info.so_lon   = this.info.so_lon + value.so_phong_dat * value.so_nguoi_lon;
                     this.info.so_tre   = this.info.so_tre + value.so_phong_dat * value.so_tre_em;
                 }
