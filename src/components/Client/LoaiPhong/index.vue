@@ -261,7 +261,21 @@ export default {
         datPhong() {
             if(this.is_login) {
                 if(this.info.so_phong > 0) {
-                    toaster.success("Code chức năng đặt phòng - thứ 6");
+                    var payload = {
+                        'tt_dat_phong'  : this.tt_dat_phong,
+                        'tt_loai_phong' : this.ds_loai_phong
+                    };
+                    axios
+                        .post("http://127.0.0.1:8000/api/khach-hang-dat-phong", payload, {
+                            headers : {
+                                Authorization : 'Bearer ' +  localStorage.getItem("token_khachhang")
+                            }
+                        })
+                        .then((res) => {    
+                            if(res.data.status) {
+                                toaster.success(res.data.message);
+                            }
+                        });
                 } else {
                     toaster.warning("Bạn chưa chọn bất kỳ phòng nào");
                 }
