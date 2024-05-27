@@ -266,7 +266,7 @@ export default {
                         'tt_loai_phong' : this.ds_loai_phong
                     };
                     axios
-                        .post("https://hotel-be.dzfullstack.edu.vn/api/khach-hang-dat-phong", payload, {
+                        .post("http://127.0.0.1:8000/api/khach-hang-dat-phong", payload, {
                             headers : {
                                 Authorization : 'Bearer ' +  localStorage.getItem("token_khachhang")
                             }
@@ -286,7 +286,7 @@ export default {
         },
         kiemTraDangNhap() {
             axios
-                .get("https://hotel-be.dzfullstack.edu.vn/api/kiem-tra-token-khach-hang", {
+                .get("http://127.0.0.1:8000/api/kiem-tra-token-khach-hang", {
                     headers : {
                         Authorization : 'Bearer ' +  localStorage.getItem("token_khachhang")
                     }
