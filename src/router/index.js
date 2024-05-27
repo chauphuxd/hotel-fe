@@ -94,7 +94,11 @@ const routes = [
         component: () => import('../components/Admin/BaiViet/index.vue'),
         beforeEnter: kiemTraAdmin
     },
-
+    {
+        path: '/admin/danh-sach-hoa-don',
+        component: () => import('../components/Admin/HoaDon/index.vue'),
+        beforeEnter: kiemTraAdmin
+    },
     {
         path: '/tim-loai-phong',
         component: () => import('../components/Client/TimLoaiPhong/index.vue'),
