@@ -49,7 +49,6 @@
                     </router-link>
                 </li>
                 <li class="nav-item dropdown">
-                    
                     <router-link to="/admin/quan-ly-phong">
                         <a class="nav-link" href="/admin/quan-ly-phong">
                             <div class="parent-icon"><i class="fa-solid fa-hotel"></i>
@@ -126,6 +125,39 @@
                             <div class="menu-title text-nowrap">Danh Sách Khách Hàng </div>
                         </a>
                     </router-link>
+                </li>
+                <li class="nav-item dropdown">
+                        <a class="nav-link">
+                            <div class="parent-icon"><i class="fa-solid fa-chart-column"></i>
+                            </div>
+                            <div class="menu-title text-nowrap">Thống Kê</div>
+                        </a>
+                        <ul class="dropdown-menu">
+                                <li> 
+                                    <router-link to="/admin/thong-ke-1">
+                                        <a class="dropdown-item"  href="/admin/thong-ke-1" >
+                                        <i class="bx bx-right-arrow-alt"></i>Thống Kê Doanh Thu</a>
+                                    </router-link>
+                                </li>
+                                <li> 
+                                    <router-link to="/admin/thong-ke-2">
+                                        <a class="dropdown-item"  href="/admin/thong-ke-2" >
+                                        <i class="bx bx-right-arrow-alt"></i>Thống Kê Số Lượng Phòng</a>
+                                    </router-link>
+                                </li>
+                                <li> 
+                                    <router-link to="/admin/thong-ke-3">
+                                        <a class="dropdown-item"  href="/admin/thong-ke-3" >
+                                        <i class="bx bx-right-arrow-alt"></i>Thống Kê Tổng Tiền Khách Thanh Toán</a>
+                                    </router-link>
+                                </li>
+                                <li> 
+                                    <router-link to="/admin/thong-ke-4">
+                                        <a class="dropdown-item"  href="/admin/thong-ke-4" >
+                                        <i class="bx bx-right-arrow-alt"></i>Thống Kê Số Phòng Thuê Của Khách</a>
+                                    </router-link>
+                                </li>
+                        </ul>
                 </li>
             </ul>
         </nav>

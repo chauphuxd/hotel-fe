@@ -34,7 +34,8 @@
                                             </div>
                                             <div class="mb-3">
                                                 <label for="">Chức Vụ</label>
-                                                <select name="" v-model="nhan_vien_create.id_chuc_vu" class="form-control mt-2">
+                                                <select name="" v-model="nhan_vien_create.id_chuc_vu"
+                                                    class="form-control mt-2">
                                                     <template v-for="(v, k) in listPhanQuyen" :key="k">
                                                         <option v-bind:value="v.id">{{ v.ten_quyen }}</option>
                                                     </template>
@@ -111,6 +112,13 @@
             <div class="card">
                 <div class="card-header">
                     <h5 class="mt-2">Danh Sách Nhân Viên</h5>
+                    <div class="input-group mt-3 w-100">
+                        <input type="text" class="form-control search-control border border-3 border-secondary"
+                            placeholder="Search...">
+                        <span class="position-absolute top-50 search-show translate-middle-y" style="left: 15px;"><i
+                                class="bx bx-search"></i></span>
+                        <button class="btn btn-outline-secondary" type="button" id="button-addon2">Tìm Kiếm</button>
+                    </div>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -145,12 +153,15 @@
                                             <img v-bind:src="v.avatar" class="user-img me-3">
                                         </td>
                                         <td class="text-center">
-                                            <button v-on:click="doiTrangThai(v)" v-if="v.tinh_trang == 0" class="btn btn-warning">Tạm Dừng</button>
-                                            <button v-on:click="doiTrangThai(v)" v-else class="btn btn-primary">Hoạt Động</button>
+                                            <button v-on:click="doiTrangThai(v)" v-if="v.tinh_trang == 0"
+                                                class="btn btn-warning">Tạm Dừng</button>
+                                            <button v-on:click="doiTrangThai(v)" v-else class="btn btn-primary">Hoạt
+                                                Động</button>
                                         </td>
                                         <td class="text-center">
-                                            <button v-on:click="Object.assign(nhan_vien_update, v)" data-bs-toggle="modal"
-                                                data-bs-target="#capnhapModal" class="btn btn-success btn-sm me-1">Cập
+                                            <button v-on:click="Object.assign(nhan_vien_update, v)"
+                                                data-bs-toggle="modal" data-bs-target="#capnhapModal"
+                                                class="btn btn-success btn-sm me-1">Cập
                                                 Nhập</button>
                                             <button v-on:click="id_can_xoa = v.id" data-bs-toggle="modal"
                                                 data-bs-target="#deleteModal" class="btn btn-danger btn-sm">Xóa</button>
@@ -271,7 +282,8 @@
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary"
                                         data-bs-dismiss="modal">Close</button>
-                                    <button v-on:click="CapNhatNhanVien()" type="button" class="btn btn-primary" data-bs-dismiss="modal">Cập Nhật</button>
+                                    <button v-on:click="CapNhatNhanVien()" type="button" class="btn btn-primary"
+                                        data-bs-dismiss="modal">Cập Nhật</button>
                                 </div>
                             </div>
                         </div>
@@ -322,7 +334,7 @@ export default {
                     if (res.data.status == true) {
                         toaster.success(res.data.message)
                         this.nhan_vien_create = {},
-                        this.LayDuLieu();
+                            this.LayDuLieu();
                     }
                 });
         },

@@ -68,6 +68,13 @@
             <div class="card">
                 <div class="card-header">
                     <h5 class="mt-2">Danh Sách Phòng</h5>
+                    <div class="input-group mt-3 w-100">
+                        <input type="text" class="form-control search-control border border-3 border-secondary"
+                            placeholder="Search...">
+                        <span class="position-absolute top-50 search-show translate-middle-y" style="left: 15px;"><i
+                                class="bx bx-search"></i></span>
+                        <button class="btn btn-outline-secondary" type="button" id="button-addon2">Tìm Kiếm</button>
+                    </div>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -88,8 +95,10 @@
                                     <td class="align-middle">{{ value.ten_phong }}</td>
                                     <td class="align-middle text-end">{{ value.gia_mac_dinh }} đ</td>
                                     <td class="align-middle text-center">
-                                        <button v-on:click="doiTrangThai(value)" v-if="value.tinh_trang == 0" class="btn btn-warning">Tạm Dừng</button>
-                                        <button v-on:click="doiTrangThai(value)" v-else class="btn btn-primary">Hoạt Động</button>
+                                        <button v-on:click="doiTrangThai(value)" v-if="value.tinh_trang == 0"
+                                            class="btn btn-warning">Tạm Dừng</button>
+                                        <button v-on:click="doiTrangThai(value)" v-else class="btn btn-primary">Hoạt
+                                            Động</button>
                                     </td>
                                     <td class="align-middle">{{ value.ten_loai_phong }}</td>
                                     <td class="text-center text-nowrap align-middle">
@@ -97,7 +106,9 @@
                                             data-bs-target="#updateModal" class="btn btn-info me-1">Cập Nhật</button>
                                         <button data-bs-toggle="modal" data-bs-target="#deleteModal"
                                             v-on:click="id_can_xoa = value.id" class="btn btn-danger">Xoá Bỏ</button>
-                                        <button class="ms-1 btn btn-warning" v-on:click="taoChiTietThuePhong(value)">Tạo Đặt Phòng</button> 
+                                        <button class="ms-1 btn btn-warning" v-on:click="taoChiTietThuePhong(value)">Tạo
+                                            Đặt
+                                            Phòng</button>
                                     </td>
                                 </tr>
                             </tbody>

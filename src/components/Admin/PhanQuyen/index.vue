@@ -11,6 +11,16 @@
                             <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#themMoiModal">Thêm
                                 Quyền</button>
                         </div>
+                        <div class="col-lg-12">
+                            <div class="input-group mt-3 w-100">
+                                <input type="text" class="form-control search-control border border-3 border-secondary"
+                                    placeholder="Search...">
+                                <span class="position-absolute top-50 search-show translate-middle-y"
+                                    style="left: 15px;"><i class="bx bx-search"></i></span>
+                                <button class="btn btn-outline-secondary" type="button" id="button-addon2">Tìm
+                                    Kiếm</button>
+                            </div>
+                        </div>
                         <div class="modal fade" id="themMoiModal" tabindex="-1" aria-labelledby="exampleModalLabel"
                             aria-hidden="true">
                             <div class="modal-dialog">
@@ -29,7 +39,8 @@
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary"
                                             data-bs-dismiss="modal">Close</button>
-                                        <button v-on:click="themMoiPhanQuyen()" type="button" class="btn btn-primary" data-bs-dismiss="modal">Tạo
+                                        <button v-on:click="themMoiPhanQuyen()" type="button" class="btn btn-primary"
+                                            data-bs-dismiss="modal">Tạo
                                             Mới</button>
                                     </div>
                                 </div>
@@ -53,13 +64,15 @@
                                     <th class="text-center">{{ k + 1 }}</th>
                                     <td>{{ v.ten_quyen }}</td>
                                     <td class="text-center">
-                                        <button class="btn btn-info text-white" >Phân
+                                        <button class="btn btn-info text-white">Phân
                                             Quyền</button>
                                     </td>
                                     <td class="text-center">
-                                        <i v-on:click="Object.assign(update_quyen, v)" class="fa-solid fa-square-pen fa-3x text-primary me-2" data-bs-toggle="modal"
-                                            data-bs-target="#updateModal"></i>
-                                        <i v-on:click="Object.assign(delete_quyen, v)" class="fa-solid fa-trash fa-3x text-danger" data-bs-toggle="modal"
+                                        <i v-on:click="Object.assign(update_quyen, v)"
+                                            class="fa-solid fa-square-pen fa-3x text-primary me-2"
+                                            data-bs-toggle="modal" data-bs-target="#updateModal"></i>
+                                        <i v-on:click="Object.assign(delete_quyen, v)"
+                                            class="fa-solid fa-trash fa-3x text-danger" data-bs-toggle="modal"
                                             data-bs-target="#xoaModal"></i>
                                     </td>
                                 </tr>
@@ -82,8 +95,10 @@
                                     </div>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                    <button v-on:click="capNhatPhanQuyen()" type="button" class="btn btn-primary" data-bs-dismiss="modal">Xác Nhận</button>
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Close</button>
+                                    <button v-on:click="capNhatPhanQuyen()" type="button" class="btn btn-primary"
+                                        data-bs-dismiss="modal">Xác Nhận</button>
                                 </div>
                             </div>
                         </div>
@@ -99,14 +114,16 @@
                                         aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <div class="alert alert-warning border-0 bg-warning alert-dismissible fade show py-2">
+                                    <div
+                                        class="alert alert-warning border-0 bg-warning alert-dismissible fade show py-2">
                                         <div class="d-flex align-items-center">
                                             <div class="font-35 text-dark"><i class="bx bx-info-circle"></i>
                                             </div>
                                             <div class="ms-3">
                                                 <h6 class="mb-0 text-dark">Warning</h6>
                                                 <div class="text-dark">
-                                                    <p>Bạn có muốn xóa quyền <b>{{ delete_quyen.ten_quyen }}</b> này không?
+                                                    <p>Bạn có muốn xóa quyền <b>{{ delete_quyen.ten_quyen }}</b> này
+                                                        không?
                                                     </p>
                                                     <p>
                                                         <b>Lưu ý:</b> Điều này không thể hoàn tác!
@@ -117,8 +134,10 @@
                                     </div>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                    <button v-on:click="xoaPhanQuyen()" type="button" class="btn btn-danger" data-bs-dismiss="modal">Xóa</button>
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Close</button>
+                                    <button v-on:click="xoaPhanQuyen()" type="button" class="btn btn-danger"
+                                        data-bs-dismiss="modal">Xóa</button>
                                 </div>
                             </div>
                         </div>
@@ -148,7 +167,7 @@
                                         <th class="text-center">{{ k + 1 }}</th>
                                         <td>{{ v.ten_chuc_nang }}</td>
                                         <td class="text-center">
-                                            <button class="btn btn-primary" >Cấp
+                                            <button class="btn btn-primary">Cấp
                                                 Quyền</button>
                                         </td>
                                     </tr>
@@ -200,11 +219,11 @@ import baseRequest from '../../../core/baseRequest';
 export default {
     data() {
         return {
-            listChucNang        : [],
-            listPhanQuyen        : [],
-            create_quyen        : {},
-            delete_quyen        : {},
-            update_quyen         : {},
+            listChucNang: [],
+            listPhanQuyen: [],
+            create_quyen: {},
+            delete_quyen: {},
+            update_quyen: {},
         }
     },
     mounted() {

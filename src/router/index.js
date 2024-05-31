@@ -100,6 +100,26 @@ const routes = [
         beforeEnter: kiemTraAdmin
     },
     {
+        path: '/admin/thong-ke-1',
+        component: () => import('../components/Admin/ThongKe/thong_ke_1.vue'),
+        beforeEnter: kiemTraAdmin
+    },
+    {
+        path: '/admin/thong-ke-2',
+        component: () => import('../components/Admin/ThongKe/thong_ke_2.vue'),
+        beforeEnter: kiemTraAdmin
+    },
+    {
+        path: '/admin/thong-ke-3',
+        component: () => import('../components/Admin/ThongKe/thong_ke_3.vue'),
+        beforeEnter: kiemTraAdmin
+    },
+    {
+        path: '/admin/thong-ke-4',
+        component: () => import('../components/Admin/ThongKe/thong_ke_4.vue'),
+        beforeEnter: kiemTraAdmin
+    },
+    {
         path: '/tim-loai-phong',
         component: () => import('../components/Client/TimLoaiPhong/index.vue'),
         meta: {layout: 'client'}
@@ -119,13 +139,21 @@ const routes = [
         component: () => import('../components/Client/DangKy/index.vue'),
         meta: {layout: 'auth'}
     },
-
     {
         path: '/khach-hang/dang-nhap',
         component: () => import('../components/Client/DangNhap/index.vue'),
         meta: {layout: 'auth'}
     },
-
+    {
+        path: '/quen-mat-khau',
+        component: () => import('../components/Client/QuenMatKhau/index.vue'),
+        meta: {layout: 'auth'}
+    },
+    {
+        path: '/dat-lai-mat-khau',
+        component: () => import('../components/Client/DatLaiMatKhau/index.vue'),
+        meta: {layout: 'auth'}
+    },
     {
         path: '/test',
         component: () => import('../components/Admin/Test/index.vue'),

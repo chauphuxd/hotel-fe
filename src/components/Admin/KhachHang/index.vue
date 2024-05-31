@@ -2,7 +2,12 @@
     <div class="row">
         <div class="card">
             <div class="card-header">
-                Danh Sách Khách Hàng
+                <h6><b>Danh Sách Khách Hàng</b></h6>
+                <div class="input-group mt-3 w-100">
+                    <input type="text" class="form-control search-control border border-3 border-secondary" placeholder="Search..."> 
+                    <span class="position-absolute top-50 search-show translate-middle-y" style="left: 15px;"><i class="bx bx-search"></i></span>
+                    <button class="btn btn-outline-secondary" type="button" id="button-addon2">Tìm Kiếm</button>
+                </div>
             </div>
             <div class="card-body">
                 <div class="table-responsive">

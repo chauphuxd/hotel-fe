@@ -27,6 +27,13 @@
             <div class="card">
                 <div class="card-header">
                     <h5 class="mt-2">Danh Sách Slide</h5>
+                    <div class="input-group mt-3 w-100">
+                        <input type="text" class="form-control search-control border border-3 border-secondary"
+                            placeholder="Search...">
+                        <span class="position-absolute top-50 search-show translate-middle-y" style="left: 15px;"><i
+                                class="bx bx-search"></i></span>
+                        <button class="btn btn-outline-secondary" type="button" id="button-addon2">Tìm Kiếm</button>
+                    </div>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -47,8 +54,10 @@
                                             style="height: 200px; width: 300px;">
                                     </td>
                                     <th class="text-center align-middle">
-                                        <button v-on:click="doiTrangThai(value)" v-if="value.tinh_trang == 0" class="btn btn-warning">Tạm Dừng</button>
-                                        <button v-on:click="doiTrangThai(value)" v-else class="btn btn-primary">Hoạt Động</button>
+                                        <button v-on:click="doiTrangThai(value)" v-if="value.tinh_trang == 0"
+                                            class="btn btn-warning">Tạm Dừng</button>
+                                        <button v-on:click="doiTrangThai(value)" v-else class="btn btn-primary">Hoạt
+                                            Động</button>
                                     </th>
                                     <td class="text-center text-nowrap align-middle">
                                         <button v-on:click="Object.assign(slide_update, value)" data-bs-toggle="modal"
@@ -57,8 +66,8 @@
                                             v-on:click="id_can_xoa = value.id" class="btn btn-danger">Xoá Bỏ</button>
                                     </td>
                                 </tr>
-                                <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                                    aria-hidden="true">
+                                <div class="modal fade" id="deleteModal" tabindex="-1"
+                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
@@ -80,8 +89,8 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                                    aria-hidden="true">
+                                <div class="modal fade" id="updateModal" tabindex="-1"
+                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">

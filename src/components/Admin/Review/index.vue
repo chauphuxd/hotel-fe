@@ -20,7 +20,8 @@
                     </div>
                     <div class="mb-2">
                         <label>Sao Đánh Giá</label>
-                        <input v-model="review_create.sao_danh_gia" type="number" min="1" max="5" class="form-control mt-2">
+                        <input v-model="review_create.sao_danh_gia" type="number" min="1" max="5"
+                            class="form-control mt-2">
                     </div>
                 </div>
                 <div class="card-footer text-end">
@@ -32,6 +33,13 @@
             <div class="card">
                 <div class="card-header">
                     <h5 class="mt-2">Danh Sách Review</h5>
+                    <div class="input-group mt-3 w-100">
+                        <input type="text" class="form-control search-control border border-3 border-secondary"
+                            placeholder="Search...">
+                        <span class="position-absolute top-50 search-show translate-middle-y" style="left: 15px;"><i
+                                class="bx bx-search"></i></span>
+                        <button class="btn btn-outline-secondary" type="button" id="button-addon2">Tìm Kiếm</button>
+                    </div>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -62,8 +70,8 @@
                                             v-on:click="id_can_xoa = value.id" class="btn btn-danger">Xoá Bỏ</button>
                                     </td>
                                 </tr>
-                                <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                                    aria-hidden="true">
+                                <div class="modal fade" id="deleteModal" tabindex="-1"
+                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
@@ -85,8 +93,8 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                                    aria-hidden="true">
+                                <div class="modal fade" id="updateModal" tabindex="-1"
+                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
@@ -112,8 +120,8 @@
                                                 </div>
                                                 <div class="mb-2">
                                                     <label>Sao Đánh Giá</label>
-                                                    <input v-model="review_update.sao_danh_gia" type="number" min="1" max="5"
-                                                        class="form-control mt-2">
+                                                    <input v-model="review_update.sao_danh_gia" type="number" min="1"
+                                                        max="5" class="form-control mt-2">
                                                 </div>
                                             </div>
                                             <div class="modal-footer">

@@ -39,6 +39,11 @@
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">Danh Sách Bài Viết</h5>
+                    <div class="input-group mt-3 w-100">
+                        <input type="text" class="form-control search-control border border-3 border-secondary" placeholder="Search..."> 
+                        <span class="position-absolute top-50 search-show translate-middle-y" style="left: 15px;"><i class="bx bx-search"></i></span>
+                        <button class="btn btn-outline-secondary" type="button" id="button-addon2">Tìm Kiếm</button>
+                    </div>
                     <hr />
                     <div class="accordion" id="accordionExample">
                         <template v-for="(v, k) in ds_bai_viet" :key="k">

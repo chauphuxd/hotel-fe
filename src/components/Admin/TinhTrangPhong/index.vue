@@ -25,6 +25,13 @@
             <div class="card">
                 <div class="card-header">
                     <h5 class="mt-2">Danh Sách Thống Kê</h5>
+                    <div class="input-group mt-3 w-100">
+                        <input type="text" class="form-control search-control border border-3 border-secondary"
+                            placeholder="Search...">
+                        <span class="position-absolute top-50 search-show translate-middle-y" style="left: 15px;"><i
+                                class="bx bx-search"></i></span>
+                        <button class="btn btn-outline-secondary" type="button" id="button-addon2">Tìm Kiếm</button>
+                    </div>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -43,16 +50,20 @@
                                 <tr v-for="(v, k) in ds_thong_ke" :key="k">
                                     <th class="text-center align-middle">{{ k + 1 }}</th>
                                     <td class="align-middle text-center">{{ v.ngay_thue }}</td>
-                                    <td class="align-middle text-center" data-bs-toggle="modal" data-bs-target="#chiTietModal">
+                                    <td class="align-middle text-center" data-bs-toggle="modal"
+                                        data-bs-target="#chiTietModal">
                                         {{ v.phong_trong }}
                                     </td>
-                                    <td class="align-middle text-center" data-bs-toggle="modal" data-bs-target="#chiTietModal">
+                                    <td class="align-middle text-center" data-bs-toggle="modal"
+                                        data-bs-target="#chiTietModal">
                                         {{ v.phong_co_nguoi }}
                                     </td>
-                                    <td class="align-middle text-center" data-bs-toggle="modal" data-bs-target="#chiTietModal">
+                                    <td class="align-middle text-center" data-bs-toggle="modal"
+                                        data-bs-target="#chiTietModal">
                                         {{ v.phong_sua }}
                                     </td>
-                                    <td class="align-middle text-center" data-bs-toggle="modal" data-bs-target="#chiTietModal">
+                                    <td class="align-middle text-center" data-bs-toggle="modal"
+                                        data-bs-target="#chiTietModal">
                                         {{ v.phong_coc }}
                                     </td>
                                 </tr>
