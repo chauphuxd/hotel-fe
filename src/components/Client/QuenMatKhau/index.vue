@@ -12,11 +12,11 @@
                         <label class="form-label">Email</label>
                         <div class="input-group mb-3">
                             <span class="input-group-text"><i class="fa-solid fa-envelope"></i></span>
-                            <input type="email" class="form-control form-control-lg" placeholder="example@user.com">
+                            <input v-model="tai_khoan.email" type="email" class="form-control form-control-lg" placeholder="example@user.com">
                         </div>
                     </div>
                     <div class="d-grid gap-2">
-                        <button type="button" class="btn btn-primary btn-lg">Gửi</button> <a href="/"
+                        <button v-on:click="gui()" type="button" class="btn btn-primary btn-lg">Gửi</button> <a href="/"
                             class="btn btn-light btn-lg"><i class='bx bx-arrow-back me-1'></i>Quay Lại Đăng Nhập</a>
                     </div>
                 </div>
@@ -25,8 +25,35 @@
     </div>
 </template>
 <script>
+import axios from 'axios';
+import { createToaster } from "@meforma/vue-toaster";
+const toaster = createToaster({ position: "top-right" });
 export default {
-
+    data() {
+        return {
+            tai_khoan   :   {},
+        }
+    },
+    methods: {
+        gui() {
+            axios
+                .post("http://127.0.0.1:8000/api/khach-hang/quen-mat-khau", this.tai_khoan)
+                .then((res) => {
+                    if(res.data.status) {
+                        toaster.success(res.data.message);
+                        this.$router.push('/dat-lai-mat-khau');
+                    } else {
+                        toaster.error(res.data.message);
+                    }
+                })
+                .catch((res) => {
+                    var result = Object.entries(res.response.data.errors);
+                    result.forEach((v, k) => {
+                        toaster.error(v[1][0]);
+                    });
+                });
+        }
+    },
 }
 </script>
 <style></style>

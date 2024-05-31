@@ -15,19 +15,19 @@
                                     <p class="text-muted">Chúng tôi đã nhận được yêu cầu đặt lại mật khẩu của bạn. Vui
                                         lòng nhập mật khẩu mới của bạn!</p>
                                     <div class="mb-3">
-                                        <label class="form-label">Id</label>
-                                        <input type="text" class="form-control" placeholder="id" />
+                                        <label class="form-label">Mã Bí Mật</label>
+                                        <input v-model="tai_khoan.hash_reset" type="text" class="form-control" placeholder="id" />
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label">Nhập Mật Khẩu Mới</label>
-                                        <input type="text" class="form-control" placeholder="Nhập vào mật khẩu mới" />
+                                        <input v-model="tai_khoan.password" type="text" class="form-control" placeholder="Nhập vào mật khẩu mới" />
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label">Nhập Lại Mật Khẩu Mới</label>
-                                        <input type="text" class="form-control" placeholder="Nhập lại mật khẩu mới" />
+                                        <input v-model="tai_khoan.re_password" type="text" class="form-control" placeholder="Nhập lại mật khẩu mới" />
                                     </div>
                                     <div class="d-grid gap-2">
-                                        <button type="button" class="btn btn-primary">Xác Nhận</button> <a href="/"
+                                        <button v-on:click="xacNhan()" type="button" class="btn btn-primary">Xác Nhận</button> <a href="/"
                                             class="btn btn-light"><i class='bx bx-arrow-back mr-1'></i>Quay Lại Đăng
                                             Nhập</a>
                                     </div>
@@ -45,8 +45,36 @@
     </div>
 </template>
 <script>
+import axios from 'axios';
+import { createToaster } from "@meforma/vue-toaster";
+const toaster = createToaster({ position: "top-right" });
 export default {
+    data() {
+        return {
+            tai_khoan   :   {},
+        }
+    },
+    methods: {
+        xacNhan() {
+            axios
+                .post("http://127.0.0.1:8000/api/khach-hang/dat-lai-mat-khau", this.tai_khoan)
+                .then((res) => {
+                    if(res.data.status) {
+                        toaster.success(res.data.message);
+                        this.$router.push('/khach-hang/dang-nhap');
+                    } else {
+                        toaster.error(res.data.message);
+                    }
+                })
+                .catch((res) => {
+                    var result = Object.entries(res.response.data.errors);
+                    result.forEach((v, k) => {
+                        toaster.error(v[1][0]);
+                    });
+                });
 
+        }
+    },
 }
 </script>
 <style></style>
