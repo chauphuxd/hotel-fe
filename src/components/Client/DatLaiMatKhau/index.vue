@@ -14,10 +14,7 @@
                                     <h4 class="font-weight-bold text-center">Đặt Lại Mật Khẩu</h4>
                                     <p class="text-muted">Chúng tôi đã nhận được yêu cầu đặt lại mật khẩu của bạn. Vui
                                         lòng nhập mật khẩu mới của bạn!</p>
-                                    <div class="mb-3">
-                                        <label class="form-label">Mã Bí Mật</label>
-                                        <input v-model="tai_khoan.hash_reset" type="text" class="form-control" placeholder="id" />
-                                    </div>
+                                    <input v-model="tai_khoan.hash_reset" type="hidden" class="form-control" placeholder="id" />
                                     <div class="mb-3">
                                         <label class="form-label">Nhập Mật Khẩu Mới</label>
                                         <input v-model="tai_khoan.password" type="text" class="form-control" placeholder="Nhập vào mật khẩu mới" />
@@ -49,10 +46,14 @@ import axios from 'axios';
 import { createToaster } from "@meforma/vue-toaster";
 const toaster = createToaster({ position: "top-right" });
 export default {
+    props: ['ma_bi_mat'],
     data() {
         return {
             tai_khoan   :   {},
         }
+    },
+    mounted() {
+        this.tai_khoan.hash_reset = this.$route.params.ma_bi_mat;
     },
     methods: {
         xacNhan() {
@@ -72,7 +73,6 @@ export default {
                         toaster.error(v[1][0]);
                     });
                 });
-
         }
     },
 }

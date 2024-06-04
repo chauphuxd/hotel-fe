@@ -150,13 +150,18 @@ const routes = [
         meta: {layout: 'auth'}
     },
     {
-        path: '/dat-lai-mat-khau',
+        path: '/dat-lai-mat-khau/:ma_bi_mat',
         component: () => import('../components/Client/DatLaiMatKhau/index.vue'),
         meta: {layout: 'auth'}
     },
     {
         path: '/test',
         component: () => import('../components/Admin/Test/index.vue'),
+        meta: {layout: 'auth'}
+    },
+    {
+        path: '/kich-hoat/:ma_bi_mat',
+        component: () => import('../components/Client/KichHoat/index.vue'),
         meta: {layout: 'auth'}
     },
 ]
