@@ -65,7 +65,7 @@
                                     <th class="text-center">{{ k + 1 }}</th>
                                     <td>{{ v.ten_quyen }}</td>
                                     <td class="text-center">
-                                        <button class="btn btn-info text-white">Phân
+                                        <button v-on:click="quyen_dang_chon = v" class="btn btn-info text-white">Phân
                                             Quyền</button>
                                     </td>
                                     <td class="text-center">
@@ -168,8 +168,7 @@
                                         <th class="text-center">{{ k + 1 }}</th>
                                         <td>{{ v.ten_chuc_nang }}</td>
                                         <td class="text-center">
-                                            <button class="btn btn-primary">Cấp
-                                                Quyền</button>
+                                            <button v-on:click="capQuyen(v)" class="btn btn-primary">Cấp Quyền</button>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -182,7 +181,7 @@
         <div class="col-lg-4">
             <div class="card">
                 <div class="card-header">
-                    Đang Phân Quyền Cho <b class="text-danger"> </b>
+                    Đang Phân Quyền Cho <b class="text-danger"> {{ quyen_dang_chon.ten_quyen }} </b>
                 </div>
                 <div class="card-body">
                     <div class="row">
@@ -192,13 +191,17 @@
                                     <tr class="text-center text-nowrap align-middle">
                                         <th>#</th>
                                         <th>Tên Quyền</th>
+                                        <th>ID Quyền</th>
+                                        <th>ID CN</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr class="align-middle">
-                                        <th class="text-center"></th>
+                                    <tr v-for="(v, k) in list_chi_tiet" :key="k" class="align-middle">
+                                        <th class="text-center">{{ k + 1 }}</th>
                                         <td></td>
+                                        <td>{{ v.id_quyen }}</td>
+                                        <td>{{ v.id_chuc_nang }}</td>
                                         <td class="text-center">
                                             <button class="btn btn-success">Action</button>
                                         </td>
@@ -220,19 +223,42 @@ import baseRequest from '../../../core/baseRequest';
 export default {
     data() {
         return {
-            listChucNang: [],
-            listPhanQuyen: [],
-            create_quyen: {},
-            delete_quyen: {},
-            update_quyen: {},
-            tim_kiem : {},
+            listChucNang    : [],
+            listPhanQuyen   : [],
+            create_quyen    : {},
+            delete_quyen    : {},
+            update_quyen    : {},
+            tim_kiem        : {},
+            quyen_dang_chon : {},
+            list_chi_tiet   : [],
         }
     },
     mounted() {
         this.layDuLieuPhanQuyen();
         this.layDuLieuChucNang();
+        this.loadData();
     },
     methods: {
+        loadData() {
+            baseRequest
+                .post("chi-tiet-phan-quyen/danh-sach", {})
+                .then((res) => {
+                    this.list_chi_tiet = res.data.data;
+                });
+        },
+        capQuyen(chuc_nang) {
+            var payload = {
+                'id_quyen'      :   this.quyen_dang_chon.id,
+                'id_chuc_nang'  :   chuc_nang.id
+            };
+
+            baseRequest
+                .post("chi-tiet-phan-quyen/cap-quyen", payload)
+                .then((res) => {
+                    toaster.success(res.data.message);
+                    this.loadData();
+                });
+        },
         timKiemNe() {
             baseRequest
                 .post("phan-quyen/tim-kiem", this.tim_kiem)
