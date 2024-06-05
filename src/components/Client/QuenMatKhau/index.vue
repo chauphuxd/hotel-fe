@@ -16,8 +16,10 @@
                         </div>
                     </div>
                     <div class="d-grid gap-2">
-                        <button v-on:click="gui()" type="button" class="btn btn-primary btn-lg">Gửi</button> <a href="/"
-                            class="btn btn-light btn-lg"><i class='bx bx-arrow-back me-1'></i>Quay Lại Đăng Nhập</a>
+                        <button v-on:click="gui()" type="button" class="btn btn-primary btn-lg">Gửi</button> 
+                        <router-link to="/khach-hang/dang-nhap">
+                            <a href="/khach-hang/dang-nhap" class="btn btn-light btn-lg w-100"><i class='bx bx-arrow-back me-1'></i>Quay Lại Đăng Nhập</a>
+                        </router-link>
                     </div>
                 </div>
             </div>
@@ -41,7 +43,7 @@ export default {
                 .then((res) => {
                     if(res.data.status) {
                         toaster.success(res.data.message);
-                        this.$router.push('/dat-lai-mat-khau');
+                        this.$router.push('/');
                     } else {
                         toaster.error(res.data.message);
                     }

@@ -6,8 +6,8 @@
                     <div class="border p-4 rounded">
                         <div class="text-center">
                             <h3 class="">Sign in</h3>
-                            <p>Don't have an account yet? <a href="authentication-signup.html">Sign up here</a>
-                            </p>
+                            <!-- <p>Don't have an account yet? <a href="authentication-signup.html">Sign up here</a>
+                            </p> -->
                         </div>
                         <div class="form-body">
                             <form class="row g-3">
@@ -28,9 +28,9 @@
                                         <label class="form-check-label" for="flexSwitchCheckChecked">Remember Me</label>
                                     </div>
                                 </div>
-                                <div class="col-md-6 text-end"> <a href="authentication-forgot-password.html">Forgot
+                                <!-- <div class="col-md-6 text-end"> <a href="authentication-forgot-password.html">Forgot
                                         Password ?</a>
-                                </div>
+                                </div> -->
                                 <div class="col-12">
                                     <div class="d-grid">
                                         <button v-on:click="dangNhap()" type="button" class="btn btn-primary"><i
@@ -79,6 +79,7 @@ export default {
                     if (res.data.status) {
                         toaster.success(res.data.message)
                         localStorage.setItem('token_admin',res.data.token);
+                        localStorage.setItem('ho_ten_admin',res.data.ho_ten_admin);
                         this.$router.push('/admin/loai-phong');
                     }
                     else {

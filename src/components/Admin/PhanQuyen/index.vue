@@ -13,12 +13,13 @@
                         </div>
                         <div class="col-lg-12">
                             <div class="input-group mt-3 w-100">
-                                <input type="text" class="form-control search-control border border-3 border-secondary"
+                                <input v-on:keyup.enter="timKiemNe()" v-model="tim_kiem.noi_dung_tim" type="text"
+                                    class="form-control search-control border border-3 border-secondary"
                                     placeholder="Search...">
                                 <span class="position-absolute top-50 search-show translate-middle-y"
                                     style="left: 15px;"><i class="bx bx-search"></i></span>
-                                <button class="btn btn-outline-secondary" type="button" id="button-addon2">Tìm
-                                    Kiếm</button>
+                                <button v-on:click="timKiemNe()" class="btn btn-outline-secondary" type="button"
+                                    id="button-addon2">Tìm Kiếm</button>
                             </div>
                         </div>
                         <div class="modal fade" id="themMoiModal" tabindex="-1" aria-labelledby="exampleModalLabel"
@@ -224,6 +225,7 @@ export default {
             create_quyen: {},
             delete_quyen: {},
             update_quyen: {},
+            tim_kiem : {},
         }
     },
     mounted() {
@@ -231,6 +233,13 @@ export default {
         this.layDuLieuChucNang();
     },
     methods: {
+        timKiemNe() {
+            baseRequest
+                .post("phan-quyen/tim-kiem", this.tim_kiem)
+                .then((res) => {
+                    this.listPhanQuyen = res.data.data;
+                });
+        },
         layDuLieuChucNang() {
             baseRequest
                 .get('chuc-nang/data')

@@ -7,7 +7,7 @@
                         <div class="border p-4 rounded">
                             <div class="text-center">
                                 <h3 class="">Đăng Ký</h3>
-                                <p>Bạn đã có tài khoản thì <a href="authentication-signup.html">đăng nhập tại đây</a>
+                                <p>Bạn đã có tài khoản thì <router-link to="/khach-hang/dang-nhap"><a href="/khach-hang/dang-nhap">đăng nhập tại đây</a></router-link>
                                 </p>
                             </div>
                             <div class="form-body">
@@ -40,8 +40,11 @@
                                         <label class="form-label">Nhập Lại Mật Khẩu</label>
                                         <input type="password" class="form-control" v-model="data_dang_ky.re_password">
                                     </div>
-                                    <div class="col-md-12 text-end"> <a href="authentication-forgot-password.html">Forgot
-                                            Password ?</a>
+                                    <div class="col-md-12 text-end">
+                                        <router-link to="/quen-mat-khau">
+                                            <a href="/quen-mat-khau">Forgot
+                                                Password ?</a>
+                                        </router-link>
                                     </div>
                                     <div class="col-12">
                                         <div class="d-grid">
@@ -65,7 +68,7 @@ const toaster = createToaster({ position: "top-right" });
 export default {
     data() {
         return {
-            data_dang_ky            : {}
+            data_dang_ky: {}
         }
     },
     mounted() {
@@ -76,7 +79,7 @@ export default {
             axios
                 .post('http://127.0.0.1:8000/api/dang-ky', this.data_dang_ky)
                 .then((res) => {
-                    if(res.data.status) {
+                    if (res.data.status) {
                         toaster.success(res.data.message);
                         this.data_dang_ky = {};
                     } else {
@@ -84,10 +87,10 @@ export default {
                     }
                 })
                 .catch((res) => {
-                        var result = Object.entries(res.response.data.errors);
-                        result.forEach((v, k) => {
-                            toaster.error(v[1][0]);
-                        });
+                    var result = Object.entries(res.response.data.errors);
+                    result.forEach((v, k) => {
+                        toaster.error(v[1][0]);
+                    });
                 });
         }
     },

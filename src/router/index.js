@@ -164,6 +164,12 @@ const routes = [
         component: () => import('../components/Client/KichHoat/index.vue'),
         meta: {layout: 'auth'}
     },
+    {
+        path: "/chi-tiet-bai-viet/:id",
+        component: () => import("../components/Client/ChiTietBaiViet/index.vue"),
+        meta: {layout: 'client'},
+        props: true
+      },
 ]
 
 const router = createRouter({

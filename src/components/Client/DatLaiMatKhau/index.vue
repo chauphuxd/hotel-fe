@@ -24,9 +24,10 @@
                                         <input v-model="tai_khoan.re_password" type="text" class="form-control" placeholder="Nhập lại mật khẩu mới" />
                                     </div>
                                     <div class="d-grid gap-2">
-                                        <button v-on:click="xacNhan()" type="button" class="btn btn-primary">Xác Nhận</button> <a href="/"
-                                            class="btn btn-light"><i class='bx bx-arrow-back mr-1'></i>Quay Lại Đăng
-                                            Nhập</a>
+                                        <button v-on:click="xacNhan()" type="button" class="btn btn-primary">Xác Nhận</button> 
+                                        <router-link to="/khach-hang/dang-nhap">
+                                            <a href="/khach-hang/dang-nhap" class="btn btn-light btn-lg w-100"><i class='bx bx-arrow-back me-1'></i>Quay Lại Đăng Nhập</a>
+                                        </router-link>
                                     </div>
                                 </div>
                             </div>

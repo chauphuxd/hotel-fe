@@ -26,11 +26,9 @@
                 <div class="card-header">
                     <h5 class="mt-2">Danh Sách Thống Kê</h5>
                     <div class="input-group mt-3 w-100">
-                        <input type="text" class="form-control search-control border border-3 border-secondary"
-                            placeholder="Search...">
-                        <span class="position-absolute top-50 search-show translate-middle-y" style="left: 15px;"><i
-                                class="bx bx-search"></i></span>
-                        <button class="btn btn-outline-secondary" type="button" id="button-addon2">Tìm Kiếm</button>
+                        <input v-on:keyup.enter="timKiemNe()" v-model="tim_kiem.noi_dung_tim" type="text" class="form-control search-control border border-3 border-secondary" placeholder="Search..."> 
+                        <span class="position-absolute top-50 search-show translate-middle-y" style="left: 15px;"><i class="bx bx-search"></i></span>
+                        <button v-on:click="timKiemNe()" class="btn btn-outline-secondary" type="button" id="button-addon2">Tìm Kiếm</button>
                     </div>
                 </div>
                 <div class="card-body">
@@ -138,13 +136,21 @@ import baseRequest from '../../../core/baseRequest';
 export default {
     data() {
         return {
-            ds_thong_ke: []
+            ds_thong_ke: [],
+            tim_kiem : {},
         }
     },
     mounted() {
         this.layDuLieuThongKe();
     },
     methods: {
+        timKiemNe() {
+            baseRequest
+                .post("thong-ke-thue-phong/tim-kiem", this.tim_kiem)
+                .then((res) => {
+                    this.ds_thong_ke = res.data.data;
+                });
+        },
         layDuLieuThongKe() {
             baseRequest
                 .get('data')

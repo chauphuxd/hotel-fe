@@ -40,9 +40,9 @@
                 <div class="card-body">
                     <h5 class="card-title">Danh Sách Bài Viết</h5>
                     <div class="input-group mt-3 w-100">
-                        <input type="text" class="form-control search-control border border-3 border-secondary" placeholder="Search..."> 
+                        <input v-on:keyup.enter="timKiemNe()" v-model="tim_kiem.noi_dung_tim" type="text" class="form-control search-control border border-3 border-secondary" placeholder="Search..."> 
                         <span class="position-absolute top-50 search-show translate-middle-y" style="left: 15px;"><i class="bx bx-search"></i></span>
-                        <button class="btn btn-outline-secondary" type="button" id="button-addon2">Tìm Kiếm</button>
+                        <button v-on:click="timKiemNe()" class="btn btn-outline-secondary" type="button" id="button-addon2">Tìm Kiếm</button>
                     </div>
                     <hr />
                     <div class="accordion" id="accordionExample">
@@ -199,12 +199,20 @@ export default {
             bai_viet_create: {},
             bai_viet_update: {},
             id_can_xoa: '',
+            tim_kiem : {},
         }
     },
     mounted() {
         this.layDuLieu();
     },
     methods: {
+        timKiemNe() {
+            baseRequest
+                .post("bai-viet/tim-kiem", this.tim_kiem)
+                .then((res) => {
+                    this.ds_bai_viet = res.data.data;
+                });
+        },
         layDuLieu() {
             baseRequest
                 .get('bai-viet/data')

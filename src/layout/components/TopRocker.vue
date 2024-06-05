@@ -331,28 +331,24 @@
                     </ul>
                 </div>
                 <div class="user-box dropdown">
-                    <a class="d-flex align-items-center nav-link dropdown-toggle dropdown-toggle-nocaret" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="../../assets/images/avatars/avatar-2.png" class="user-img" alt="user avatar">
+                    <a class="d-flex align-items-center nav-link dropdown-toggle dropdown-toggle-nocaret" href="#"
+                        role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="../../assets/images/avatars/avatar-2.png" class="user-img"
+                            alt="user avatar">
                         <div class="user-info ps-3">
-                            <p class="user-name mb-0">Pauline Seitz</p>
-                            <p class="designattion mb-0">Web Designer</p>
+                            <p class="user-name mb-0">{{ ten_hien_thi }}</p>
+                            <p class="designattion mb-0">Admin</p>
                         </div>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end">
-                        <li><a class="dropdown-item" href="javascript:;"><i class="bx bx-user"></i><span>Profile</span></a>
-                        </li>
-                        <li><a class="dropdown-item" href="javascript:;"><i class="bx bx-cog"></i><span>Settings</span></a>
-                        </li>
-                        <li><a class="dropdown-item" href="javascript:;"><i class='bx bx-home-circle'></i><span>Dashboard</span></a>
-                        </li>
-                        <li><a class="dropdown-item" href="javascript:;"><i class='bx bx-dollar-circle'></i><span>Earnings</span></a>
-                        </li>
-                        <li><a class="dropdown-item" href="javascript:;"><i class='bx bx-download'></i><span>Downloads</span></a>
+                        <li>
+                            <a class="dropdown-item" href="javascript:;"><i
+                                    class='bx bx-log-out-circle'></i><span>Đăng Xuất</span></a>
                         </li>
                         <li>
-                            <div class="dropdown-divider mb-0"></div>
-                        </li>
-                        <li><a class="dropdown-item" href="javascript:;"><i class='bx bx-log-out-circle'></i><span>Logout</span></a>
+                            <a class="dropdown-item" href="javascript:;"><i
+                                    class="fa-solid fa-right-from-bracket"></i>
+                                <span>Đăng Xuất Tất Cả Thiết Bị</span></a>
                         </li>
                     </ul>
                 </div>
@@ -361,8 +357,33 @@
     </header>
 </template>
 <script>
+import axios from 'axios';
+import { createToaster } from "@meforma/vue-toaster";
+const toaster = createToaster({ position: "top-right" });
 export default {
-    
+    data() {
+        return {
+            ten_hien_thi: 'Chưa đăng nhập',
+        }
+    },
+    mounted() {
+        this.checkLogin();
+    },
+    methods: {
+        checkLogin() {
+            axios
+                .post('http://127.0.0.1:8000/api/kiem-tra-token-admin', {} ,{
+                    headers: {
+                        Authorization: 'Bearer ' + localStorage.getItem("token_admin")
+                    }
+                })
+                .then((res) => {
+                    if(res.data.status) {
+                        this.ten_hien_thi = localStorage.getItem('ho_ten_admin');
+                    }
+                });
+        }
+    },
 }
 </script>
 <style>

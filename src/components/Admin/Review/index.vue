@@ -34,11 +34,9 @@
                 <div class="card-header">
                     <h5 class="mt-2">Danh Sách Review</h5>
                     <div class="input-group mt-3 w-100">
-                        <input type="text" class="form-control search-control border border-3 border-secondary"
-                            placeholder="Search...">
-                        <span class="position-absolute top-50 search-show translate-middle-y" style="left: 15px;"><i
-                                class="bx bx-search"></i></span>
-                        <button class="btn btn-outline-secondary" type="button" id="button-addon2">Tìm Kiếm</button>
+                        <input v-on:keyup.enter="timKiemNe()" v-model="tim_kiem.noi_dung_tim" type="text" class="form-control search-control border border-3 border-secondary" placeholder="Search..."> 
+                        <span class="position-absolute top-50 search-show translate-middle-y" style="left: 15px;"><i class="bx bx-search"></i></span>
+                        <button v-on:click="timKiemNe()" class="btn btn-outline-secondary" type="button" id="button-addon2">Tìm Kiếm</button>
                     </div>
                 </div>
                 <div class="card-body">
@@ -153,12 +151,20 @@ export default {
             review_create: {},
             review_update: {},
             id_can_xoa: '',
+            tim_kiem : {},
         }
     },
     mounted() {
         this.layDuLieu();
     },
     methods: {
+        timKiemNe() {
+            baseRequest
+                .post("review/tim-kiem", this.tim_kiem)
+                .then((res) => {
+                    this.ds_review = res.data.data;
+                });
+        },
         layDuLieu() {
             baseRequest
                 .get('review/data')

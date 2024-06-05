@@ -27,9 +27,9 @@
                 <div class="card-header mt-2">
                     <h6><b>Danh Sách Hoá Đơn</b></h6>
                     <div class="input-group mt-3 w-100">
-                        <input type="text" class="form-control search-control border border-3 border-secondary" placeholder="Search..."> 
+                        <input v-on:keyup.enter="timKiemNe()" v-model="tim_kiem.noi_dung_tim" type="text" class="form-control search-control border border-3 border-secondary" placeholder="Search..."> 
                         <span class="position-absolute top-50 search-show translate-middle-y" style="left: 15px;"><i class="bx bx-search"></i></span>
-                        <button class="btn btn-outline-secondary" type="button" id="button-addon2">Tìm Kiếm</button>
+                        <button v-on:click="timKiemNe()" class="btn btn-outline-secondary" type="button" id="button-addon2">Tìm Kiếm</button>
                     </div>
                 </div>
                 <div class="card-body">
@@ -168,12 +168,20 @@ export default {
             chi_tiet        : {},
             check_tt        : null,
             check_huy       : null,
+            tim_kiem        : {},
         }
     },
     mounted() {
         this.loadData();
     },
     methods: {
+        timKiemNe() {
+            baseRequest
+                .post("hoa-don/tim-kiem", this.tim_kiem)
+                .then((res) => {
+                    this.list_hoa_don = res.data.data;
+                });
+        },
         xacNhan() {
             var payload = {
                 'thanh_toan'    :   this.check_tt,

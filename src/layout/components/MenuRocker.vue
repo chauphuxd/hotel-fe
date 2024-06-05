@@ -126,6 +126,15 @@
                         </a>
                     </router-link>
                 </li>
+                <li class="nav-item">
+                    <router-link to="/admin/danh-sach-hoa-don">
+                        <a class="nav-link" href="/admin/danh-sach-hoa-don">
+                            <div class="parent-icon"><i class="fa-solid fa-file-invoice-dollar"></i>
+                            </div>
+                            <div class="menu-title text-nowrap">Danh Sách Hóa Đơn </div>
+                        </a>
+                    </router-link>
+                </li>
                 <li class="nav-item dropdown">
                         <a class="nav-link">
                             <div class="parent-icon"><i class="fa-solid fa-chart-column"></i>
