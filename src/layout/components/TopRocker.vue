@@ -427,14 +427,16 @@ export default {
             baseRequest
                 .get('admin/dang-xuat')
                 .then((res) => {
-
+                    toaster.success(res.data.message);
+                    this.$router.push('/admin/dang-nhap');
                 })
         },
         dangXuatAll() {
             baseRequest
                 .get('admin/dang-xuat-all')
                 .then((res) => {
-
+                    toaster.success(res.data.message);
+                    this.$router.push('/admin/dang-nhap');
                 })
         }
     },

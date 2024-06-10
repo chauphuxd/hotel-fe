@@ -116,7 +116,7 @@ export default {
     methods: {
         checkLogin() {
             axios
-                .get('http://127.0.0.1:8000/api/kiem-tra-token-khach-hang', {
+                .get('https://hotel-be.dzfullstack.edu.vn/api/kiem-tra-token-khach-hang', {
                     headers: {
                         Authorization: 'Bearer ' + localStorage.getItem("token_khachhang")
                     }
@@ -130,14 +130,14 @@ export default {
         },
         layDuLieuChuyenMuc() {
             axios
-                .get('http://127.0.0.1:8000/api/client/chuyen-muc/data')
+                .get('https://hotel-be.dzfullstack.edu.vn/api/client/chuyen-muc/data')
                 .then((res) => {
                     this.ds_chuyen_muc = res.data.chuyen_muc;
                 })
         },
         dangXuat() {
             axios
-                .get('http://127.0.0.1:8000/api/khach-hang/dang-xuat', {
+                .get('https://hotel-be.dzfullstack.edu.vn/api/khach-hang/dang-xuat', {
                     headers: {
                         Authorization: 'Bearer ' + localStorage.getItem("token_khachhang")
                     }
@@ -156,7 +156,7 @@ export default {
         },
         dangXuatAll() {
             axios
-                .get('http://127.0.0.1:8000/api/khach-hang/dang-xuat-all', {
+                .get('https://hotel-be.dzfullstack.edu.vn/api/khach-hang/dang-xuat-all', {
                     headers: {
                         Authorization: 'Bearer ' + localStorage.getItem("token_khachhang")
                     }
