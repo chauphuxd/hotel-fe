@@ -116,7 +116,10 @@ export default {
         timKiemNe() {
             baseRequest
                 .post("chi-tiet-thue-phong/tim-kiem", this.tim_kiem)
-                .then((res) => {
+                .then((res) => { 
+                    if (res.data.status == false) {
+                        toaster.error(res.data.message)
+                    }
                     this.ds_chi_tiet_thue_phong = res.data.data;
                 });
         },
@@ -124,6 +127,9 @@ export default {
             baseRequest
                 .get('chi-tiet-thue-phong/data')
                 .then((res) => {
+                    if (res.data.status == false) {
+                        toaster.error(res.data.message)
+                    }
                     this.ds_chi_tiet_thue_phong = res.data.data;
                 })
         },
@@ -131,6 +137,9 @@ export default {
             baseRequest
                 .get('phong/data')
                 .then((res) => {
+                    if (res.data.status == false) {
+                        toaster.error(res.data.message)
+                    }
                     this.ds_phong = res.data.phong;
 
                 })
@@ -142,6 +151,8 @@ export default {
                     if (res.data.status == true) {
                         toaster.success(res.data.message)
                         this.layDuLieuThuePhong();
+                    } else {
+                        toaster.error(res.data.message)
                     }
 
                 });

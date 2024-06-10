@@ -179,6 +179,9 @@ export default {
             baseRequest
                 .post("hoa-don/tim-kiem", this.tim_kiem)
                 .then((res) => {
+                    if (res.data.status == false) {
+                        toaster.error(res.data.message)
+                    }
                     this.list_hoa_don = res.data.data;
                 });
         },
@@ -194,6 +197,8 @@ export default {
                     if(res.data.status) {
                         toaster.success(res.data.message);
                         this.loadData();
+                    } else {
+                        toaster.error(res.data.message)
                     }
                 });
         },
@@ -210,6 +215,9 @@ export default {
             baseRequest
                 .get("hoa-don/data")
                 .then((res) => {
+                    if (res.data.status == false) {
+                        toaster.error(res.data.message)
+                    }
                     this.list_hoa_don = res.data.data;
                 })
         },
@@ -218,6 +226,9 @@ export default {
             baseRequest
                 .post("hoa-don/chi-tiet-thue", payload)
                 .then((res) => {
+                    if (res.data.status == false) {
+                        toaster.error(res.data.message)
+                    }
                     this.chi_tiet_thue = res.data.data;
                 })
         }

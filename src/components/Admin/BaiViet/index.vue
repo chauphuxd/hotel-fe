@@ -23,6 +23,14 @@
                         <input v-model="bai_viet_create.hinh_anh" type="text" class="form-control">
                     </div>
                     <div class="mb-2 mt-2">
+                        <label for="">Chuyên Mục</label>
+                        <select v-model="bai_viet_create.id_chuyen_muc" class="form-control mt-2">
+                            <template v-for="(v, k) in ds_chuyen_muc" :key="k">
+                                <option v-bind:value="v.id">{{ v.ten_chuyen_muc }}</option>
+                            </template>
+                        </select>
+                    </div>
+                    <div class="mb-2 mt-2">
                         <label for="">Tình Trạng</label>
                         <select v-model="bai_viet_create.tinh_trang" class="form-control mt-2">
                             <option value="1">Hoạt Động</option>
@@ -71,6 +79,10 @@
                                                 <tr>
                                                     <th class="text-nowrap align-middle">Mô tả Chi Tiết</th>
                                                     <td>{{ v.mo_ta_chi_tiet }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th class="text-nowrap align-middle">Chuyên Mục</th>
+                                                    <td>{{ v.ten_chuyen_muc }}</td>
                                                 </tr>
                                                 <tr>
                                                     <th class="text-nowrap align-middle">Ảnh</th>
@@ -196,6 +208,7 @@ export default {
     data() {
         return {
             ds_bai_viet: [],
+            ds_chuyen_muc: [],
             bai_viet_create: {},
             bai_viet_update: {},
             id_can_xoa: '',
@@ -204,12 +217,26 @@ export default {
     },
     mounted() {
         this.layDuLieu();
+        this.layDuLieuChuyenMuc();
     },
     methods: {
+        layDuLieuChuyenMuc() {
+            baseRequest
+                .get('chuyen-muc/data')
+                .then((res) => {
+                    if (res.data.status == false) {
+                        toaster.error(res.data.message)
+                    }
+                    this.ds_chuyen_muc = res.data.chuyen_muc;
+                })
+        },
         timKiemNe() {
             baseRequest
                 .post("bai-viet/tim-kiem", this.tim_kiem)
                 .then((res) => {
+                    if (res.data.status == false) {
+                        toaster.error(res.data.message)
+                    }
                     this.ds_bai_viet = res.data.data;
                 });
         },
@@ -217,6 +244,9 @@ export default {
             baseRequest
                 .get('bai-viet/data')
                 .then((res) => {
+                    if (res.data.status == false) {
+                        toaster.error(res.data.message)
+                    }
                     this.ds_bai_viet = res.data.bai_viet;
                 })
         },
@@ -227,6 +257,8 @@ export default {
                     if (res.data.status == true) {
                         toaster.success(res.data.message)
                         this.layDuLieu();
+                    } else {
+                        toaster.error(res.data.message)
                     }
                 });
         },
@@ -237,6 +269,8 @@ export default {
                     if (res.data.status == true) {
                         toaster.success(res.data.message)
                         this.layDuLieu();
+                    } else {
+                        toaster.error(res.data.message)
                     }
                 });
         },
@@ -247,6 +281,8 @@ export default {
                     if (res.data.status == true) {
                         toaster.success(res.data.message)
                         this.layDuLieu();
+                    } else {
+                        toaster.error(res.data.message)
                     }
                 });
         },

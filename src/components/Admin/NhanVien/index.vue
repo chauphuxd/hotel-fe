@@ -316,6 +316,9 @@ export default {
             baseRequest
                 .post("nhan-vien/tim-kiem", this.tim_kiem)
                 .then((res) => {
+                    if (res.data.status == false) {
+                        toaster.error(res.data.message)
+                    }
                     this.ds_nhan_vien = res.data.data;
                 });
         },
@@ -323,6 +326,9 @@ export default {
             baseRequest
                 .get('phan-quyen/data')
                 .then((res) => {
+                    if (res.data.status == false) {
+                        toaster.error(res.data.message)
+                    }
                     this.listPhanQuyen = res.data.data;
                 });
         },
@@ -330,6 +336,9 @@ export default {
             baseRequest
                 .get('nhan-vien/data')
                 .then((res) => {
+                    if (res.data.status == false) {
+                        toaster.error(res.data.message)
+                    }
                     this.ds_nhan_vien = res.data.nhan_vien;
                 })
         },
@@ -341,6 +350,8 @@ export default {
                         toaster.success(res.data.message)
                         this.nhan_vien_create = {},
                             this.LayDuLieu();
+                    } else {
+                        toaster.error(res.data.message)
                     }
                 });
         },
@@ -351,6 +362,8 @@ export default {
                     if (res.data.status == true) {
                         toaster.success(res.data.message)
                         this.LayDuLieu();
+                    } else {
+                        toaster.error(res.data.message)
                     }
                 })
         },
@@ -361,6 +374,8 @@ export default {
                     if (res.data.status == true) {
                         toaster.success(res.data.message)
                         this.LayDuLieu();
+                    } else {
+                        toaster.error(res.data.message)
                     }
                 })
         },

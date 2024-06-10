@@ -26,6 +26,8 @@ import baseRequest from '../../../core/baseRequest';
 import { Doughnut } from 'vue-chartjs'
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js'
 ChartJS.register(ArcElement, Tooltip, Legend)
+import { createToaster } from "@meforma/vue-toaster";
+const toaster = createToaster({ position: "top-right" });
 export default {
     components: { Doughnut },
     data() {
@@ -58,6 +60,9 @@ export default {
             baseRequest
                 .get('hoa-don/thong-ke-2')
                 .then((res) => {
+                    if (res.data.status == false) {
+                        toaster.error(res.data.message)
+                    }
                     this.chartData.labels           = res.data.list_ten;
                     this.chartData.datasets[0].data = res.data.list_so_luong;
                     this.is_load = true;

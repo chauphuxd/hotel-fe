@@ -40,27 +40,21 @@
                                                 class="fa-solid fa-hotel me-2"></i>Phòng</a>
                                     </router-link>
                                 </li>
-                                <li class="nav-item">
-                                    <router-link to="/bai-viet">
-                                        <a class="nav-link" href="/bai-viet"><i class="fa-solid fa-newspaper me-2"></i>Bài Viết</a>
-                                    </router-link>
-                                </li>
-                                <!-- <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="#"
-                                        role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        Dropdown
+                                <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="#"
+                                        role="button" data-bs-toggle="dropdown" aria-expanded="false"><i
+                                            class="fa-solid fa-newspaper me-2"></i>
+                                        Bài Viết
                                     </a>
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">Action</a>
-                                        </li>
-                                        <li><a class="dropdown-item" href="#">Another action</a>
-                                        </li>
-                                        <li>
-                                            <hr class="dropdown-divider">
-                                        </li>
-                                        <li><a class="dropdown-item" href="#">Something else here</a>
-                                        </li>
+                                        <template v-for="(v, k) in ds_chuyen_muc" :key="k">
+                                            <router-link :to="'/bai-viet/' + v.slug_chuyen_muc">
+                                                <li><a class="dropdown-item" :href="'/bai-viet/' + v.slug_chuyen_muc">{{
+                                                        v.ten_chuyen_muc }}</a>
+                                                </li>
+                                            </router-link>
+                                        </template>
                                     </ul>
-                                </li> -->
+                                </li>
                             </ul>
                             <template v-if="is_check == false">
                                 <form class="d-flex">
@@ -87,14 +81,11 @@
                                         </div>
                                     </a>
                                     <ul class="dropdown-menu dropdown-menu-end">
-                                        <li>
-                                            <a class="dropdown-item" href="javascript:;"><i
+                                        <li><a v-on:click="dangXuat()" class="dropdown-item"><i
                                                     class='bx bx-log-out-circle'></i><span>Đăng Xuất</span></a>
                                         </li>
-                                        <li>
-                                            <a class="dropdown-item" href="javascript:;"><i
-                                                    class="fa-solid fa-right-from-bracket"></i>
-                                                <span>Đăng Xuất Tất Cả Thiết Bị</span></a>
+                                        <li><a v-on:click="dangXuatAll()" class="dropdown-item"><i
+                                                    class='bx bx-log-out-circle'></i><span>Đăng Xuất Tất Cả</span></a>
                                         </li>
                                     </ul>
                                 </div>
@@ -114,11 +105,13 @@ export default {
     data() {
         return {
             ten_hien_thi: 'Chưa đăng nhập',
-            is_check: false
+            is_check: false,
+            ds_chuyen_muc: [],
         }
     },
     mounted() {
         this.checkLogin();
+        this.layDuLieuChuyenMuc();
     },
     methods: {
         checkLogin() {
@@ -129,12 +122,58 @@ export default {
                     }
                 })
                 .then((res) => {
-                    if(res.data.status) {
+                    if (res.data.status) {
                         this.is_check = true;
                         this.ten_hien_thi = localStorage.getItem('ho_ten');
                     }
                 });
+        },
+        layDuLieuChuyenMuc() {
+            axios
+                .get('http://127.0.0.1:8000/api/client/chuyen-muc/data')
+                .then((res) => {
+                    this.ds_chuyen_muc = res.data.chuyen_muc;
+                })
+        },
+        dangXuat() {
+            axios
+                .get('http://127.0.0.1:8000/api/khach-hang/dang-xuat', {
+                    headers: {
+                        Authorization: 'Bearer ' + localStorage.getItem("token_khachhang")
+                    }
+                })
+                .then((res) => {
+                    if (res.data.status) {
+                        toaster.success('Thông báo<br>' + res.data.message);
+                        window.localStorage.removeItem('token_khachhang');
+                        window.localStorage.removeItem('ho_ten');
+                        this.is_check = false;
+                        this.$router.push('/');
+                    } else {
+                        toaster.error('Thông báo<br>' + res.data.message);
+                    }
+                })
+        },
+        dangXuatAll() {
+            axios
+                .get('http://127.0.0.1:8000/api/khach-hang/dang-xuat-all', {
+                    headers: {
+                        Authorization: 'Bearer ' + localStorage.getItem("token_khachhang")
+                    }
+                })
+                .then((res) => {
+                    if (res.data.status) {
+                        toaster.success('Thông báo<br>' + res.data.message);
+                        window.localStorage.removeItem('token_khachhang');
+                        window.localStorage.removeItem('ho_ten');
+                        this.is_check = false;
+                        this.$router.push('/');
+                    } else {
+                        toaster.error('Thông báo<br>' + res.data.message);
+                    }
+                })
         }
+
     },
 }
 </script>

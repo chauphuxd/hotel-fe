@@ -80,6 +80,7 @@ export default {
                         toaster.success(res.data.message)
                         localStorage.setItem('token_admin',res.data.token);
                         localStorage.setItem('ho_ten_admin',res.data.ho_ten_admin);
+                        localStorage.setItem('avatar_admin',res.data.avatar_admin);
                         this.$router.push('/admin/loai-phong');
                     }
                     else {

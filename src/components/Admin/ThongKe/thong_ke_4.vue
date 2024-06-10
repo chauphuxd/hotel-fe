@@ -32,6 +32,8 @@ import {
   Legend
 } from 'chart.js'
 ChartJS.register(RadialLinearScale, ArcElement, Tooltip, Legend)
+import { createToaster } from "@meforma/vue-toaster";
+const toaster = createToaster({ position: "top-right" });
 export default {
     components: { PolarArea },
     data() {
@@ -64,6 +66,9 @@ export default {
             baseRequest
                 .get('hoa-don/thong-ke-4')
                 .then((res) => {
+                    if (res.data.status == false) {
+                        toaster.error(res.data.message)
+                    }
                     this.chartData.labels           = res.data.list_ten;
                     this.chartData.datasets[0].data = res.data.list_so_luong;
                     this.is_load = true;

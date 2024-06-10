@@ -231,6 +231,9 @@ export default {
             baseRequest
                 .post("loai-phong/tim-kiem", this.tim_kiem)
                 .then((res) => {
+                    if (res.data.status == false) {
+                        toaster.error(res.data.message)
+                    }
                     this.ds_phong = res.data.data;
                 });
         },
@@ -240,6 +243,8 @@ export default {
                 .then((res) => {
                     if(res.data.status) {
                         this.ds_phong = res.data.loai_phong;
+                    } else {
+                        toaster.error(res.data.message)
                     }
                 })
         },
@@ -250,6 +255,8 @@ export default {
                     if (res.data.status == true) {
                         toaster.success(res.data.message)
                         this.layDuLieu();
+                    } else {
+                        toaster.error(res.data.message)
                     }
                 });
         },
@@ -260,6 +267,8 @@ export default {
                     if (res.data.status == true) {
                         toaster.success(res.data.message)
                         this.layDuLieu();
+                    } else {
+                        toaster.error(res.data.message)
                     }
                 });
         },
@@ -270,6 +279,8 @@ export default {
                     if (res.data.status == true) {
                         toaster.success(res.data.message)
                         this.layDuLieu();
+                    } else {
+                        toaster.error(res.data.message)
                     }
                 });
             baseRequest
@@ -278,8 +289,10 @@ export default {
                     if (res.data.status == true) {
                         toaster.success(res.data.message)
                         this.layDuLieu();
+                    } else {
+                        toaster.error(res.data.message)
                     }
-                });
+                }); 
         },
         doiTrangThai(xxx) {
             baseRequest
@@ -288,6 +301,8 @@ export default {
                     if (res.data.status == true) {
                         toaster.success(res.data.message)
                         this.layDuLieu();
+                    } else {
+                        toaster.error(res.data.message)
                     }
                 })
         },

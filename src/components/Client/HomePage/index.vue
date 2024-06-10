@@ -21,12 +21,14 @@
                                 <template v-for="(v, k) in ds_slide" :key="k">
                                     <template v-if="k == 0">
                                         <div class="carousel-item active">
-                                            <img v-bind:src="v.link_hinh_anh" class="d-block w-100" style="height: 700px;" alt="...">
+                                            <img v-bind:src="v.link_hinh_anh" class="d-block w-100"
+                                                style="height: 700px;" alt="...">
                                         </div>
                                     </template>
                                     <template v-else>
                                         <div class="carousel-item">
-                                            <img v-bind:src="v.link_hinh_anh" class="d-block w-100" style="height: 700px;" alt="...">
+                                            <img v-bind:src="v.link_hinh_anh" class="d-block w-100"
+                                                style="height: 700px;" alt="...">
                                         </div>
                                     </template>
                                 </template>
@@ -111,26 +113,33 @@
                     <div class="row">
                         <div class="col">
                             <label class="form-label">Ngày Đến</label>
-                            <input v-bind:min="tt_dat.min_ngay_den" v-on:change="doiNgayDen()" v-model="tt_dat.ngay_den" type="date" class="form-control">
+                            <input v-bind:min="tt_dat.min_ngay_den" v-on:change="doiNgayDen()" v-model="tt_dat.ngay_den"
+                                type="date" class="form-control">
                         </div>
                         <div class="col">
                             <label class="form-label">Ngày Đi</label>
-                            <input v-bind:min="tt_dat.min_ngay_di" v-model="tt_dat.ngay_di" type="date" class="form-control">
+                            <input v-bind:min="tt_dat.min_ngay_di" v-model="tt_dat.ngay_di" type="date"
+                                class="form-control">
                         </div>
                         <div class="col">
                             <label class="form-label">Số Phòng</label>
-                            <input v-model="tt_dat.so_phong" type="number" class="form-control" placeholder="Nhập số lượng phòng">
+                            <input v-model="tt_dat.so_phong" type="number" class="form-control"
+                                placeholder="Nhập số lượng phòng">
                         </div>
                         <div class="col">
                             <label class="form-label">Số Người Lớn</label>
-                            <input v-model="tt_dat.nguoi_lon" type="number" class="form-control" placeholder="Nhập số người lớn">
+                            <input v-model="tt_dat.nguoi_lon" type="number" class="form-control"
+                                placeholder="Nhập số người lớn">
                         </div>
                         <div class="col">
                             <label class="form-label">Trẻ Em</label>
-                            <input v-model="tt_dat.tre_em" type="number" class="form-control" placeholder="Nhập số trẻ em">
+                            <input v-model="tt_dat.tre_em" type="number" class="form-control"
+                                placeholder="Nhập số trẻ em">
                         </div>
                         <div class="col">
-                            <button v-on:click="chuyenTrang()" class="btn btn-warning w-100" style="margin-top: 28px;">Tìm Kiếm</button>
+                            <button v-on:click="chuyenTrang()" class="btn btn-warning w-100"
+                                style="margin-top: 28px;">Tìm
+                                Kiếm</button>
                         </div>
                     </div>
                 </div>
@@ -250,192 +259,38 @@
                             </form>
                         </div>
                     </div>
-                    <div id="carouselExampleCaptions_1" class="carousel slide">
-                        <div class="carousel-indicators">
-                            <button type="button" data-bs-target="#carouselExampleCaptions_1" data-bs-slide-to="0"
-                                class="active" aria-current="true" aria-label="Slide 1"></button>
-                            <button type="button" data-bs-target="#carouselExampleCaptions_1" data-bs-slide-to="1"
-                                aria-label="Slide 2"></button>
-                            <button type="button" data-bs-target="#carouselExampleCaptions_1" data-bs-slide-to="2"
-                                aria-label="Slide 3"></button>
-                        </div>
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <div class="row">
-                                    <div class="col-lg-4">
-                                        <div class="card border-primary border-bottom border-3 border-0">
-                                            <img src="../../../assets/img_homepage/p_1.jpg" class="card-img-top"
-                                                alt="...">
-                                            <div class="card-body">
-                                                <h5 class="card-title text-dark"><b>Phòng Standard</b></h5>
-                                                <div class="row mt-4">
-                                                    <div class="col-lg-12 d-flex flex-row ">
-                                                        <p class="me-3"><i class="fa-solid fa-expand"></i>
-                                                            20m<sup>2</sup>
-                                                        </p>
-                                                        <p><i class="fa-solid fa-bed"></i> 1 Giường</p>
-                                                    </div>
-                                                </div>
-                                                <hr>
-                                                <div
-                                                    class="d-flex align-items-center gap-2 d-flex justify-content-between">
-                                                    <a href="javascript:;"
-                                                        class="btn btn-inverse-danger rounded-pill"><i
-                                                            class="bx bx-star"></i>Yêu Thích</a>
-                                                    <a href="javascript:;" class="btn btn-primary rounded-pill">Chọn
-                                                        Phòng</a>
-                                                </div>
+                    <carousel :items-to-show="3">
+                        <slide v-for="(v, k) in ds_loai_phong" :key="k">
+                            <div class="col-lg-10">
+                                <div class="card border-primary border-bottom border-3 border-0">
+                                    <img v-bind:src="v.hinh_anh" style=" width: 100%; height: 230px; object-fit: contain; vertical-align: middle;" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <h5 class="card-title text-dark"><b>{{ v.ten_loai_phong }}</b></h5>
+                                        <div class="row mt-4">
+                                            <div class="col-lg-12 d-flex flex-row ">
+                                                <p class="me-3"><i class="fa-solid fa-expand"></i>
+                                                    {{ v.dien_tich }}m<sup>2</sup>
+                                                </p>
+                                                <p><i class="fa-solid fa-bed"></i> {{ v.so_giuong }} Giường</p>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <div class="card border-primary border-bottom border-3 border-0">
-                                            <img src="../../../assets/img_homepage/p_2.jpg" class="card-img-top"
-                                                alt="...">
-                                            <div class="card-body">
-                                                <h5 class="card-title text-dark"><b>Phòng Superior</b></h5>
-                                                <div class="row mt-4">
-                                                    <div class="col-lg-12 d-flex flex-row ">
-                                                        <p class="me-3"><i class="fa-solid fa-expand"></i>
-                                                            25m<sup>2</sup>
-                                                        </p>
-                                                        <p><i class="fa-solid fa-bed"></i> 2 Giường</p>
-                                                    </div>
-                                                </div>
-                                                <hr>
-                                                <div
-                                                    class="d-flex align-items-center gap-2 d-flex justify-content-between">
-                                                    <a href="javascript:;"
-                                                        class="btn btn-inverse-danger rounded-pill"><i
-                                                            class="bx bx-star"></i>Yêu Thích</a>
-                                                    <a href="javascript:;" class="btn btn-primary rounded-pill">Chọn
-                                                        Phòng</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <div class="card border-primary border-bottom border-3 border-0">
-                                            <img src="../../../assets/img_homepage/p_3.jpg" class="card-img-top"
-                                                alt="...">
-                                            <div class="card-body">
-                                                <h5 class="card-title text-dark"><b>Phòng Deluxe</b></h5>
-                                                <div class="row mt-4">
-                                                    <div class="col-lg-12 d-flex flex-row ">
-                                                        <p class="me-3"><i class="fa-solid fa-expand"></i>
-                                                            15m<sup>2</sup>
-                                                        </p>
-                                                        <p><i class="fa-solid fa-bed"></i> 2 Giường</p>
-                                                    </div>
-                                                </div>
-                                                <hr>
-                                                <div
-                                                    class="d-flex align-items-center gap-2 d-flex justify-content-between">
-                                                    <a href="javascript:;"
-                                                        class="btn btn-inverse-danger rounded-pill"><i
-                                                            class="bx bx-star"></i>Yêu Thích</a>
-                                                    <a href="javascript:;" class="btn btn-primary rounded-pill">Chọn
-                                                        Phòng</a>
-                                                </div>
-                                            </div>
+                                        <hr>
+                                        <div class="d-flex align-items-center gap-2 d-flex justify-content-between">
+                                            <a href="javascript:;" class="btn btn-inverse-danger rounded-pill"><i
+                                                    class="bx bx-star"></i>Yêu Thích</a>
+                                            <a href="javascript:;" class="btn btn-primary rounded-pill">Chọn
+                                                Phòng</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="carousel-item">
-                                <div class="row">
-                                    <div class="col-lg-4">
-                                        <div class="card border-primary border-bottom border-3 border-0">
-                                            <img src="../../../assets/img_homepage/p_4.jpg" class="card-img-top"
-                                                alt="...">
-                                            <div class="card-body">
-                                                <h5 class="card-title text-dark"><b>Phòng Suite</b></h5>
-                                                <div class="row mt-4">
-                                                    <div class="col-lg-12 d-flex flex-row ">
-                                                        <p class="me-3"><i class="fa-solid fa-expand"></i>
-                                                            30m<sup>2</sup>
-                                                        </p>
-                                                        <p><i class="fa-solid fa-bed"></i> 1 Giường</p>
-                                                    </div>
-                                                </div>
-                                                <hr>
-                                                <div
-                                                    class="d-flex align-items-center gap-2 d-flex justify-content-between">
-                                                    <a href="javascript:;"
-                                                        class="btn btn-inverse-danger rounded-pill"><i
-                                                            class="bx bx-star"></i>Yêu Thích</a>
-                                                    <a href="javascript:;" class="btn btn-primary rounded-pill">Chọn
-                                                        Phòng</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <div class="card border-primary border-bottom border-3 border-0">
-                                            <img src="../../../assets/img_homepage/p_5.jpeg" class="card-img-top"
-                                                alt="...">
-                                            <div class="card-body">
-                                                <h5 class="card-title text-dark"><b>Phòng View Biển</b></h5>
-                                                <div class="row mt-4">
-                                                    <div class="col-lg-12 d-flex flex-row ">
-                                                        <p class="me-3"><i class="fa-solid fa-expand"></i>
-                                                            20m<sup>2</sup>
-                                                        </p>
-                                                        <p><i class="fa-solid fa-bed"></i> 1 Giường</p>
-                                                    </div>
-                                                </div>
-                                                <hr>
-                                                <div
-                                                    class="d-flex align-items-center gap-2 d-flex justify-content-between">
-                                                    <a href="javascript:;"
-                                                        class="btn btn-inverse-danger rounded-pill"><i
-                                                            class="bx bx-star"></i>Yêu Thích</a>
-                                                    <a href="javascript:;" class="btn btn-primary rounded-pill">Chọn
-                                                        Phòng</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <div class="card border-primary border-bottom border-3 border-0">
-                                            <img src="../../../assets/img_homepage/p_6.jpg" class="card-img-top"
-                                                alt="...">
-                                            <div class="card-body">
-                                                <h5 class="card-title text-dark"><b>Phòng VIP</b></h5>
-                                                <div class="row mt-4">
-                                                    <div class="col-lg-12 d-flex flex-row ">
-                                                        <p class="me-3"><i class="fa-solid fa-expand"></i>
-                                                            22m<sup>2</sup>
-                                                        </p>
-                                                        <p><i class="fa-solid fa-bed"></i> 1 Giường</p>
-                                                    </div>
-                                                </div>
-                                                <hr>
-                                                <div
-                                                    class="d-flex align-items-center gap-2 d-flex justify-content-between">
-                                                    <a href="javascript:;"
-                                                        class="btn btn-inverse-danger rounded-pill"><i
-                                                            class="bx bx-star"></i>Yêu Thích</a>
-                                                    <a href="javascript:;" class="btn btn-primary rounded-pill">Chọn
-                                                        Phòng</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions_1"
-                            data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions_1"
-                            data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
-                    </div>
+                        </slide>
+
+                        <template #addons>
+                            <navigation />
+                            <pagination />
+                        </template>
+                    </carousel>
                 </div>
             </div>
         </div>
@@ -488,10 +343,12 @@
                                                                 <hr>
                                                                 <div class="d-flex align-items-center mt-2 fs-6">
                                                                     <div class="cursor-pointer">
-                                                                        <template v-for="items in v.sao_danh_gia" :key="items">
+                                                                        <template v-for="items in v.sao_danh_gia"
+                                                                            :key="items">
                                                                             <i class="bx bxs-star text-warning"></i>
                                                                         </template>
-                                                                        <template v-for="items in (5 - v.sao_danh_gia)" :key="items">
+                                                                        <template v-for="items in (5 - v.sao_danh_gia)"
+                                                                            :key="items">
                                                                             <i class="bx bxs-star text-secondary"></i>
                                                                         </template>
                                                                     </div>
@@ -522,11 +379,13 @@
                                                                 <hr>
                                                                 <div class="d-flex align-items-center mt-2 fs-6">
                                                                     <div class="cursor-pointer">
-                                                                        <template v-for="items in value.sao_danh_gia" :key="items">
+                                                                        <template v-for="items in value.sao_danh_gia"
+                                                                            :key="items">
                                                                             <i class="bx bxs-star text-warning"></i>
                                                                         </template>
                                                                         <template
-                                                                            v-for="items in (5 - value.sao_danh_gia)" :key="items">
+                                                                            v-for="items in (5 - value.sao_danh_gia)"
+                                                                            :key="items">
                                                                             <i class="bx bxs-star text-secondary"></i>
                                                                         </template>
                                                                     </div>
@@ -562,12 +421,21 @@
 import axios from 'axios';
 import { createToaster } from "@meforma/vue-toaster";
 const toaster = createToaster({ position: "top-right" });
+import 'vue3-carousel/dist/carousel.css'
+import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
 export default {
+    components: {
+        Carousel,
+        Slide,
+        Pagination,
+        Navigation,
+    },
     data() {
         return {
             ds_review: [],
-            ds_slide : [],
-            tt_dat   : {},
+            ds_slide: [],
+            ds_loai_phong: [],
+            tt_dat: {},
         }
     },
     mounted() {
@@ -582,12 +450,12 @@ export default {
             var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
             var yyyy = today.getFullYear();
             today = yyyy + '-' + mm + '-' + dd;
-            this.tt_dat.min_ngay_di  = today;
+            this.tt_dat.min_ngay_di = today;
             this.tt_dat.min_ngay_den = today;
         },
         doiNgayDen() {
-            this.tt_dat.min_ngay_di  = this.tt_dat.ngay_den;
-            if(this.tt_dat.ngay_di < this.tt_dat.ngay_den) {
+            this.tt_dat.min_ngay_di = this.tt_dat.ngay_den;
+            if (this.tt_dat.ngay_di < this.tt_dat.ngay_den) {
                 this.tt_dat.ngay_di = this.tt_dat.ngay_den;
             }
         },
@@ -597,6 +465,7 @@ export default {
                 .then((res) => {
                     this.ds_review = res.data.dataReview;
                     this.ds_slide = res.data.dataSlide;
+                    this.ds_loai_phong = res.data.dataLoaiPhong;
                 })
         },
         // layDuLieuReview() {
@@ -615,13 +484,13 @@ export default {
         // },
         chuyenTrang() {
             this.$router.push({
-                name    :   "datPhong",
-                params  :   {
-                    'ngay_den'  :   this.tt_dat.ngay_den,
-                    'ngay_di'   :   this.tt_dat.ngay_di,
-                    'so_phong'  :   this.tt_dat.so_phong,
-                    'nguoi_lon' :   this.tt_dat.nguoi_lon,
-                    'tre_em'    :   this.tt_dat.tre_em,
+                name: "datPhong",
+                params: {
+                    'ngay_den': this.tt_dat.ngay_den,
+                    'ngay_di': this.tt_dat.ngay_di,
+                    'so_phong': this.tt_dat.so_phong,
+                    'nguoi_lon': this.tt_dat.nguoi_lon,
+                    'tre_em': this.tt_dat.tre_em,
                 },
             });
         }

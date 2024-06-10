@@ -151,6 +151,9 @@ export default {
             baseRequest
                 .post("khach-hang/tim-kiem", this.tim_kiem)
                 .then((res) => {
+                    if (res.data.status == false) {
+                        toaster.error(res.data.message)
+                    }
                     this.list_khach_hang = res.data.data;
                 });
         },
@@ -158,6 +161,9 @@ export default {
             baseRequest
                 .get('khach-hang/data')
                 .then((res) => {
+                    if (res.data.status == false) {
+                        toaster.error(res.data.message)
+                    }
                     this.list_khach_hang = res.data.data;
                 })
         },
@@ -182,6 +188,8 @@ export default {
                     if (res.data.status == true) {
                         toaster.success(res.data.message)
                         this.loadData();
+                    } else {
+                        toaster.error(res.data.message)
                     }
                 })
         },
@@ -193,6 +201,8 @@ export default {
                     if (res.data.status == true) {
                         toaster.success(res.data.message)
                         this.loadData();
+                    } else {
+                        toaster.error(res.data.message)
                     }
                 })
         },

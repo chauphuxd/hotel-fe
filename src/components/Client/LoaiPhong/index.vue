@@ -214,9 +214,9 @@
                                                     <td rowspan="2">
                                                         <div class="d-flex flex-column">
                                                             <button class="btn btn-primary w-100">Đặt ngay</button>
-                                                            <button
+                                                            <!-- <button
                                                                 class="btn btn-outline-primary w-100 mt-2 mb-5 text-wrap">Giỏ
-                                                                hàng</button>
+                                                                hàng</button> -->
                                                         </div>
                                                     </td>
                                                 </tr>

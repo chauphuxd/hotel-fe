@@ -43,7 +43,7 @@
         </div>
         <div class="row ">
           <template v-for="(v, k) in ds_bai_viet" :key="k">
-            <div class="col-3 d-flex align-items-stretch ">
+            <div class="col-4 d-flex align-items-stretch ">
               <router-link :to="'/chi-tiet-bai-viet/' + v.id">
                 <div class="card border-end shadow-none">
                   <img v-bind:src="v.hinh_anh" class="card-img-top" alt="..." style="height: 240px;">
@@ -55,7 +55,7 @@
                   </div>
                 </div>
               </router-link>
-              
+
             </div>
           </template>
         </div>
@@ -68,7 +68,9 @@
 import axios from 'axios';
 import { createToaster } from "@meforma/vue-toaster";
 const toaster = createToaster({ position: "top-right" });
+
 export default {
+  props: ['slug_chuyen_muc'],
   data() {
     return {
       ds_bai_viet: [],
@@ -77,10 +79,15 @@ export default {
   mounted() {
     this.layDuLieuBaiViet();
   },
+  watch: {
+    $route(to, from) {
+      this.layDuLieuBaiViet();
+    }
+  },
   methods: {
     layDuLieuBaiViet() {
       axios
-        .get('http://127.0.0.1:8000/api/client/bai-viet/data')
+        .get('http://127.0.0.1:8000/api/client/bai-viet/data/' + this.slug_chuyen_muc)
         .then((res) => {
           this.ds_bai_viet = res.data.bai_viet;
         })

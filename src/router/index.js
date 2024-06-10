@@ -95,6 +95,11 @@ const routes = [
         beforeEnter: kiemTraAdmin
     },
     {
+        path: '/admin/chuyen-muc',
+        component: () => import('../components/Admin/ChuyenMuc/index.vue'),
+        beforeEnter: kiemTraAdmin
+    },
+    {
         path: '/admin/danh-sach-hoa-don',
         component: () => import('../components/Admin/HoaDon/index.vue'),
         beforeEnter: kiemTraAdmin
@@ -130,9 +135,10 @@ const routes = [
         meta: {layout: 'client'}
     },
     {
-        path: '/bai-viet',
+        path: '/bai-viet/:slug_chuyen_muc',
         component: () => import('../components/Client/BaiViet/index.vue'),
-        meta: {layout: 'client'}
+        meta: {layout: 'client'},
+        props: true
     },
     {
         path: '/khach-hang/dang-ky',

@@ -189,23 +189,21 @@
                             <table class="table table-bordered">
                                 <thead>
                                     <tr class="text-center text-nowrap align-middle">
-                                        <th>#</th>
+                                        <th>Tên Chức Năng</th>
                                         <th>Tên Quyền</th>
-                                        <th>ID Quyền</th>
-                                        <th>ID CN</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr v-for="(v, k) in list_chi_tiet" :key="k" class="align-middle">
-                                        <th class="text-center">{{ k + 1 }}</th>
-                                        <td></td>
-                                        <td>{{ v.id_quyen }}</td>
-                                        <td>{{ v.id_chuc_nang }}</td>
-                                        <td class="text-center">
-                                            <button class="btn btn-success">Action</button>
-                                        </td>
-                                    </tr>
+                                    <template v-for="(v, k) in locMang()" :key="k">
+                                            <tr class="align-middle">
+                                                <td>{{ v.ten_chuc_nang }}</td>
+                                                <td>{{ v.ten_quyen }}</td>
+                                                <td class="text-center">
+                                                    <button v-on:click="xoaQuyen(v)" class="btn btn-danger">Xóa</button>
+                                                </td>
+                                            </tr>
+                                    </template>
                                 </tbody>
                             </table>
                         </div>
@@ -223,14 +221,14 @@ import baseRequest from '../../../core/baseRequest';
 export default {
     data() {
         return {
-            listChucNang    : [],
-            listPhanQuyen   : [],
-            create_quyen    : {},
-            delete_quyen    : {},
-            update_quyen    : {},
-            tim_kiem        : {},
-            quyen_dang_chon : {},
-            list_chi_tiet   : [],
+            listChucNang: [],
+            listPhanQuyen: [],
+            create_quyen: {},
+            delete_quyen: {},
+            update_quyen: {},
+            tim_kiem: {},
+            quyen_dang_chon: {},
+            list_chi_tiet: [],
         }
     },
     mounted() {
@@ -239,30 +237,57 @@ export default {
         this.loadData();
     },
     methods: {
+        xoaQuyen(payload) {
+            baseRequest
+                .post("chi-tiet-phan-quyen/xoa-quyen", payload)
+                .then((res) => {
+                    if(res.data.status) {
+                        toaster.success(res.data.message);
+                        this.loadData();
+                    } else {
+                        toaster.error(res.data.message)
+                    }
+                    
+                });
+        },
+        locMang() {
+            return this.list_chi_tiet.filter(value => value.id_quyen == this.quyen_dang_chon.id);
+        },
         loadData() {
             baseRequest
                 .post("chi-tiet-phan-quyen/danh-sach", {})
                 .then((res) => {
+                    if (res.data.status == false) {
+                        toaster.error(res.data.message)
+                    }
                     this.list_chi_tiet = res.data.data;
                 });
         },
         capQuyen(chuc_nang) {
             var payload = {
-                'id_quyen'      :   this.quyen_dang_chon.id,
-                'id_chuc_nang'  :   chuc_nang.id
+                'id_quyen': this.quyen_dang_chon.id,
+                'id_chuc_nang': chuc_nang.id
             };
 
             baseRequest
                 .post("chi-tiet-phan-quyen/cap-quyen", payload)
                 .then((res) => {
-                    toaster.success(res.data.message);
-                    this.loadData();
+                    if(res.data.status) {
+                        toaster.success(res.data.message);
+                        this.loadData();
+                    } else {
+                        toaster.error(res.data.message)
+                    }
+                   
                 });
         },
         timKiemNe() {
             baseRequest
                 .post("phan-quyen/tim-kiem", this.tim_kiem)
                 .then((res) => {
+                    if (res.data.status == false) {
+                        toaster.error(res.data.message)
+                    }
                     this.listPhanQuyen = res.data.data;
                 });
         },
@@ -270,6 +295,9 @@ export default {
             baseRequest
                 .get('chuc-nang/data')
                 .then((res) => {
+                    if (res.data.status == false) {
+                        toaster.error(res.data.message)
+                    }
                     this.listChucNang = res.data.data;
                 });
         },
@@ -277,6 +305,9 @@ export default {
             baseRequest
                 .get('phan-quyen/data')
                 .then((res) => {
+                    if (res.data.status == false) {
+                        toaster.error(res.data.message)
+                    }
                     this.listPhanQuyen = res.data.data;
                 });
         },
@@ -288,6 +319,8 @@ export default {
                         toaster.success('Thông báo<br>' + res.data.message);
                         this.layDuLieuPhanQuyen();
                         this.create_quyen = {};
+                    } else {
+                        toaster.error(res.data.message)
                     }
                 });
         },

@@ -148,6 +148,9 @@ export default {
             baseRequest
                 .post("thong-ke-thue-phong/tim-kiem", this.tim_kiem)
                 .then((res) => {
+                    if (res.data.status == false) {
+                        toaster.error(res.data.message)
+                    }
                     this.ds_thong_ke = res.data.data;
                 });
         },
@@ -155,6 +158,9 @@ export default {
             baseRequest
                 .get('data')
                 .then((res) => {
+                    if (res.data.status == false) {
+                        toaster.error(res.data.message)
+                    }
                     this.ds_thong_ke = res.data.data;
                 })
         },

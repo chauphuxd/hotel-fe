@@ -150,6 +150,9 @@ export default {
             baseRequest
                 .post("slide/tim-kiem", this.tim_kiem)
                 .then((res) => {
+                    if (res.data.status == false) {
+                        toaster.error(res.data.message)
+                    }
                     this.ds_slide = res.data.data;
                 });
         },
@@ -157,6 +160,9 @@ export default {
             baseRequest
                 .get('slide/data')
                 .then((res) => {
+                    if (res.data.status == false) {
+                        toaster.error(res.data.message)
+                    }
                     this.ds_slide = res.data.slide;
                 })
         },
@@ -167,6 +173,8 @@ export default {
                     if (res.data.status == true) {
                         toaster.success(res.data.message)
                         this.layDuLieu();
+                    } else {
+                        toaster.error(res.data.message)
                     }
                 });
         },
@@ -177,6 +185,8 @@ export default {
                     if (res.data.status == true) {
                         toaster.success(res.data.message)
                         this.layDuLieu();
+                    } else {
+                        toaster.error(res.data.message)
                     }
                 });
         },
@@ -187,6 +197,8 @@ export default {
                     if (res.data.status == true) {
                         toaster.success(res.data.message)
                         this.layDuLieu();
+                    } else {
+                        toaster.error(res.data.message)
                     }
                 });
         },
@@ -197,6 +209,8 @@ export default {
                     if (res.data.status == true) {
                         toaster.success(res.data.message)
                         this.layDuLieu();
+                    } else {
+                        toaster.error(res.data.message)
                     }
                 })
         },

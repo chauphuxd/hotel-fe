@@ -162,6 +162,9 @@ export default {
             baseRequest
                 .post("review/tim-kiem", this.tim_kiem)
                 .then((res) => {
+                    if (res.data.status == false) {
+                        toaster.error(res.data.message)
+                    }
                     this.ds_review = res.data.data;
                 });
         },
@@ -169,6 +172,9 @@ export default {
             baseRequest
                 .get('review/data')
                 .then((res) => {
+                    if (res.data.status == false) {
+                        toaster.error(res.data.message)
+                    }
                     this.ds_review = res.data.review;
                 })
         },
@@ -179,6 +185,8 @@ export default {
                     if (res.data.status == true) {
                         toaster.success(res.data.message)
                         this.layDuLieu();
+                    } else {
+                        toaster.error(res.data.message)
                     }
                 });
         },
@@ -189,6 +197,8 @@ export default {
                     if (res.data.status == true) {
                         toaster.success(res.data.message)
                         this.layDuLieu();
+                    } else {
+                        toaster.error(res.data.message)
                     }
                 });
         },
@@ -199,6 +209,8 @@ export default {
                     if (res.data.status == true) {
                         toaster.success(res.data.message)
                         this.layDuLieu();
+                    } else {
+                        toaster.error(res.data.message)
                     }
                 });
         }

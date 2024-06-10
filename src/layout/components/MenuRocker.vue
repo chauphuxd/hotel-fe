@@ -56,75 +56,82 @@
                             <div class="menu-title text-nowrap">Quản Lý Phòng</div>
                         </a>
                     </router-link>
-                        <ul class="dropdown-menu">
-                                <li> 
-                                    <router-link to="/admin/chi-tiet-thue-phong">
-                                        <a class="dropdown-item"  href="/admin/chi-tiet-thue-phong" >
-                                        <i class="bx bx-right-arrow-alt"></i>Chi tiết thuê phòng</a>
-                                    </router-link>
-                                </li>
-                                <li> 
-                                    <router-link to="/admin/tinh-trang-phong">
-                                        <a class="dropdown-item"  href="/admin/tinh-trang-phong" >
-                                        <i class="bx bx-right-arrow-alt"></i>Tình trạng phòng</a>
-                                    </router-link>
-                                </li>
-                        </ul>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <router-link to="/admin/chi-tiet-thue-phong">
+                                <a class="dropdown-item" href="/admin/chi-tiet-thue-phong">
+                                    <i class="bx bx-right-arrow-alt"></i>Chi tiết thuê phòng</a>
+                            </router-link>
+                        </li>
+                        <li>
+                            <router-link to="/admin/tinh-trang-phong">
+                                <a class="dropdown-item" href="/admin/tinh-trang-phong">
+                                    <i class="bx bx-right-arrow-alt"></i>Tình trạng phòng</a>
+                            </router-link>
+                        </li>
+                    </ul>
                 </li>
-                <li class="nav-item">
-                    <router-link to="/admin/nhan-vien">
-                        <a class="nav-link" href="/admin/nhan-vien">
-                            <div class="parent-icon"><i class="fa-solid fa-users"></i>
-                            </div>
-                            <div class="menu-title text-nowrap">Quản Lý Nhân Viên</div>
-                        </a>
-                    </router-link>
+                <li class="nav-item dropdown">
+                    <a href="javascript:;" class="nav-link dropdown-toggle dropdown-toggle-nocaret"
+                        data-bs-toggle="dropdown">
+                        <div class="parent-icon"><i class="fa-solid fa-users"></i>
+                        </div>
+                        <div class="menu-title">Quản Lý Người Dùng</div>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <router-link to="/admin/nhan-vien">
+                                <a class="dropdown-item" href="/admin/nhan-vien">
+                                    <i class="bx bx-right-arrow-alt"></i>Quản Lý Nhân Viên</a>
+                            </router-link>
+                        </li>
+                        <li>
+                            <router-link to="/admin/khach-hang">
+                                <a class="dropdown-item" href="/admin/khach-hang">
+                                    <i class="bx bx-right-arrow-alt"></i>Quản Lý Khách Hàng</a>
+                            </router-link>
+                        </li>
+                        <li>
+                            <router-link to="/admin/phan-quyen">
+                                <a class="dropdown-item" href="/admin/phan-quyen">
+                                    <i class="bx bx-right-arrow-alt"></i>Quản Lý Phân Quyền</a>
+                            </router-link>
+                        </li>
+                    </ul>
                 </li>
-                <li class="nav-item">
-                    <router-link to="/admin/slide">
-                        <a class="nav-link" href="/admin/slide">
-                            <div class="parent-icon"><i class="fa-solid fa-sliders"></i>
-                            </div>
-                            <div class="menu-title text-nowrap">Quản Lý Slide</div>
-                        </a>
-                    </router-link>
-                </li>
-                <li class="nav-item">
-                    <router-link to="/admin/review">
-                        <a class="nav-link" href="/admin/review">
-                            <div class="parent-icon"><i class="fa-solid fa-ranking-star"></i>
-                            </div>
-                            <div class="menu-title text-nowrap">Quản Lý Review</div>
-                        </a>
-                    </router-link>
-                </li>
-                <li class="nav-item">
-                    <router-link to="/admin/phan-quyen">
-                        <a class="nav-link" href="/admin/phan-quyen">
-                            <div class="parent-icon"><i class="fa-solid fa-user-lock"></i>
-                            </div>
-                            <div class="menu-title text-nowrap">Quản Lý Phân Quyền</div>
-                        </a>
-                    </router-link>
-                </li>
-                <li class="nav-item">
-                    <router-link to="/admin/bai-viet">
-                        <a class="nav-link" href="/admin/bai-viet">
-                            <div class="parent-icon"><i class="fa-solid fa-user-lock"></i>
-                            </div>
-                            <div class="menu-title text-nowrap">Danh Sách Bài Viết </div>
-                        </a>
-                    </router-link>
-                </li>
-
-                <li class="nav-item">
-                    <router-link to="/admin/khach-hang">
-                        <a class="nav-link" href="/admin/khach-hang">
-                            <div class="parent-icon"><i class="fa-solid fa-user-lock"></i>
-                            </div>
-                            <div class="menu-title text-nowrap">Danh Sách Khách Hàng </div>
-                        </a>
-                    </router-link>
+                <li class="nav-item dropdown">
+                    <a href="javascript:;" class="nav-link dropdown-toggle dropdown-toggle-nocaret"
+                        data-bs-toggle="dropdown">
+                        <div class="parent-icon"><i class="fa-solid fa-ranking-star"></i>
+                        </div>
+                        <div class="menu-title">Quản Lý HomePage</div>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <router-link to="/admin/slide">
+                                <a class="dropdown-item" href="/admin/slide">
+                                    <i class="bx bx-right-arrow-alt"></i>Quản Lý Slide</a>
+                            </router-link>
+                        </li>
+                        <li>
+                            <router-link to="/admin/review">
+                                <a class="dropdown-item" href="/admin/review">
+                                    <i class="bx bx-right-arrow-alt"></i>Quản Lý Review</a>
+                            </router-link>
+                        </li>
+                        <li>
+                            <router-link to="/admin/chuyen-muc">
+                                <a class="dropdown-item" href="/admin/chuyen-muc">
+                                    <i class="bx bx-right-arrow-alt"></i>Quản Lý Chuyên Mục</a>
+                            </router-link>
+                        </li>
+                        <li>
+                            <router-link to="/admin/bai-viet">
+                                <a class="dropdown-item" href="/admin/bai-viet">
+                                    <i class="bx bx-right-arrow-alt"></i>Quản Lý Bài Viết</a>
+                            </router-link>
+                        </li>
+                    </ul>
                 </li>
                 <li class="nav-item">
                     <router-link to="/admin/danh-sach-hoa-don">
@@ -136,37 +143,37 @@
                     </router-link>
                 </li>
                 <li class="nav-item dropdown">
-                        <a class="nav-link">
-                            <div class="parent-icon"><i class="fa-solid fa-chart-column"></i>
-                            </div>
-                            <div class="menu-title text-nowrap">Thống Kê</div>
-                        </a>
-                        <ul class="dropdown-menu">
-                                <li> 
-                                    <router-link to="/admin/thong-ke-1">
-                                        <a class="dropdown-item"  href="/admin/thong-ke-1" >
-                                        <i class="bx bx-right-arrow-alt"></i>Thống Kê Doanh Thu</a>
-                                    </router-link>
-                                </li>
-                                <li> 
-                                    <router-link to="/admin/thong-ke-2">
-                                        <a class="dropdown-item"  href="/admin/thong-ke-2" >
-                                        <i class="bx bx-right-arrow-alt"></i>Thống Kê Số Lượng Phòng</a>
-                                    </router-link>
-                                </li>
-                                <li> 
-                                    <router-link to="/admin/thong-ke-3">
-                                        <a class="dropdown-item"  href="/admin/thong-ke-3" >
-                                        <i class="bx bx-right-arrow-alt"></i>Thống Kê Tổng Tiền Khách Thanh Toán</a>
-                                    </router-link>
-                                </li>
-                                <li> 
-                                    <router-link to="/admin/thong-ke-4">
-                                        <a class="dropdown-item"  href="/admin/thong-ke-4" >
-                                        <i class="bx bx-right-arrow-alt"></i>Thống Kê Số Phòng Thuê Của Khách</a>
-                                    </router-link>
-                                </li>
-                        </ul>
+                    <a class="nav-link">
+                        <div class="parent-icon"><i class="fa-solid fa-chart-column"></i>
+                        </div>
+                        <div class="menu-title text-nowrap">Thống Kê</div>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <router-link to="/admin/thong-ke-1">
+                                <a class="dropdown-item" href="/admin/thong-ke-1">
+                                    <i class="bx bx-right-arrow-alt"></i>Thống Kê Doanh Thu</a>
+                            </router-link>
+                        </li>
+                        <li>
+                            <router-link to="/admin/thong-ke-2">
+                                <a class="dropdown-item" href="/admin/thong-ke-2">
+                                    <i class="bx bx-right-arrow-alt"></i>Thống Kê Số Lượng Phòng</a>
+                            </router-link>
+                        </li>
+                        <li>
+                            <router-link to="/admin/thong-ke-3">
+                                <a class="dropdown-item" href="/admin/thong-ke-3">
+                                    <i class="bx bx-right-arrow-alt"></i>Thống Kê Tổng Tiền Khách Thanh Toán</a>
+                            </router-link>
+                        </li>
+                        <li>
+                            <router-link to="/admin/thong-ke-4">
+                                <a class="dropdown-item" href="/admin/thong-ke-4">
+                                    <i class="bx bx-right-arrow-alt"></i>Thống Kê Số Phòng Thuê Của Khách</a>
+                            </router-link>
+                        </li>
+                    </ul>
                 </li>
             </ul>
         </nav>
@@ -174,7 +181,7 @@
 </template>
 <script>
 export default {
-    
+
 }
 </script>
 <style></style>

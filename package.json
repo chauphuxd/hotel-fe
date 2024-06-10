@@ -16,7 +16,8 @@
     "perfect-scrollbar": "^1.5.5",
     "vue": "^3.3.4",
     "vue-chartjs": "^5.3.1",
-    "vue-router": "^4.0.13"
+    "vue-router": "^4.0.13",
+    "vue3-carousel": "^0.3.3"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.2.3",
