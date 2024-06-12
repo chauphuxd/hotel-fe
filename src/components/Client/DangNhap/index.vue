@@ -66,7 +66,7 @@ export default {
     methods: {
         dangNhap() {
             axios
-                .post("https://hotel-be.dzfullstack.edu.vn/api/khach-hang/dang-nhap", this.login)
+                .post("http://127.0.0.1:8000/api/khach-hang/dang-nhap", this.login)
                 .then((res) => {
                     if (res.data.status) {
                         toaster.success(res.data.message)
@@ -82,7 +82,7 @@ export default {
         },
         checkLogin() {
             axios
-                .get('https://hotel-be.dzfullstack.edu.vn/api/kiem-tra-token-khach-hang', {
+                .get('http://127.0.0.1:8000/api/kiem-tra-token-khach-hang', {
                     headers: {
                         Authorization: 'Bearer ' + localStorage.getItem("token_khachhang")
                     }

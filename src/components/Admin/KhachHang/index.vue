@@ -42,9 +42,9 @@
                                             Tắt</button>
                                     </td>
                                     <td class="text-center">
-                                        <button v-if="value.is_active == 1" class="btn btn-primary">Đã Kích
+                                        <button v-on:click="doiKichHoat(value)" v-if="value.is_active == 1" class="btn btn-primary">Đã Kích
                                             Hoạt</button>
-                                        <button v-else class="btn btn-warning">Chưa Kích Hoạt</button>
+                                        <button v-on:click="doiKichHoat(value)" v-else class="btn btn-warning">Chưa Kích Hoạt</button>
                                     </td>
                                     <td class="text-center text-nowrap">
                                         <button v-on:click="Object.assign(khach_hang_update, value)"
@@ -171,6 +171,19 @@ export default {
         doiTrangThai(xxx) {
             baseRequest
                 .put('khach-hang/doi-trang-thai', xxx)
+                .then((res) => {
+                    if (res.data.status) {
+                        toaster.success(res.data.message);
+                        this.loadData();
+                    } else {
+                        toaster.error(res.data.message)
+                    }
+                })
+        },
+
+        doiKichHoat(xxx) {
+            baseRequest
+                .put('khach-hang/doi-kich-hoat', xxx)
                 .then((res) => {
                     if (res.data.status) {
                         toaster.success(res.data.message);

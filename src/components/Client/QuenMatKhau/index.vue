@@ -39,7 +39,7 @@ export default {
     methods: {
         gui() {
             axios
-                .post("https://hotel-be.dzfullstack.edu.vn/api/khach-hang/quen-mat-khau", this.tai_khoan)
+                .post("http://127.0.0.1:8000/api/khach-hang/quen-mat-khau", this.tai_khoan)
                 .then((res) => {
                     if(res.data.status) {
                         toaster.success(res.data.message);

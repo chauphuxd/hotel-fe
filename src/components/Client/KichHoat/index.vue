@@ -16,7 +16,7 @@ export default {
                 'hash_active'   : this.$route.params.ma_bi_mat
             };
             axios
-                .post("https://hotel-be.dzfullstack.edu.vn/api/khach-hang/kich-hoat", payload)
+                .post("http://127.0.0.1:8000/api/khach-hang/kich-hoat", payload)
                 .then((res) => {
                     if(res.data.status) {
                         toaster.success(res.data.message);

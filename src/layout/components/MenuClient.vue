@@ -81,6 +81,12 @@
                                         </div>
                                     </a>
                                     <ul class="dropdown-menu dropdown-menu-end">
+                                        <li>
+                                            <router-link to="/khach-hang/hoa-don">
+                                                <a class="dropdown-item"><i
+                                                    class='bx bx-log-out-circle'></i><span>Hóa Đơn Đặt Phòng</span></a>
+                                            </router-link>
+                                        </li>
                                         <li><a v-on:click="dangXuat()" class="dropdown-item"><i
                                                     class='bx bx-log-out-circle'></i><span>Đăng Xuất</span></a>
                                         </li>
@@ -116,7 +122,7 @@ export default {
     methods: {
         checkLogin() {
             axios
-                .get('https://hotel-be.dzfullstack.edu.vn/api/kiem-tra-token-khach-hang', {
+                .get('http://127.0.0.1:8000/api/kiem-tra-token-khach-hang', {
                     headers: {
                         Authorization: 'Bearer ' + localStorage.getItem("token_khachhang")
                     }
@@ -130,14 +136,14 @@ export default {
         },
         layDuLieuChuyenMuc() {
             axios
-                .get('https://hotel-be.dzfullstack.edu.vn/api/client/chuyen-muc/data')
+                .get('http://127.0.0.1:8000/api/client/chuyen-muc/data')
                 .then((res) => {
                     this.ds_chuyen_muc = res.data.chuyen_muc;
                 })
         },
         dangXuat() {
             axios
-                .get('https://hotel-be.dzfullstack.edu.vn/api/khach-hang/dang-xuat', {
+                .get('http://127.0.0.1:8000/api/khach-hang/dang-xuat', {
                     headers: {
                         Authorization: 'Bearer ' + localStorage.getItem("token_khachhang")
                     }
@@ -156,7 +162,7 @@ export default {
         },
         dangXuatAll() {
             axios
-                .get('https://hotel-be.dzfullstack.edu.vn/api/khach-hang/dang-xuat-all', {
+                .get('http://127.0.0.1:8000/api/khach-hang/dang-xuat-all', {
                     headers: {
                         Authorization: 'Bearer ' + localStorage.getItem("token_khachhang")
                     }

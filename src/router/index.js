@@ -175,7 +175,12 @@ const routes = [
         component: () => import("../components/Client/ChiTietBaiViet/index.vue"),
         meta: {layout: 'client'},
         props: true
-      },
+    },
+    {
+        path: '/khach-hang/hoa-don',
+        component: () => import('../components/Client/DanhSachHoaDon/index.vue'),
+        meta: {layout: 'client'}
+    },
 ]
 
 const router = createRouter({

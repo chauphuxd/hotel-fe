@@ -61,7 +61,7 @@ export default {
     methods: {
         checkLogin() {
             axios
-                .post('https://hotel-be.dzfullstack.edu.vn/api/kiem-tra-token-admin', {}, {
+                .post('http://127.0.0.1:8000/api/kiem-tra-token-admin', {}, {
                     headers : {
                         Authorization : 'Bearer ' +  localStorage.getItem("token_admin")
                     }
@@ -74,7 +74,7 @@ export default {
         },
         dangNhap() {
             axios
-                .post("https://hotel-be.dzfullstack.edu.vn/api/admin/dang-nhap", this.login)
+                .post("http://127.0.0.1:8000/api/admin/dang-nhap", this.login)
                 .then((res) => {
                     if (res.data.status) {
                         toaster.success(res.data.message)
