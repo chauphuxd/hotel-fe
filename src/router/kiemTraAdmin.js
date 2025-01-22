@@ -3,7 +3,7 @@ import { createToaster } from "@meforma/vue-toaster";
 const toaster = createToaster({ position: "top-right" });
 export default function(to, from, next) {
     axios
-        .post('http://127.0.0.1:8000/api/kiem-tra-token-admin', {}, {
+        .post('https://hotel-be.dzfullstack.edu.vn/api/kiem-tra-token-admin', {}, {
             headers : {
                 Authorization : 'Bearer ' +  localStorage.getItem("token_admin")
             }

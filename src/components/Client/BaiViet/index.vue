@@ -87,7 +87,7 @@ export default {
   methods: {
     layDuLieuBaiViet() {
       axios
-        .get('http://127.0.0.1:8000/api/client/bai-viet/data/' + this.slug_chuyen_muc)
+        .get('https://hotel-be.dzfullstack.edu.vn/api/client/bai-viet/data/' + this.slug_chuyen_muc)
         .then((res) => {
           this.ds_bai_viet = res.data.bai_viet;
         })

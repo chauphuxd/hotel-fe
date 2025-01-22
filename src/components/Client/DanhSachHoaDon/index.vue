@@ -130,7 +130,7 @@ export default {
     methods: {
         timKiemNe() {
             axios
-                .post("http://127.0.0.1:8000/api/khach-hang/hoa-don/tim-kiem", this.tim_kiem, {
+                .post("https://hotel-be.dzfullstack.edu.vn/api/khach-hang/hoa-don/tim-kiem", this.tim_kiem, {
                     headers: {
                         Authorization: 'Bearer ' + localStorage.getItem("token_khachhang")
                     }
@@ -153,7 +153,7 @@ export default {
         },
         loadData() {
             axios
-                .get("http://127.0.0.1:8000/api/khach-hang/hoa-don/data", {
+                .get("https://hotel-be.dzfullstack.edu.vn/api/khach-hang/hoa-don/data", {
                     headers: {
                         Authorization: 'Bearer ' + localStorage.getItem("token_khachhang")
                     }
@@ -168,7 +168,7 @@ export default {
         chiTietThue(payload) {
             this.chi_tiet = payload;
             axios
-                .post("http://127.0.0.1:8000/api/khach-hang/hoa-don/chi-tiet-thue", payload, {
+                .post("https://hotel-be.dzfullstack.edu.vn/api/khach-hang/hoa-don/chi-tiet-thue", payload, {
                     headers: {
                         Authorization: 'Bearer ' + localStorage.getItem("token_khachhang")
                     }

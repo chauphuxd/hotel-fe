@@ -75,7 +75,7 @@ export default {
     methods: {
         LaydulieuLoaiPhong() {
             axios
-                .get('http://127.0.0.1:8000/api/client/loai-phong/data')
+                .get('https://hotel-be.dzfullstack.edu.vn/api/client/loai-phong/data')
                 .then((res) => {
                     this.ds_loai_phong = res.data.loai_phong;
                 })
