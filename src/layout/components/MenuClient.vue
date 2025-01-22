@@ -6,7 +6,7 @@
                     <div class="container-fluid">
                         <router-link to="/">
                             <a class="navbar-brand" href="/">
-                                DZFullStack
+                                ALOHA
                             </a>
                         </router-link>
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"

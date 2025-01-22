@@ -36,7 +36,7 @@
                 <div class="row mt-3">
                     <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
                         <h6 class="text-uppercase fw-bold">
-                            DZFullStack Resort</h6>
+                             Resort</h6>
                         <hr class=" mt-0 d-inline-block mx-auto"
                             style="width: 60px; background-color: #7c4dff; height: 2px" /><br>
                         <div class="text-center mb-2">
@@ -54,16 +54,16 @@
                         <hr class="mb-4 mt-0 d-inline-block mx-auto"
                             style="width: 60px; background-color: #7c4dff; height: 2px" />
                         <p>
-                            <a href="#!" class="text-white">DZFullStack Resort</a>
+                            <a href="#!" class="text-white"> Resort</a>
                         </p>
                         <p>
-                            <a href="#!" class="text-white">DZFullStack Company</a>
+                            <a href="#!" class="text-white"> Company</a>
                         </p>
                         <p>
-                            <a href="#!" class="text-white">DZFullStack Hotel</a>
+                            <a href="#!" class="text-white"> Hotel</a>
                         </p>
                         <p>
-                            <a href="#!" class="text-white">DZFullStack Restaurent</a>
+                            <a href="#!" class="text-white"> Restaurent</a>
                         </p>
                     </div>
                     <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
@@ -87,8 +87,8 @@
                         <h6 class="text-uppercase fw-bold">Contact</h6>
                         <hr class="mb-4 mt-0 d-inline-block mx-auto"
                             style="width: 60px; background-color: #7c4dff; height: 2px" />
-                        <p><i class="fas fa-home mr-3"></i>32 Xuân Diệu, Hải Châu, Đà Nẵng</p>
-                        <p><i class="fas fa-envelope mr-3"></i> dzfullstack@gmai.com</p>
+                        <p><i class="fas fa-home mr-3"></i> Hải Phòng, Đà Nẵng</p>
+                        <p><i class="fas fa-envelope mr-3"></i> tranchauphu@dtu.edu.com</p>
                         <p><i class="fas fa-phone mr-3"></i> + 0905523543</p>
                         <p><i class="fas fa-print mr-3"></i> + 0376659652</p>
                     </div>
@@ -97,7 +97,7 @@
         </section>
         <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
             © 2020 Copyright:
-            <a class="text-white" href="https://mdbootstrap.com/">DZFullStack Team</a>
+            <a class="text-white" href="https://mdbootstrap.com/">Phu DEV</a>
         </div>
     </footer>
 </template>
